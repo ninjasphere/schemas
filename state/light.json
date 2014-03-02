@@ -1,0 +1,39 @@
+{
+    "id": "http://ninjablocks.com/schema/state/light",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Light State",
+    "type": "object",
+    "properties": {
+        "hue": {
+            "description": "The color of the light. With 0 and 1 being red.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "saturation": {
+            "description": "The color saturation. 0 is white, 1 is full color.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "brightness": {
+            "description": "The brightness. 0 is off, 1 is full brightness.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+        },
+        "temperature": {
+            "description": "The color temperature in kelvins. TODO: Needs max?",
+            "minimum": 0,
+            "type": "number"
+        },
+        "transition": {
+            "description": "The time to fade to the new value in milliseconds.",
+            "type": "number",
+            "minimum": 0
+        },
+        "power": {
+            "type": "boolean"
+        }
+    }
+}

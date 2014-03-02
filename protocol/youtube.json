@@ -1,0 +1,50 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/light",
+
+  "service": {
+    "topic": "/device/:deviceId/channel/:channelId/youtube",
+    "methods": {
+
+      "play": {
+        "description": "Play YouTube video",
+        "params": [{
+          "type":"string",
+          "description": "The youtube video id",
+          "pattern": "^[A-Za-z0-9]+$"
+        }],
+        "returns": {"type":"boolean"}
+      }
+      
+    }
+  },
+
+  "state": {
+    "type": "object",
+    "properties": {
+      "state": {
+        "enum": ["playing", "paused", "stopped"]
+      },
+      "position": {
+        "type": "number",
+        "description": "The position of the current video (if playing or paused)"
+      },
+      "video": {
+        "type": "object",
+        "properties": {
+          "title": {"type": "string"},
+          "id": {
+            "type": "string",
+            "pattern": "^[A-Za-z0-9]+$"
+          },
+          "length": {
+            "type": "number",
+            "description": "Length of the video in seconds",
+            "min": 0
+          }
+        }
+      }
+    }
+  }
+  
+}

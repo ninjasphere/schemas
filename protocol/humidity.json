@@ -1,0 +1,10 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/humidity",
+  "state": {
+    "description": "Relative humidity",
+    "$ref": "http://ninjablocks.com/schema/state/common#/definitions/number-timeseries",
+    "min": 0,
+    "max": 100
+  }
+}

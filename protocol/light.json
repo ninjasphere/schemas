@@ -1,0 +1,16 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/light",
+  "service": {
+    "topic": "/device/:deviceId/channel/:channelId/light",
+    "methods": {
+
+      "setState": {
+        "description": "Send a full light state object to the device. Not all properties will be supported by all devices.",
+        "params": [{"$ref": "http://ninjablocks.com/schema/state/light#" }]
+      }
+
+    }
+  },
+  "state": {"$ref": "http://ninjablocks.com/schema/state/light#"}
+}

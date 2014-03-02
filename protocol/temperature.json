@@ -1,0 +1,8 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/temperature",
+  "state": {
+    "description": "Temperature in degrees celsius.",
+    "$ref": "http://ninjablocks.com/schema/state/common#/definitions/number-timeseries"
+  }
+}
