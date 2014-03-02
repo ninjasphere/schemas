@@ -1,6 +1,6 @@
 {
   "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/light",
+  "id": "http://ninjablocks.com/schemas/protocol/youtube",
 
   "service": {
     "topic": "/device/:deviceId/channel/:channelId/youtube",

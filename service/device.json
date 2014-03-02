@@ -3,45 +3,50 @@
   "id": "http://ninjablocks.com/schemas/service/device",
   "topic": "/device/:deviceId/channel/:channelId/",
   "methods": {
-
     "start": {
-        "type": "method",
-        "description": "Starts the device",
-        "params": {
-            "config": {
-                "type": "object",
-                "description": "Device configuration object"
-            }
-        }
+      "description": "Starts the device",
+      "params": [{
+        "type": "object",
+        "description": "Device configuration object"
+      }]
     },
-
     "traceroute": {
-        "type": "method",
-        "description": "Traces the path to the device. Depending on the device, this may stop at the driver level"},
-        "returns": {
-            "level": {
-                "type": "string",
-                "description": "What type of node is responding",
-                "enum" : ["conductor", "block", "driver", "(a node in between, like in the mesh)", "device"]
-            },
-            "name": {
-                "type": "string"
-            },
-            "final": {
-                "type": "boolean"
-            }
+      "description": "Traces the path to the device. Depending on the device, this may stop at the driver level",
+      "returns": {
+        "type": "object",
+        "properties" : {
+          "level": {
+            "type": "string",
+            "description": "What type of node is responding",
+            "enum":[
+              "conductor",
+              "block",
+              "driver",
+              "(a node in between, like in the mesh)",
+              "device"
+            ]
+          },
+          "name": {
+            "type": "string"
+          },
+          "final": {
+            "type": "boolean"
+          }
         }
+      }
     },
-
     "sayHello": {
       "description": "Just says hello. (TEST METHOD)",
-      "params": [{
-        "type":"string",
-        "description": "Just the first name, only alpha characters!",
-        "pattern": "^[A-Za-z]+$"
-      }],
-      "returns": {"type":"string"}
+      "params":[
+        {
+          "type": "string",
+          "description": "Just the first name, only alpha characters!",
+          "pattern": "^[A-Za-z]+$"
+        }
+      ],
+      "returns": {
+        "type": "string"
+      }
     }
-
   }
 }
