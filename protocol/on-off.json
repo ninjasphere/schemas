@@ -1,0 +1,28 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/light",
+  "service": {
+    "topic": "/device/:deviceId/channel/:channelId/light",
+    "methods": {
+
+      "setState": {
+        "description": "Turns the device on or off",
+        "params": [{"type": "boolean" }],
+        "returns": {
+          "description": "The new state",
+          "type": "boolean"
+        }
+      },
+
+      "toggle": {
+        "description": "Toggles the on/off state",
+        "returns": {
+          "description": "The new state",
+          "type": "boolean"
+        }
+      }
+
+    }
+  },
+  "state": {"type": "boolean"}
+}
