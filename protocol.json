@@ -12,6 +12,10 @@
         "state": {
             "$ref": "http://json-schema.org/draft-04/schema#",
             "description": "An json-schema describing the state object that may be emitted by this channel."
+        },
+        "definitions": {
+            "type": "object",
+            "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
         }
     },
     "required": ["id"],

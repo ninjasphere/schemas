@@ -26,7 +26,11 @@
             },
             "additionalProperties": false
         },
-        "returns": { "$ref": "http://json-schema.org/draft-04/schema#" }
+        "returns": { "$ref": "http://json-schema.org/draft-04/schema#" },
+        "definitions": {
+            "type": "object",
+            "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
+        }
     },
     "additionalProperties": false
 }
