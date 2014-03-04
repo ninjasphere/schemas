@@ -3,6 +3,7 @@
   "id": "http://ninjablocks.com/schemas/service/device",
   "topic": "/device/:deviceId/channel/:channelId/",
   "methods": {
+
     "start": {
       "description": "Starts the device",
       "params": [{
@@ -10,6 +11,7 @@
         "description": "Device configuration object"
       }]
     },
+
     "traceroute": {
       "description": "Traces the path to the device. Depending on the device, this may stop at the driver level",
       "returns": {
@@ -35,6 +37,22 @@
         }
       }
     },
+
+    "setName": {
+      "description": "Sets the name of the device.",
+      "params":[
+        {
+          "type": "string",
+          "description": "The device name. alpha-numeric + spaces, but different devices may not support all characters.",
+          "pattern": "^[A-Za-z ]+$"
+        }
+      ],
+      "returns": {
+        "description": "The name that was saved to the device. If null, it is not possible to store the name on the device.",
+        "type": "string"
+      }
+    },
+
     "sayHello": {
       "description": "Just says hello. (TEST METHOD)",
       "params":[
@@ -48,5 +66,6 @@
         "type": "string"
       }
     }
+    
   }
 }
