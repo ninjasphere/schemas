@@ -1,0 +1,23 @@
+{
+  "$schema": "http://ninjablocks.com/schema/protocol",
+  "id": "http://ninjablocks.com/schemas/protocol/message-display",
+  "service": {
+    "topic": "/device/:deviceId/channel/:channelId/message-display",
+    "methods": {
+      
+      "showMessage": {
+        "description": "Display a message",
+        "params": [
+          { "$ref": "http://ninjablocks.com/schema/state/message#" },
+          {
+            "description": "The time to display the message in milliseconds. 0 = forever",
+            "type": "number",
+            "default": 5000
+          }
+        ]
+      }
+
+    }
+  },
+  "state": { "$ref": "http://ninjablocks.com/schema/state/message#" }
+}
