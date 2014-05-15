@@ -1,5 +1,6 @@
 {
   "id": "http://ninjablocks.com/schema/state/common",
+  "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Common NinjaBlocks state definitions",
   "definitions": {
     "number-timeseries": {

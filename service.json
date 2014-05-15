@@ -1,36 +1,37 @@
 {
-    "id": "http://ninjablocks.com/schema/service",
-    "description": "The descriptor for NinjaBlocks JSON-RPC/MQTT services",
-    "type": "object",
-    "properties" : {
-        "id": {"type":"string"},
-        "$schema": {"enum": ["http://ninjablocks.com/schema/service"]},
-        "description": {"type": "string"},
-        "topic": {"type": "string"},
-        "methods": {
-            "type": "object",
-            "patternProperties": {
-                "^[a-z][a-zA-Z]+$": {
-                    "type": "object",
-                    "properties": {
-                        "description": {"type": "string"},
-                        "params": {
-                            "type": "array",
-                            "minItems": 1,
-                            "items": { "$ref": "http://json-schema.org/draft-04/schema#" }
-                        },
-                        "returns": { "$ref": "http://json-schema.org/draft-04/schema#" }
-                    },
-                    "additionalProperties": false
-                }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://ninjablocks.com/schema/service",
+  "description": "The descriptor for NinjaBlocks JSON-RPC/MQTT services",
+  "type": "object",
+  "properties" : {
+    "id": {"type":"string"},
+    "$schema": {"enum": ["http://ninjablocks.com/schema/service"]},
+    "description": {"type": "string"},
+    "topic": {"type": "string"},
+    "methods": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z][a-zA-Z]+$": {
+          "type": "object",
+          "properties": {
+            "description": {"type": "string"},
+            "params": {
+              "type": "array",
+              "minItems": 1,
+              "items": { "$ref": "http://json-schema.org/draft-04/schema#" }
             },
-            "additionalProperties": false
-        },
-        "returns": { "$ref": "http://json-schema.org/draft-04/schema#" },
-        "definitions": {
-            "type": "object",
-            "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
+            "returns": { "$ref": "http://json-schema.org/draft-04/schema#" }
+          },
+          "additionalProperties": false
         }
+      },
+      "additionalProperties": false
     },
-    "additionalProperties": false
+    "returns": { "$ref": "http://json-schema.org/draft-04/schema#" },
+    "definitions": {
+      "type": "object",
+      "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
+    }
+  },
+  "additionalProperties": false
 }

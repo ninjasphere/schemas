@@ -1,23 +1,30 @@
 {
-    "id": "http://ninjablocks.com/schema/protocol",
-    "description": "A NinjaBlocks Device protocol",
-    "type": "object",
-    "properties": {
-        "id": {"type":"string"},
-        "$schema": {"enum": ["http://ninjablocks.com/schema/protocol"]},
-        "service": {
-            "$ref": "http://ninjablocks.com/schema/service#",
-            "description": "A NinjaBlocks service descriptor"
-        },
-        "state": {
-            "$ref": "http://json-schema.org/draft-04/schema#",
-            "description": "An json-schema describing the state object that may be emitted by this channel."
-        },
-        "definitions": {
-            "type": "object",
-            "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
-        }
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "id": "http://ninjablocks.com/schema/protocol",
+  "description": "A NinjaBlocks Device protocol",
+  "type": "object",
+  "properties": {
+    "id": {
+      "type": "string"
     },
-    "required": ["id"],
-    "additionalProperties":false
+    "$schema": {
+      "enum": ["http://ninjablocks.com/schema/protocol"]
+    },
+    "service": {
+      "$ref": "http://ninjablocks.com/schema/service#",
+      "description": "A NinjaBlocks service descriptor"
+    },
+    "state": {
+      "$ref": "http://json-schema.org/draft-04/schema#",
+      "description": "An json-schema describing the state object that may be emitted by this channel."
+    },
+    "definitions": {
+      "type": "object",
+      "additionalProperties": {
+        "$ref": "http://json-schema.org/draft-04/schema#"
+      }
+    }
+  },
+  "required": ["id"],
+  "additionalProperties": false
 }
