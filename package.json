@@ -1,0 +1,27 @@
+{
+  "name": "sphere-schemas",
+  "version": "1.0.0",
+  "description": "The schemas used for communication in and with Ninja Sphere.",
+  "main": "index.js",
+  "directories": {
+    "test": "test"
+  },
+  "scripts": {
+    "test": "node test/validateEverything"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/ninjablocks/schemas.git"
+  },
+  "author": "Ninja Blocks <support@ninjablocks.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ninjablocks/schemas/issues"
+  },
+  "homepage": "https://github.com/ninjablocks/schemas",
+  "devDependencies": {
+    "tv4": "1.0.18",
+    "walkdir": "0.0.7",
+    "colors": "0.6.2"
+  }
+}
