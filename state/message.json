@@ -6,15 +6,16 @@
   "properties": {
     "message": {
       "description": "The message to display",
-      "type": ["string"]
+      "type": "string"
     },
     "title": {
       "description": "The title",
-      "type": ["string"]
+      "type": "string"
     },
     "image": {
-      "description": "The image (url) to display with the message. Data URIs are not supported.",
-      "type": ["string"]
+      "description": "The image (url) to display with the message. HTTP/S only. Data URIs are not supported.",
+      "type": "string",
+      "pattern": "^https?:\/\/([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\/\\w \\.-]*)*\/?$"
     }
   },
   "required": ["message"]

@@ -1,0 +1,8 @@
+{
+  "id": "http://ninjablocks.com/schema/state/humidity",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "Relative humidity",
+  "type": "number",
+  "minimum": 0,
+  "maximum": 100
+}

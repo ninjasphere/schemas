@@ -24,6 +24,10 @@ var invalid = [
     "image": "hello.jpg"
   },
   {
+    "message": "Hello",
+    "image": "ftp://hello.jpg"
+  },
+  {
     "title": "My Message"
   }
 ];

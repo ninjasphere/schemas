@@ -16,8 +16,10 @@ schemas.forEach(function(schema) {
   console.log('  ' + schema.id.yellow, '-', result.valid?'Valid'.green : 'Invalid'.red);
   if (!result.valid) {
     pass = false;
-    console.log('    Error', result.error);
-    console.log('    Missing', result.missing);
+    console.log('    Error: %s at %s', result.error.message.red, result.error.dataPath.yellow);
+    if (result.missing.length) console.log('    Missing', result.missing.join(','));
+
+    console.log('');
   }
 });
 
@@ -32,11 +34,12 @@ fs.readdirSync(stateTestPath).forEach(function(file) {
   var results = [];
   function runTests(tests, expected) {
     tests.forEach(function(test) {
-      var result = tv4.validateMultiple(test, schemaMap[testFile.schema]);
+      var result = tv4.validateResult(test, schemaMap[testFile.schema]);
       if (result.valid === expected) {
         results.push('Pass'.green);
       } else {
         pass = false;
+        console.log(result);
         results.push('Fail'.red);
       }
     });
