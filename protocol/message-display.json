@@ -2,7 +2,6 @@
   "$schema": "http://ninjablocks.com/schema/protocol",
   "id": "http://ninjablocks.com/schemas/protocol/message-display",
   "service": {
-    "topic": "/device/:deviceId/channel/:channelId/message-display",
     "methods": {
 
       "displayMessage": {
@@ -14,7 +13,11 @@
             "type": "number",
             "default": 5000
           }
-        ]
+        ],
+        "returns": {
+          "description": "'true' indicates message was successfully displayed",
+          "type": "boolean"
+        }
       }
 
     }

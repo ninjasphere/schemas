@@ -1,7 +1,6 @@
 {
   "$schema": "http://ninjablocks.com/schema/service",
   "id": "http://ninjablocks.com/schemas/service/device",
-  "topic": "/device/:deviceId/channel/:channelId/",
   "methods": {
 
     "start": {
@@ -9,7 +8,11 @@
       "params": [{
         "type": "object",
         "description": "Device configuration object"
-      }]
+      }],
+      "returns": {
+        "description": "'true' indicates device started successfully",
+        "type": "boolean"
+      }
     },
 
     "traceroute": {

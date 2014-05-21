@@ -2,20 +2,19 @@
   "id": "http://ninjablocks.com/schema/state/message",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Message to be displayed",
-  "type": "object",
+  "type": ["object"],
   "properties": {
     "message": {
       "description": "The message to display",
-      "type": "string"
+      "type": ["string"]
     },
     "title": {
       "description": "The title",
-      "type": "string"
+      "type": ["string"]
     },
     "image": {
       "description": "The image (url) to display with the message. Data URIs are not supported.",
-      "type": "string",
-      "format": "uri"
+      "type": ["string"]
     }
   },
   "required": ["message"]

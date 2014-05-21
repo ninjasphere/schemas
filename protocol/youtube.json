@@ -3,7 +3,6 @@
   "id": "http://ninjablocks.com/schemas/protocol/youtube",
 
   "service": {
-    "topic": "/device/:deviceId/channel/:channelId/youtube",
     "methods": {
 
       "playYoutube": {
@@ -40,7 +39,7 @@
           "length": {
             "type": "number",
             "description": "Length of the video in seconds",
-            "min": 0
+            "minimum": 0
           }
         }
       }

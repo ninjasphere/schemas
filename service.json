@@ -7,7 +7,6 @@
     "id": {"type":"string"},
     "$schema": {"enum": ["http://ninjablocks.com/schema/service"]},
     "description": {"type": "string"},
-    "topic": {"type": "string"},
     "methods": {
       "type": "object",
       "patternProperties": {

@@ -2,7 +2,6 @@
   "$schema": "http://ninjablocks.com/schema/protocol",
   "id": "http://ninjablocks.com/schemas/protocol/on-off",
   "service": {
-    "topic": "/device/:deviceId/channel/:channelId/on-off",
     "methods": {
 
       "setOnOff": {

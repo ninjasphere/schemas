@@ -3,6 +3,12 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Common NinjaBlocks state definitions",
   "definitions": {
+    "humidity": {
+      "description": "Relative humidity",
+      "$ref": "#/definitions/number-timeseriesx",
+      "minimum": 0,
+      "maximum": 100
+    },
     "number-timeseries": {
       "description": "Used for a state object, it indicates that this property should be stored in the time-series database.",
       "type": "number"
