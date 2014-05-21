@@ -12,11 +12,11 @@ var schemaMap = tv4.getSchemaMap();
 
 console.log('Validating Schemas'.blueBG.white.underline);
 schemas.forEach(function(schema) {
-  var result = tv4.validateMultiple(schema, schemaMap[schema.$schema]);
+  var result = tv4.validateResult(schema, schemaMap[schema.$schema], true, true);
   console.log('  ' + schema.id.yellow, '-', result.valid?'Valid'.green : 'Invalid'.red);
   if (!result.valid) {
     pass = false;
-    console.log('    Errors', result.errors);
+    console.log('    Error', result.error);
     console.log('    Missing', result.missing);
   }
 });
