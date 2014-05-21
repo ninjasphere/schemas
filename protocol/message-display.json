@@ -4,8 +4,8 @@
   "service": {
     "topic": "/device/:deviceId/channel/:channelId/message-display",
     "methods": {
-      
-      "showMessage": {
+
+      "displayMessage": {
         "description": "Display a message",
         "params": [
           { "$ref": "http://ninjablocks.com/schema/state/message#" },

@@ -6,7 +6,7 @@
     "topic": "/device/:deviceId/channel/:channelId/youtube",
     "methods": {
 
-      "play": {
+      "playYoutube": {
         "description": "Play YouTube video",
         "params": [{
           "type":"string",

@@ -5,16 +5,16 @@
     "topic": "/device/:deviceId/channel/:channelId/on-off",
     "methods": {
 
-      "setState": {
+      "setOnOff": {
         "description": "Turns the device on or off",
-        "params": [{"type": "boolean" }],
+        "params": [{"$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"}],
         "returns": {
           "description": "The new state",
           "$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"
         }
       },
 
-      "toggle": {
+      "toggleOnOff": {
         "description": "Toggles the on/off state",
         "returns": {
           "description": "The new state",
