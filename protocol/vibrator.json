@@ -1,0 +1,67 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/vibrator",
+  "$schema": "/protocol",
+  "service": {
+    "methods": {
+
+      "setVibrate": {
+        "description": "Turns the vibration on or off. Cancels a running pattern.",
+        "params": [
+          {
+            "$ref": "/state/common#/definitions/boolean-state"
+          },
+          {
+            "description": "The time in ms to vibrate for. 0 = forever.",
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
+        ],
+        "returns": {
+          "description": "The new state",
+          "$ref": "#/state"
+        }
+      },
+
+      "toggleVibrate": {
+        "description": "Toggles the vibration state. If in a pattern, cancels the pattern first.",
+        "returns": {
+          "description": "The new state",
+          "$ref": "#/state"
+        }
+      },
+
+      "startVibratePattern": {
+        "description": "Starts a vibration pattern. Cancels any existing running pattern.",
+        "params": [
+          {
+            "$ref": "/state/vibration-pattern"
+          },
+          {
+            "description": "The number of times to play this pattern. 0 = forever.",
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
+        ],
+        "returns": {
+          "description": "The new state",
+          "$ref": "#/state"
+        }
+      }
+
+    }
+  },
+  "state": {
+    "oneOf": [
+      {
+        "$ref": "/state/common#/definitions/boolean-state",
+        "description": "Indicates the vibration is on/off"
+      },
+      {
+        "$ref": "/state/vibration-pattern",
+        "description": "Indicated a vibration pattern is currently being played"
+      }
+    ]
+  }
+}

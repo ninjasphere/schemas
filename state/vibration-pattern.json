@@ -1,0 +1,13 @@
+{
+  "id": "http://schema.ninjablocks.com/state/vibration-pattern",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Vibration Pattern",
+  "description": "Pattern of alternating on and off times in ms. Starts with off.",
+  "type": "array",
+  "items": {
+    "type": "number",
+    "minimum": 0,
+    "maximum": 30000
+  },
+  "minItems": 1
+}

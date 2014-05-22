@@ -1,9 +1,0 @@
-{
-  "id": "http://schema.ninjablocks.com/protocol/game-controller/rumble",
-  "$schema": "/protocol",
-  "state": {
-    "type": "number",
-    "minimum": 0,
-    "maximum": 1
-  }
-}
