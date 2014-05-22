@@ -1,5 +1,5 @@
 {
-  "id": "http://ninjablocks.com/schema/state/message",
+  "id": "http://schema.ninjablocks.com/state/message",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Message to be displayed",
   "type": ["object"],

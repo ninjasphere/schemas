@@ -1,6 +1,6 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://ninjablocks.com/schema/protocol",
+  "id": "http://schema.ninjablocks.com/protocol",
   "description": "A NinjaBlocks Device protocol",
   "type": "object",
   "properties": {
@@ -8,10 +8,10 @@
       "type": "string"
     },
     "$schema": {
-      "enum": ["http://ninjablocks.com/schema/protocol"]
+      "enum": ["http://schema.ninjablocks.com/protocol"]
     },
     "service": {
-      "$ref": "http://ninjablocks.com/schema/service#",
+      "$ref": "/service#",
       "description": "A NinjaBlocks service descriptor"
     },
     "state": {

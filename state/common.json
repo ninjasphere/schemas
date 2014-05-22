@@ -1,13 +1,37 @@
 {
-  "id": "http://ninjablocks.com/schema/state/common",
+  "id": "http://schema.ninjablocks.com/state/common",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Common NinjaBlocks state definitions",
   "definitions": {
     "number-timeseries": {
-      "description": "Used for a state object, it indicates that this property should be stored in the time-series database.",
+      "title": "Time-series number",
+      "description": "Indicates that this property should be stored in the time-series database.",
       "type": "number"
     },
+    "percentage": {
+      "title": "Percentage %",
+      "allOf": [
+        {
+          "$ref": "#/definitions/number-timeseries"
+        },
+        {
+          "minimum": 0,
+          "maximum": 100
+        }
+      ]
+    },
+    "humidity": {
+      "title": "Relative Humidity",
+      "description": "Expressed as a percentage",
+      "$ref": "#/definitions/percentage"
+    },
+    "temperature": {
+      "title": "Temperature",
+      "description": "In degrees Celcius (°C)",
+      "$ref": "#/definitions/number-timeseries"
+    },
     "boolean-state": {
+      "title": "Boolean",
       "description": "true=on, false=off",
       "type": "boolean"
     }

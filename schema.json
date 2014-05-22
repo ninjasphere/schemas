@@ -35,6 +35,9 @@
       "type": "string",
       "format": "uri"
     },
+    "$ref": {
+        "type": "string"
+    },
     "title": {
       "type": "string"
     },
@@ -42,6 +45,9 @@
       "type": "string"
     },
     "default": {},
+    "format": {
+      "type": "string"
+    },
     "multipleOf": {
       "type": "number",
       "minimum": 0,

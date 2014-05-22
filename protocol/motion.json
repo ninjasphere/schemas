@@ -1,0 +1,8 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/motion",
+  "$schema": "/protocol",
+  "state": {
+    "type": "boolean",
+    "enum": [ true ]
+  }
+}

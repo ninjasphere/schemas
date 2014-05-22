@@ -1,15 +1,15 @@
 {
-  "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/light",
+  "id": "http://schema.ninjablocks.com/protocol/light",
+  "$schema": "/protocol",
   "service": {
     "methods": {
 
       "setLight": {
         "description": "Send a full light state object to the device. Not all properties will be supported by all devices.",
-        "params": [{"$ref": "http://ninjablocks.com/schema/state/light#" }],
+        "params": [{"$ref": "/state/light#" }],
         "returns": {
           "description": "Returns the current state of the light after setting",
-          "$ref": "http://ninjablocks.com/schema/state/light#"
+          "$ref": "/state/light#"
         }
       },
 
@@ -18,7 +18,7 @@
         "params": [
           {
             "description": "The state to alert to",
-            "$ref": "http://ninjablocks.com/schema/state/light#"
+            "$ref": "/state/light#"
           },
           {
             "description": "The time in seconds to alert for",
@@ -35,5 +35,5 @@
 
     }
   },
-  "state": {"$ref": "http://ninjablocks.com/schema/state/light#"}
+  "state": {"$ref": "/state/light#"}
 }

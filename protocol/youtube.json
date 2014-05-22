@@ -1,6 +1,6 @@
 {
-  "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/youtube",
+  "id": "http://schema.ninjablocks.com/protocol/youtube",
+  "$schema": "/protocol",
 
   "service": {
     "methods": {

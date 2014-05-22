@@ -8,11 +8,20 @@ var pass = true;
 
 schemas.forEach(tv4.addSchema.bind(tv4));
 
-var schemaMap = tv4.getSchemaMap();
-
 console.log('Validating Schemas'.blueBG.white.underline);
 schemas.forEach(function(schema) {
-  var result = tv4.validateResult(schema, schemaMap[schema.$schema], true, true);
+
+  schema.$schema = tv4.resolveUrl(schema.id, schema.$schema);
+
+  var parent = tv4.getSchema(schema.$schema);
+
+  if (!parent) {
+    console.log('Couldn\'t find parent schema "%s" from schemas "%s"'.red, schema.$schema, schema.id);
+    pass = false;
+    return;
+  }
+
+  var result = tv4.validateResult(schema, parent, true, true);
   console.log('  ' + schema.id.yellow, '-', result.valid?'Valid'.green : 'Invalid'.red);
   if (!result.valid) {
     pass = false;
@@ -34,13 +43,14 @@ fs.readdirSync(stateTestPath).forEach(function(file) {
   var results = [];
   function runTests(tests, expected) {
     tests.forEach(function(test) {
-      var result = tv4.validateResult(test, schemaMap[testFile.schema]);
+      var result = tv4.validateResult(test, tv4.getSchema(testFile.schema));
+      var x = result.valid?'Pass':'Fail';
       if (result.valid === expected) {
-        results.push('Pass'.green);
+        results.push(x.green);
       } else {
         pass = false;
         console.log(result);
-        results.push('Fail'.red);
+        results.push(x.red);
       }
     });
   }

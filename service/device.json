@@ -1,6 +1,7 @@
 {
-  "$schema": "http://ninjablocks.com/schema/service",
-  "id": "http://ninjablocks.com/schemas/service/device",
+  "id": "http://schema.ninjablocks.com/service/device",
+  "$schema": "/service",
+  
   "methods": {
 
     "start": {

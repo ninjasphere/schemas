@@ -1,7 +1,7 @@
 {
-  "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/humidity",
+  "id": "http://schema.ninjablocks.com/protocol/humidity",
+  "$schema": "/protocol",
   "state": {
-    "$ref": "http://ninjablocks.com/schema/state/humidity"
+    "$ref": "/state/common#/definitions/humidity"
   }
 }

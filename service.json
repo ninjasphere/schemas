@@ -1,11 +1,11 @@
 {
+  "id": "http://schema.ninjablocks.com/service",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "id": "http://ninjablocks.com/schema/service",
   "description": "The descriptor for NinjaBlocks JSON-RPC/MQTT services",
   "type": "object",
   "properties" : {
     "id": {"type":"string"},
-    "$schema": {"enum": ["http://ninjablocks.com/schema/service"]},
+    "$schema": {"enum": ["http://schema.ninjablocks.com/service"]},
     "description": {"type": "string"},
     "methods": {
       "type": "object",

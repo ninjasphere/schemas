@@ -1,5 +1,5 @@
 {
-  "id": "http://ninjablocks.com/schema/state/light",
+  "id": "http://schema.ninjablocks.com/state/light",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Light State",
   "type": "object",
@@ -35,5 +35,9 @@
     "power": {
       "type": "boolean"
     }
+  },
+  "required": ["power"],
+  "dependencies": {
+    "saturation": ["hue"]
   }
 }

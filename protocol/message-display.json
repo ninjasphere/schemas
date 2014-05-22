@@ -1,13 +1,13 @@
 {
-  "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/message-display",
+  "id": "http://schema.ninjablocks.com/protocol/message-display",
+  "$schema": "/protocol",
   "service": {
     "methods": {
 
       "displayMessage": {
         "description": "Display a message",
         "params": [
-          { "$ref": "http://ninjablocks.com/schema/state/message#" },
+          { "$ref": "/state/message#" },
           {
             "description": "The time to display the message in milliseconds. 0 = forever",
             "type": "number",
@@ -22,5 +22,5 @@
 
     }
   },
-  "state": { "$ref": "http://ninjablocks.com/schema/state/message#" }
+  "state": { "$ref": "/state/message#" }
 }

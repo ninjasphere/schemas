@@ -1,15 +1,15 @@
 {
-  "$schema": "http://ninjablocks.com/schema/protocol",
-  "id": "http://ninjablocks.com/schemas/protocol/on-off",
+  "id": "http://schema.ninjablocks.com/protocol/on-off",
+  "$schema": "/protocol",
   "service": {
     "methods": {
 
       "setOnOff": {
         "description": "Turns the device on or off",
-        "params": [{"$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"}],
+        "params": [{"$ref": "/state/common#/definitions/boolean-state"}],
         "returns": {
           "description": "The new state",
-          "$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"
+          "$ref": "/state/common#/definitions/boolean-state"
         }
       },
 
@@ -17,11 +17,11 @@
         "description": "Toggles the on/off state",
         "returns": {
           "description": "The new state",
-          "$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"
+          "$ref": "/state/common#/definitions/boolean-state"
         }
       }
 
     }
   },
-  "state": {"$ref": "http://ninjablocks.com/schema/state/common#/definitions/boolean-state"}
+  "state": {"$ref": "/state/common#/definitions/boolean-state"}
 }

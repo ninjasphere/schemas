@@ -13,7 +13,6 @@ var valid = [
   }
 ];
 
-
 var invalid = [
   "hello",
   {
@@ -35,5 +34,5 @@ var invalid = [
 module.exports = {
   valid: valid,
   invalid: invalid,
-  schema: "http://ninjablocks.com/schema/state/message"
+  schema: "http://schema.ninjablocks.com/state/message"
 };
