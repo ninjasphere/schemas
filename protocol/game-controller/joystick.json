@@ -1,0 +1,18 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/game-controller/joystick",
+  "$schema": "/protocol",
+  "state": {
+    "properties": {
+      "x": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      },
+      "y": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    }
+  }
+}
