@@ -1,5 +1,5 @@
 {
-  "id": "http://schema.ninjablocks.com/protocol/game-controller/joystick",
+  "id": "http://schema.ninjablocks.com/protocol/game-controller.joystick",
   "$schema": "/protocol",
   "state": {
     "properties": {

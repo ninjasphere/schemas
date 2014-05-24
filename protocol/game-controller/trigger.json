@@ -1,5 +1,5 @@
 {
-  "id": "http://schema.ninjablocks.com/protocol/game-controller/trigger",
+  "id": "http://schema.ninjablocks.com/protocol/game-controller.trigger",
   "$schema": "/protocol",
   "state": {
     "type": "number",
