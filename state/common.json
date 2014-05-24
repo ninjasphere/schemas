@@ -34,6 +34,11 @@
       "title": "Boolean",
       "description": "true=on, false=off",
       "type": "boolean"
+    },
+    "success": {
+      "title": "Success",
+      "type": "boolean",
+      "enum": [true]
     }
   }
 }
