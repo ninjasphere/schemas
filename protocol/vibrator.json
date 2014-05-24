@@ -22,6 +22,36 @@
         }
       },
 
+      "vibrateOn": {
+        "description": "Turns the vibration on",
+        "params": [
+          {
+            "description": "The time in ms to vibrate for. 0 = forever.",
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
+        ],
+        "returns": {
+          "$ref": "/state/common#/definitions/success"
+        }
+      },
+
+      "vibrateOff": {
+        "description": "Turns the vibration off",
+        "params": [
+          {
+            "description": "The time in ms to vibrate for. 0 = forever.",
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
+        ],
+        "returns": {
+          "$ref": "/state/common#/definitions/success"
+        }
+      },
+
       "toggleVibrate": {
         "description": "Toggles the vibration state. If in a pattern, cancels the pattern first.",
         "returns": {
