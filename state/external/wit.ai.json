@@ -68,10 +68,16 @@
           ]
         },
         "body": { "type": "string" },
-        "metadata": { "type": "string" }
+        "metadata": { "type": "string" },
+        "start": { "type": "number" },
+        "end": { "type": "number" },
+        "suggested": { "type": "boolean" }
       },
       "additionalProperties": false,
-      "required": ["value", "body"]
+      "required": ["value", "body"],
+      "dependencies": {
+        "start": ["end"]
+      }
     }
   }
 }
