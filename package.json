@@ -1,6 +1,6 @@
 {
   "name": "sphere-schemas",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "The schemas used for communication in and with Ninja Sphere.",
   "main": "index.js",
   "directories": {

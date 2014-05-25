@@ -46,7 +46,7 @@ fs.readdirSync(stateTestPath).forEach(function(file) {
   var results = [];
   function runTests(tests, expected) {
     tests.forEach(function(test) {
-      var result = tv4.validateResult(test, tv4.getSchema(testFile.schema));
+      var result = tv4.validateResult(test, tv4.getSchema(testFile.schema), true, true);
       var x = result.valid?'Pass':'Fail';
       if (result.valid === expected) {
         results.push(x.green);
