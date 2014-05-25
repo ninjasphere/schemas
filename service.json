@@ -6,6 +6,7 @@
   "properties" : {
     "id": {"type":"string"},
     "$schema": {"enum": ["http://schema.ninjablocks.com/service"]},
+    "$ref": {"type": "string"},
     "description": {"type": "string"},
     "methods": {
       "type": "object",
