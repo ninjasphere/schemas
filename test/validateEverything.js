@@ -1,10 +1,13 @@
 var fs = require('fs');
 var colors = require('colors');
 var tv4 = require('tv4');
+var formats = require('tv4-formats');
 var schemas = require('../');
 var path = require('path');
 
 var pass = true;
+
+tv4.addFormat(formats);
 
 schemas.forEach(tv4.addSchema.bind(tv4));
 
