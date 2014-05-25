@@ -1,0 +1,77 @@
+{
+  "id": "http://schema.ninjablocks.com/state/external/wit.ai",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "A Wit.AI Response",
+  "description": "TODO",
+  "type": "object",
+
+  "properties": {
+    "msg_id": { "type": "string"},
+    "msg_body": { "type": "string"},
+
+    "outcome": {
+      "type": "object",
+      "properties": {
+        "intent": { "type": "string"},
+
+        "entities": {
+          "type": "object",
+          "patternProperties": {
+            "^[0-9a-zA-Z_]+$": {
+              "oneOf": [
+                { "$ref": "#/definitions/entity" },
+                {
+                  "type": "array",
+                  "items": { "$ref": "#/definitions/entity" }
+                }
+              ]
+            }
+          },
+          "additionalProperties": false
+        },
+
+        "confidence": {
+          "type": "number",
+          "maximum": 1,
+          "minimum": 0
+        }
+      },
+
+      "required": ["intent", "entities", "confidence"]
+    }
+  },
+  "required": ["msg_id", "msg_body", "outcome"],
+  "additionalProperties": false,
+  "definitions": {
+    "entity": {
+      "type": "object",
+      "properties": {
+        "value": {
+          "oneOf": [
+            { "type": "string" },
+            {
+              "type": "object",
+              "title": "Date Range",
+              "properties": {
+                "from": {
+                  "type": "string",
+                  "format": "date-time"
+                },
+                "to": {
+                  "type": "string",
+                  "format": "date-time"
+                }
+              },
+              "additionalProperties": false,
+              "required": ["from", "to"]
+            }
+          ]
+        },
+        "body": { "type": "string" },
+        "metadata": { "type": "string" }
+      },
+      "additionalProperties": false,
+      "required": ["value", "body"]
+    }
+  }
+}

@@ -1,0 +1,6 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/external/wit.ai",
+  "$schema": "/protocol",
+  "service": {"$ref": "/service/voice-recognizer#"},
+  "state": {"$ref": "/state/external/wit.ai#"}
+}
