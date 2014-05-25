@@ -1,5 +1,5 @@
 {
-  "id": "http://schema.ninjablocks.com/state/external/wit.ai",
+  "id": "http://schema.ninjablocks.com/state/external.wit.ai",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "A Wit.AI Response",
   "description": "TODO",

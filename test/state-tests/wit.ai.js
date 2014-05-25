@@ -133,5 +133,5 @@ var invalid = [
 module.exports = {
   valid: valid,
   invalid: invalid,
-  schema: "http://schema.ninjablocks.com/state/external/wit.ai"
+  schema: "http://schema.ninjablocks.com/state/external.wit.ai"
 };
