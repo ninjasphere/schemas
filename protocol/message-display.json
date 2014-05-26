@@ -1,26 +1,27 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/message-display",
   "$schema": "/protocol",
-  "service": {
-    "methods": {
+  "methods": {
 
-      "displayMessage": {
-        "description": "Display a message",
-        "params": [
-          { "$ref": "/state/message#" },
-          {
-            "description": "The time to display the message in milliseconds. 0 = forever",
-            "type": "number",
-            "default": 5000
-          }
-        ],
-        "returns": {
-          "description": "'true' indicates message was successfully displayed",
-          "type": "boolean"
+    "displayMessage": {
+      "description": "Display a message",
+      "params": [
+        { "$ref": "/state/message#" },
+        {
+          "description": "The time to display the message in milliseconds. 0 = forever",
+          "type": "number",
+          "minimum": 0,
+          "default": 5000
         }
+      ],
+      "returns": {
+        "description": "'true' indicates message was successfully displayed",
+        "type": "boolean"
       }
-
     }
+
   },
-  "state": { "$ref": "/state/message#" }
+  "events": {
+    "state": { "$ref": "/state/message#" }
+  }
 }

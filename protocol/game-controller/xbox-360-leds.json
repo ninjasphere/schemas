@@ -2,22 +2,22 @@
   "id": "http://schema.ninjablocks.com/protocol/game-controller.xbox-360-leds",
   "$schema": "/protocol",
 
-  "service": {
-    "methods": {
-      "setLEDState": {
-        "description": "Sets the LED state",
-        "params": [{"$ref": "#/state" }],
-        "returns": {
-          "description": "Returns the current state of the LEDs after setting",
-          "$ref": "#/state"
-        }
+  "methods": {
+    "setLEDState": {
+      "description": "Sets the LED state",
+      "params": [{"$ref": "#/state" }],
+      "returns": {
+        "description": "Returns the current state of the LEDs after setting",
+        "$ref": "#/state"
       }
     }
   },
 
-  "state": {
-    "description": "_ALERT means it returns to the previously set individual light (ON_X or FLASH_ON_X)",
-    "enum": ["OFF", "BLINK_ALL_ALERT", "FLASH_ON_1", "FLASH_ON_2", "FLASH_ON_3", "FLASH_ON_4", "ON_1", "ON_2", "ON_3",
-      "ON_4", "ROTATING", "BLINK_CURRENT_ALERT", "SLOW_BLINK_CURRENT_ALERT", "ALTERNATING_ALERT"]
+  "events": {
+    "state": {
+      "description": "_ALERT means it will return to the previously set individual light (ON_X or FLASH_ON_X)",
+      "enum": ["OFF", "BLINK_ALL_ALERT", "FLASH_ON_1", "FLASH_ON_2", "FLASH_ON_3", "FLASH_ON_4", "ON_1", "ON_2", "ON_3",
+        "ON_4", "ROTATING", "BLINK_CURRENT_ALERT", "SLOW_BLINK_CURRENT_ALERT", "ALTERNATING_ALERT"]
+    }
   }
 }

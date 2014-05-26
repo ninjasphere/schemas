@@ -1,6 +1,0 @@
-{
-  "id": "http://schema.ninjablocks.com/service/voice-recognizer",
-  "$schema": "/service",
-  "methods": {
-  }
-}

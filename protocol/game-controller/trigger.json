@@ -1,9 +1,11 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/game-controller.trigger",
   "$schema": "/protocol",
-  "state": {
-    "type": "number",
-    "minimum": 0,
-    "maximum": 1
+  "events": {
+    "state": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1
+    }
   }
 }

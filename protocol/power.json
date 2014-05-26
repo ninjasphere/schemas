@@ -1,8 +1,10 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/power",
   "$schema": "/protocol",
-  "state": {
-    "description": "Instantaneous power consumption in watts",
-    "$ref": "/state/common#/definitions/number-timeseries"
+  "events": {
+    "state": {
+      "description": "Instantaneous power consumption in watts",
+      "$ref": "/state/common#/definitions/number-timeseries"
+    }
   }
 }

@@ -1,5 +1,7 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/button",
   "$schema": "/protocol",
-  "state": {"$ref": "/state/common#/definitions/boolean-state"}
+  "events": {
+    "state": {"$ref": "/state/common#/definitions/boolean-state"}
+  }
 }

@@ -39,7 +39,7 @@ console.log('');
 console.log('Testing Schemas'.blueBG.white.underline);
 
 
-var stateTestPath = path.resolve(__dirname, 'state-tests');
+var stateTestPath = path.resolve(__dirname, 'validation-tests');
 fs.readdirSync(stateTestPath).forEach(function(file) {
   var testFile = require(stateTestPath + '/' + file);
 

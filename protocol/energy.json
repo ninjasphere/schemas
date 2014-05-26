@@ -1,8 +1,10 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/energy",
   "$schema": "/protocol",
-  "state": {
-    "description": "Energy usage in watt-hours",
-    "$ref": "/state/common#/definitions/number-timeseries"
+  "events": {
+    "state": {
+      "description": "Energy usage in watt-hours",
+      "$ref": "/state/common#/definitions/number-timeseries"
+    }
   }
 }

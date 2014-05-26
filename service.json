@@ -1,11 +1,11 @@
 {
   "id": "http://schema.ninjablocks.com/service",
   "$schema": "http://json-schema.org/draft-04/schema#",
-  "description": "The descriptor for NinjaBlocks JSON-RPC/MQTT services",
+  "description": "The descriptor for NinjaBlocks JSON-RPC-over-MQTT services",
   "type": "object",
   "properties" : {
     "id": {"type":"string"},
-    "$schema": {"enum": ["http://schema.ninjablocks.com/service"]},
+    "$schema": {"enum": ["http://schema.ninjablocks.com/service", "http://schema.ninjablocks.com/protocol"]},
     "$ref": {"type": "string"},
     "description": {"type": "string"},
     "methods": {
@@ -28,7 +28,12 @@
       },
       "additionalProperties": false
     },
-    "returns": { "$ref": "http://json-schema.org/draft-04/schema#" },
+    "events": {
+      "type": "object",
+      "patternProperties": {
+        "^[a-z-]+$": { "$ref": "http://json-schema.org/draft-04/schema#" }
+      }
+    },
     "definitions": {
       "type": "object",
       "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }

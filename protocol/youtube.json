@@ -2,44 +2,44 @@
   "id": "http://schema.ninjablocks.com/protocol/youtube",
   "$schema": "/protocol",
 
-  "service": {
-    "methods": {
+  "methods": {
 
-      "playYoutube": {
-        "description": "Play YouTube video",
-        "params": [{
-          "type":"string",
-          "description": "The youtube video id",
-          "pattern": "^[A-Za-z0-9]+$"
-        }],
-        "returns": {"type":"boolean"}
-      }
-
+    "playYoutube": {
+      "description": "Play YouTube video",
+      "params": [{
+        "type":"string",
+        "description": "The youtube video id",
+        "pattern": "^[A-Za-z0-9]+$"
+      }],
+      "returns": {"type":"boolean"}
     }
+
   },
 
-  "state": {
-    "type": "object",
-    "properties": {
-      "state": {
-        "enum": ["playing", "paused", "stopped"]
-      },
-      "position": {
-        "type": "number",
-        "description": "The position of the current video (if playing or paused)"
-      },
-      "video": {
-        "type": "object",
-        "properties": {
-          "title": {"type": "string"},
-          "id": {
-            "type": "string",
-            "pattern": "^[A-Za-z0-9]+$"
-          },
-          "length": {
-            "type": "number",
-            "description": "Length of the video in seconds",
-            "minimum": 0
+  "events": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "state": {
+          "enum": ["playing", "paused", "stopped"]
+        },
+        "position": {
+          "type": "number",
+          "description": "The position of the current video (if playing or paused)"
+        },
+        "video": {
+          "type": "object",
+          "properties": {
+            "title": {"type": "string"},
+            "id": {
+              "type": "string",
+              "pattern": "^[A-Za-z0-9]+$"
+            },
+            "length": {
+              "type": "number",
+              "description": "Length of the video in seconds",
+              "minimum": 0
+            }
           }
         }
       }
