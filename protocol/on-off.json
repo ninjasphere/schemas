@@ -3,6 +3,22 @@
   "$schema": "/protocol",
   "methods": {
 
+    "turnOn": {
+      "description": "Turns the device on",
+      "returns": {
+        "description": "The new state",
+        "$ref": "/state/common#/definitions/boolean-state"
+      }
+    },
+
+    "turnOff": {
+      "description": "Turns the device off",
+      "returns": {
+        "description": "The new state",
+        "$ref": "/state/common#/definitions/boolean-state"
+      }
+    },
+
     "setOnOff": {
       "description": "Turns the device on or off",
       "params": [{"$ref": "/state/common#/definitions/boolean-state"}],
