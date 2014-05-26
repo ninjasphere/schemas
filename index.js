@@ -8,7 +8,7 @@ function findSchemas(dir) {
   fs.readdirSync(p).forEach(function(file) {
     var filePath = path.resolve(p, file);
 
-    if (fs.statSync(filePath).isDirectory() && dir !== '.') {
+    if (fs.statSync(filePath).isDirectory() && dir !== '.' && file[0] !== '.') {
       findSchemas(filePath);
     } else {
 
