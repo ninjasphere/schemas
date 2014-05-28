@@ -9,6 +9,14 @@
       "type": "string",
       "pattern": "^[0-9a-f]{10}$"
     },
+    "room-id": {
+      "title": "Room identifier",
+      "type": "string"
+    },
+    "thing-id": {
+      "title": "Thing identifier",
+      "type": "string"
+    },
     "channel-id": {
       "title": "Channel identifier",
       "description": "10 hex characters",
