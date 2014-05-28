@@ -1,0 +1,56 @@
+{
+  "id": "http://schema.ninjablocks.com/service/test-service",
+  "$schema": "/service",
+
+  "description": "This is an example service definition used in documentation.",
+
+  "methods": {
+
+    "sayHello": {
+      "description": "Just says hello.",
+      "params":[
+        { "$ref": "#/definitions/firstName" },
+        {
+          "type": "number",
+          "description": "Age in years",
+          "minimum": 0,
+          "maximum": 135
+        },
+        {
+          "type": "boolean",
+          "description": "Indicates it's the user's birthday",
+          "default": true
+        }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The hello message"
+      }
+    },
+
+    "sayGoodbye": {
+      "description": "Just says goodbye.",
+      "params":[
+        { "$ref": "#/definitions/firstName" }
+      ],
+      "returns": {
+        "type": "string",
+        "description": "The goodbye message"
+      }
+    }
+
+  },
+
+  "events": {
+    "greeting": { "type": "string" }
+  },
+
+  "definitions": {
+    "firstName": {
+      "type": "string",
+      "description": "Just the first name, only alpha characters!",
+      "pattern": "^[A-Za-z]+$"
+    }
+  }
+
+}
