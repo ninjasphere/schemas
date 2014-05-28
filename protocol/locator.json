@@ -1,0 +1,33 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/locator",
+  "$schema": "/service",
+
+  "events": {
+    "advertisement": { "$ref": "#/definitions/advertisement" }
+  },
+
+  "definitions": {
+
+    "mac-address": {
+      "type": "string"
+    },
+
+    "advertisement" : {
+      "description": "Emitted whenever a BLE peripheral is seen",
+      "properties": {
+        "device": { "$ref": "#/definitions/mac-address" },
+        "waypoint": { "$ref": "#/definitions/mac-address" },
+        "rssi": {
+          "type": "number",
+          "minimum": -127,
+          "maximum": 0
+        },
+        "isSphere": { "type": "boolean" },
+        "name": { "type": "string"}
+      },
+      "required": ["device", "rssi"]
+    }
+
+  }
+
+}
