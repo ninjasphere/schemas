@@ -13,15 +13,20 @@ function findSchemas(dir) {
     } else {
 
       if (file.match(/\.json$/)) {
-        var schema = require(filePath);
-        if (schema.id) {
-          schemas.push(schema);
+        try {
+
+          var schema = require(filePath);
+          if (schema.id) {
+            schemas.push(schema);
+          }
+        } catch (e) {
+          throw new Error('Failed to parse schema ' + e.message.red);
         }
       }
     }
   });
 }
 
-['.', './protocol', './service', './state'].forEach(findSchemas);
+['.', './protocol', './service', './state', './model'].forEach(findSchemas);
 
 module.exports = schemas;
