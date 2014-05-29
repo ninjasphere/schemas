@@ -18,13 +18,14 @@ function <%= className %>() {
  * @method <%= methodName %>
  *
  *<% (method.params||[]).forEach(function(param, i) { %>
- * @param [] <%= param.name %> <%= param.description||'' %><% }); %>
- *
- * @returns <%= method.returns.description %>
+ * @param {} <%= param.name %> <%= param.description||'' %><% }); %>
+ * @param {Function} cb The callback function
+ * @param {Object} cb.err The error object
+ * @param {} cb.result <%= method.returns.description||'' %>
  */
-<%= className %>.prototype.<%= methodName %> = function(<% (method.params||[]).forEach(function(param, i) { %><%= param.name %><% if (i < (method.params.length - 1)) { %>, <% } %><% }); %>) {
+<%= className %>.prototype.<%= methodName %> = function(<% (method.params||[]).forEach(function(param, i) { %><%= param.name %>, <% }); %>cb) {
 
-}
+};
 <%
 %><% }) %><% } %>
 module.exports = <%= className %>;

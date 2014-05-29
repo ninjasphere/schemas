@@ -2,6 +2,8 @@
   "id": "http://schema.ninjablocks.com/service/driver",
   "$schema": "/service",
 
+  "description": "This service is required to be implemented by all Drivers",
+
   "methods": {
 
     "start": {
