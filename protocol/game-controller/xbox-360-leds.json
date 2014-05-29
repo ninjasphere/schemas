@@ -5,7 +5,7 @@
   "methods": {
     "setLEDState": {
       "description": "Sets the LED state",
-      "params": [{"$ref": "#/state" }],
+      "params": [{"$ref": "#/events/state" }],
       "returns": {
         "description": "Returns the current state of the LEDs after setting",
         "$ref": "#/state"
