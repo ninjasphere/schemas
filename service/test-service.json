@@ -15,18 +15,18 @@
         },
         {
           "name": "age",
+          "description": "Age in years",
           "value": {
             "type": "number",
-            "description": "Age in years",
             "minimum": 0,
             "maximum": 135
           }
         },
         {
           "name": "isBirthday",
+          "description": "Indicates it's the user's birthday",
           "value": {
             "type": "boolean",
-            "description": "Indicates it's the user's birthday",
             "default": true
           }
         }
