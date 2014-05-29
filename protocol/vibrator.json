@@ -7,13 +7,17 @@
       "description": "Turns the vibration on or off. Cancels a running pattern.",
       "params": [
         {
-          "$ref": "/state/common#/definitions/boolean-state"
+          "name": "state",
+          "value": { "$ref": "/state/common#/definitions/boolean-state" }
         },
         {
+          "name": "time",
           "description": "The time in ms to vibrate for. 0 = forever.",
-          "type": "number",
-          "default": 0,
-          "minimum": 0
+          "value": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
         }
       ],
       "returns": {
@@ -25,10 +29,13 @@
       "description": "Turns the vibration on",
       "params": [
         {
+          "name": "time",
           "description": "The time in ms to vibrate for. 0 = forever.",
-          "type": "number",
-          "default": 0,
-          "minimum": 0
+          "value": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
         }
       ],
       "returns": {
@@ -38,14 +45,6 @@
 
     "vibrateOff": {
       "description": "Turns the vibration off",
-      "params": [
-        {
-          "description": "The time in ms to vibrate for. 0 = forever.",
-          "type": "number",
-          "default": 0,
-          "minimum": 0
-        }
-      ],
       "returns": {
         "$ref": "/state/common#/definitions/success"
       }
@@ -62,13 +61,17 @@
       "description": "Starts a vibration pattern. Cancels any existing running pattern.",
       "params": [
         {
-          "$ref": "/state/vibration-pattern"
+          "name": "state",
+          "value": { "$ref": "/state/vibration-pattern" }
         },
         {
+          "name": "repeat",
           "description": "The number of times to play this pattern. 0 = forever.",
-          "type": "number",
-          "default": 0,
-          "minimum": 0
+          "value": {
+            "type": "number",
+            "default": 0,
+            "minimum": 0
+          }
         }
       ],
       "returns": {

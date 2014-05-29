@@ -12,6 +12,7 @@ tv4.addFormat(formats);
 
 schemas.forEach(tv4.addSchema.bind(tv4));
 
+
 var base = tv4.getSchema('http://json-schema.org/draft-04/schema#');
 
 console.log('Validating Schemas'.blueBG.white.underline);
@@ -44,9 +45,9 @@ schemas.forEach(function(schema) {
         (schema.methods[method].params||[]).forEach(function(param, i) {
 
           try {
-            var paramSchema = resolveSchema(param);
+            var resolvedParamValue = resolveSchema(param.value);
 
-            var result = tv4.validateResult(paramSchema, base, true, true);
+            var result = tv4.validateResult(resolvedParamValue, base, true, true);
             if (!result.valid) {
               error = util.format('Error in method: %s param: %s - %s at %s', method.yellow, (i+'').yellow, result.error.message.red, result.error.dataPath.yellow);
             }

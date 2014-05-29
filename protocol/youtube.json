@@ -6,11 +6,16 @@
 
     "playYoutube": {
       "description": "Play YouTube video",
-      "params": [{
-        "type":"string",
-        "description": "The youtube video id",
-        "pattern": "^[A-Za-z0-9]+$"
-      }],
+      "params": [
+        {
+          "name": "videoId",
+          "value": {
+            "type":"string",
+            "description": "The youtube video id",
+            "pattern": "^[A-Za-z0-9]+$"
+          }
+        }
+      ],
       "returns": {"type":"boolean"}
     }
 

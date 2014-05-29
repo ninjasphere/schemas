@@ -6,11 +6,17 @@
     "setHolidayLights": {
       "description": "Sets the state of all the lights. If you send a single light colour, it will be applied to all",
       "params": [
-        { "$ref": "#/definitions/single-or-all" },
         {
-          "type": "boolean",
-          "description": "Emit state after setting?",
-          "default": "true"
+          "name": "state",
+          "value": { "$ref": "#/definitions/single-or-all" }
+        },
+        {
+          "name": "emitState",
+          "value": {
+            "type": "boolean",
+            "description": "Emit state after setting?",
+            "default": "true"
+          }
         }
       ],
       "returns": {

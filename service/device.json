@@ -1,14 +1,18 @@
 {
   "id": "http://schema.ninjablocks.com/service/device",
   "$schema": "/service",
-  
+
   "methods": {
 
     "start": {
       "description": "Starts the device",
-      "params": [{
-        "type": "object",
-        "description": "Device configuration object"
+      "params": [
+        {
+        "name": "config",
+        "value": {
+          "type": "object",
+          "description": "Device configuration object"
+        }
       }],
       "returns": {
         "description": "'true' indicates device started successfully",
@@ -48,30 +52,18 @@
       "description": "Sets the name of the device.",
       "params":[
         {
-          "type": "string",
-          "description": "The device name. alpha-numeric + spaces, but different devices may not support all characters.",
-          "pattern": "^[A-Za-z ]+$"
+          "name": "name",
+          "value": {
+            "type": "string",
+            "description": "The device name. alpha-numeric + spaces, but different devices may not support all characters.",
+            "pattern": "^[A-Za-z ]+$"
+          }
         }
       ],
       "returns": {
         "description": "The name that was saved to the device. If null, it is not possible to store the name on the device.",
         "type": "string"
       }
-    },
-
-    "sayHello": {
-      "description": "Just says hello. (TEST METHOD)",
-      "params":[
-        {
-          "type": "string",
-          "description": "Just the first name, only alpha characters!",
-          "pattern": "^[A-Za-z]+$"
-        }
-      ],
-      "returns": {
-        "type": "string"
-      }
     }
-
   }
 }

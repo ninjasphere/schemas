@@ -6,12 +6,18 @@
     "displayMessage": {
       "description": "Display a message",
       "params": [
-        { "$ref": "/state/message#" },
         {
+          "name": "message",
+          "value": { "$ref": "/state/message#" }
+        },
+        {
+          "name": "time",
           "description": "The time to display the message in milliseconds. 0 = forever",
-          "type": "number",
-          "minimum": 0,
-          "default": 5000
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "default": 5000
+          }
         }
       ],
       "returns": {

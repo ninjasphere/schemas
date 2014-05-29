@@ -9,17 +9,26 @@
     "sayHello": {
       "description": "Just says hello.",
       "params":[
-        { "$ref": "#/definitions/firstName" },
         {
-          "type": "number",
-          "description": "Age in years",
-          "minimum": 0,
-          "maximum": 135
+          "name": "firstName",
+          "value": { "$ref": "#/definitions/firstName" }
         },
         {
-          "type": "boolean",
-          "description": "Indicates it's the user's birthday",
-          "default": true
+          "name": "age",
+          "value": {
+            "type": "number",
+            "description": "Age in years",
+            "minimum": 0,
+            "maximum": 135
+          }
+        },
+        {
+          "name": "isBirthday",
+          "value": {
+            "type": "boolean",
+            "description": "Indicates it's the user's birthday",
+            "default": true
+          }
         }
       ],
       "returns": {
@@ -31,7 +40,10 @@
     "sayGoodbye": {
       "description": "Just says goodbye.",
       "params":[
-        { "$ref": "#/definitions/firstName" }
+        {
+          "name": "firstName",
+          "value": { "$ref": "#/definitions/firstName" }
+        }
       ],
       "returns": {
         "type": "string",

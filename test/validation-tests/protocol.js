@@ -4,7 +4,10 @@ var valid = [
     "methods": {
       "setOnOff": {
         "description": "Turns the device on or off",
-        "params": [{"$ref": "/state/common#/definitions/boolean-state"}],
+        "params": [{
+          "name": "state",
+          "value": { "$ref": "/state/common#/definitions/boolean-state" }
+        }],
         "returns": {
           "description": "The new state",
           "$ref": "/state/common#/definitions/boolean-state"
@@ -19,11 +22,14 @@ var valid = [
 ];
 
 var invalid = [
-  {
+  { // No state event
     "methods": {
       "setOnOff": {
         "description": "Turns the device on or off",
-        "params": [{"$ref": "/state/common#/definitions/boolean-state"}],
+        "params": [{
+          "name": "state",
+          "value": { "$ref": "/state/common#/definitions/boolean-state" }
+        }],
         "returns": {
           "description": "The new state",
           "$ref": "/state/common#/definitions/boolean-state"
@@ -34,11 +40,14 @@ var invalid = [
       "something-else": { "$ref": "/state/common#/definitions/boolean-state" }
     }
   },
-  {
+  { // No state event
     "methods": {
       "setOnOff": {
         "description": "Turns the device on or off",
-        "params": [{"$ref": "/state/common#/definitions/boolean-state"}],
+        "params": [{
+          "name": "state",
+          "value": { "$ref": "/state/common#/definitions/boolean-state" }
+        }],
         "returns": {
           "description": "The new state",
           "$ref": "/state/common#/definitions/boolean-state"

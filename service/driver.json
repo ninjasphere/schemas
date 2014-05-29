@@ -6,10 +6,15 @@
 
     "start": {
       "description": "Starts the driver",
-      "params": [{
-        "type": "object",
-        "description": "Driver configuration object"
-      }],
+      "params": [
+        {
+          "name": "config",
+          "description": "Driver configuration object",
+          "value": {
+            "type": "object"
+          }
+        }
+      ],
       "returns": {
         "$ref": "/state/common#/definitions/success"
       }
@@ -26,11 +31,17 @@
       "description": "Create a new device using the provided configuration.",
       "params": [
         {
-          "$ref": "#/definitions/device-driver-data"
+          "name": "driverData",
+          "value": {
+            "$ref": "#/definitions/device-driver-data"
+          }
         },
         {
-          "type": "object",
-          "description": "Announcement data. This gets added to the device announcement."
+          "name": "announcementData",
+          "description": "Announcement data. This gets added to the device announcement.",
+          "value": {
+            "type": "object"
+          }
         }
       ],
       "returns": {
@@ -42,8 +53,11 @@
       "description": "Create a new device using the provided configuration.",
       "params": [
         {
-          "type": "object",
-          "description": "Device configuration object."
+          "name": "config",
+          "description": "Driver configuration object",
+          "value": {
+            "type": "object"
+          }
         }
       ],
       "returns": {

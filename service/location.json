@@ -7,12 +7,18 @@
   "methods": {
 
     "calibrate": {
-      "description": "Just says hello.",
+      "description": "Starts calibrating a room using the given device id (BLE MAC?)",
       "params":[
-        { "$ref": "/common#/definitions/room-id" },
         {
-          "type": "string",
-          "description": "(Device ID) This should be changed"
+          "name": "roomId",
+          "value": { "$ref": "/model/room#/properties/id" }
+        },
+        {
+          "name": "deviceId",
+          "value": {
+            "description": "TODO This should be changed",
+            "type": "string"
+          }
         }
       ],
       "returns": {
