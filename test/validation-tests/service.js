@@ -10,7 +10,9 @@ var valid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     }
@@ -29,7 +31,9 @@ var invalid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     }
@@ -44,7 +48,9 @@ var invalid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     }

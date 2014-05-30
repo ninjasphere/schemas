@@ -1,47 +1,47 @@
 {
   "id": "http://schema.ninjablocks.com/service/room-model",
   "$schema": "/service",
-
   "description": "Ninja Sphere - Room Model Service.",
-
   "methods": {
-
     "create": {
       "description": "Saves a new Room",
-      "params":[
+      "params": [
         {
           "name": "room",
           "value": { "$ref": "/model/room" }
         }
       ],
-      "returns": { "$ref" : "/model/room#/properties/id" }
+      "returns": {
+        "value": { "$ref": "/model/room#/properties/id" }
+      }
     },
-
     "fetch": {
       "description": "Retrieves a Room",
-      "params":[
+      "params": [
         {
           "name": "roomId",
-          "value": { "$ref" : "/model/room#/properties/id" }
+          "value": { "$ref": "/model/room#/properties/id" }
         }
       ],
-      "returns": { "$ref": "/model/room" }
+      "returns": {
+        "value": { "$ref": "/model/room" }
+      }
     },
-
     "fetchAll": {
       "description": "Retrieves all Rooms",
       "returns": {
-        "type": "array",
-        "items": { "$ref": "/model/room" }
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/room" }
+        }
       }
     },
-
     "thingsByType": {
       "description": "Retrieves all Things of a certain thing type from a room",
-      "params":[
+      "params": [
         {
           "name": "roomId",
-          "value":  { "$ref": "/model/room#/properties/id" }
+          "value": { "$ref": "/model/room#/properties/id" }
         },
         {
           "name": "thingType",
@@ -49,34 +49,36 @@
         }
       ],
       "returns": {
-        "type": "array",
-        "items": { "$ref": "/model/thing" }
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/thing" }
+        }
       }
     },
-
     "delete": {
       "description": "Deletes a Room",
-      "params":[
+      "params": [
         {
           "name": "roomId",
-          "value": { "$ref" : "/model/room#/properties/id" }
+          "value": { "$ref": "/model/room#/properties/id" }
         }
       ],
-      "returns": { "$ref" : "/model/room#/properties/id" }
+      "returns": {
+        "value": { "$ref": "/model/room#/properties/id" }
+      }
     },
-
     "moveThing": {
       "description": "Moves a Thing from one Room to another Room",
-      "params":[
+      "params": [
         {
           "name": "fromRoomId",
           "description": "Current room id",
-          "value": { "$ref": "/model/room#/properties/id"}
+          "value": { "$ref": "/model/room#/properties/id" }
         },
         {
           "name": "toRoomId",
           "description": "Target room id",
-          "value": { "$ref": "/model/room#/properties/id"}
+          "value": { "$ref": "/model/room#/properties/id" }
         },
         {
           "name": "thingId",
@@ -84,17 +86,18 @@
         }
       ],
       "returns": {
-        "description": "TODO: Success value?",
-        "type": "null"
+        "value": {
+          "type": "null"
+        },
+        "description": "TODO: Success value?"
       }
     },
-
     "removeThing": {
       "description": "Removes a Thing a Room",
-      "params":[
+      "params": [
         {
           "name": "roomId",
-          "value": { "$ref": "/model/room#/properties/id"}
+          "value": { "$ref": "/model/room#/properties/id" }
         },
         {
           "name": "thingId",
@@ -102,11 +105,11 @@
         }
       ],
       "returns": {
-        "description": "TODO: Success value?",
-        "type": "null"
+        "value": {
+          "type": "null"
+        },
+        "description": "TODO: Success value?"
       }
     }
-
   }
-
 }

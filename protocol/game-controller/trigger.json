@@ -3,9 +3,11 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "type": "number",
-      "minimum": 0,
-      "maximum": 1
+      "value": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
     }
   }
 }

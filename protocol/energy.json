@@ -3,8 +3,8 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "description": "Energy usage in watt-hours",
-      "$ref": "/state/common#/definitions/number-timeseries"
+      "value": { "$ref": "/state/common#/definitions/number-timeseries" },
+      "description": "Energy usage in watt-hours"
     }
   }
 }

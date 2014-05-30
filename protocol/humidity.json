@@ -3,7 +3,7 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "$ref": "/state/common#/definitions/humidity"
+      "value": { "$ref": "/state/common#/definitions/humidity" }
     }
   }
 }

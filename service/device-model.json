@@ -1,51 +1,50 @@
 {
   "id": "http://schema.ninjablocks.com/service/device-model",
   "$schema": "/service",
-
   "description": "Ninja Sphere - Device Model Service.",
-
   "methods": {
-
     "fetch": {
       "description": "Retrieves a Device",
-      "params":[
+      "params": [
         {
           "name": "deviceId",
-          "value": { "$ref" : "/model/device#/properties/id" }
-        }
-      ],
-      "returns": { "$ref": "/model/device" }
-    },
-
-    "delete": {
-      "description": "Deletes a Device",
-      "params":[
-        {
-          "name": "deviceId",
-          "value": { "$ref" : "/model/device#/properties/id" }
-        }
-      ],
-      "returns": { "$ref" : "/model/device#/properties/id" }
-    },
-
-    "addChannel": {
-      "description": "Adds a channel to a device",
-      "params":[
-        {
-          "name": "deviceId",
-          "value": { "$ref": "/model/device#/properties/id"}
-        },
-        {
-          "name": "channel",
-          "value": { "$ref": "/model/channel"}
+          "value": { "$ref": "/model/device#/properties/id" }
         }
       ],
       "returns": {
-        "description": "TODO: Success value?",
-        "type": "null"
+        "value": { "$ref": "/model/device" }
+      }
+    },
+    "delete": {
+      "description": "Deletes a Device",
+      "params": [
+        {
+          "name": "deviceId",
+          "value": { "$ref": "/model/device#/properties/id" }
+        }
+      ],
+      "returns": {
+        "value": { "$ref": "/model/device#/properties/id" }
+      }
+    },
+    "addChannel": {
+      "description": "Adds a channel to a device",
+      "params": [
+        {
+          "name": "deviceId",
+          "value": { "$ref": "/model/device#/properties/id" }
+        },
+        {
+          "name": "channel",
+          "value": { "$ref": "/model/channel" }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "null"
+        },
+        "description": "TODO: Success value?"
       }
     }
-
   }
-
 }

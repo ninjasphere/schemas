@@ -10,12 +10,18 @@ var valid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     },
     "events": {
-      "state": {"$ref": "/state/common#/definitions/boolean-state"}
+      "state": {
+        "value": {
+          "$ref": "/state/common#/definitions/boolean-state"
+        }
+      }
     }
   }
 
@@ -32,12 +38,18 @@ var invalid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     },
     "events": {
-      "something-else": { "$ref": "/state/common#/definitions/boolean-state" }
+      "something-else": {
+        "value": {
+          "$ref": "/state/common#/definitions/boolean-state"
+        }
+      }
     }
   },
   { // No state event
@@ -50,7 +62,9 @@ var invalid = [
         }],
         "returns": {
           "description": "The new state",
-          "$ref": "/state/common#/definitions/boolean-state"
+          "value": {
+            "$ref": "/state/common#/definitions/boolean-state"
+          }
         }
       }
     }

@@ -5,12 +5,12 @@
   "description": "TODO",
   "type": "object",
   "properties": {
-    "id": {
-      "$ref": "/common#/definitions/uuid"
-    },
+    "id": { "$ref": "/common#/definitions/uuid" },
     "type": {
       "type": "string"
     }
   },
-  "required": ["id"]
+  "required": [
+    "id"
+  ]
 }

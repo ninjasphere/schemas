@@ -4,16 +4,19 @@
   "title": "A Wit.AI Response",
   "description": "TODO",
   "type": "object",
-
   "properties": {
-    "msg_id": { "type": "string"},
-    "msg_body": { "type": "string"},
-
+    "msg_id": {
+      "type": "string"
+    },
+    "msg_body": {
+      "type": "string"
+    },
     "outcome": {
       "type": "object",
       "properties": {
-        "intent": { "type": "string"},
-
+        "intent": {
+          "type": "string"
+        },
         "entities": {
           "type": "object",
           "patternProperties": {
@@ -29,18 +32,24 @@
           },
           "additionalProperties": false
         },
-
         "confidence": {
           "type": "number",
           "maximum": 1,
           "minimum": 0
         }
       },
-
-      "required": ["intent", "entities", "confidence"]
+      "required": [
+        "intent",
+        "entities",
+        "confidence"
+      ]
     }
   },
-  "required": ["msg_id", "msg_body", "outcome"],
+  "required": [
+    "msg_id",
+    "msg_body",
+    "outcome"
+  ],
   "additionalProperties": false,
   "definitions": {
     "entity": {
@@ -48,7 +57,9 @@
       "properties": {
         "value": {
           "oneOf": [
-            { "type": "string" },
+            {
+              "type": "string"
+            },
             {
               "type": "object",
               "title": "Date Range",
@@ -63,20 +74,38 @@
                 }
               },
               "additionalProperties": false,
-              "required": ["from", "to"]
+              "required": [
+                "from",
+                "to"
+              ]
             }
           ]
         },
-        "body": { "type": "string" },
-        "metadata": { "type": "string" },
-        "start": { "type": "number" },
-        "end": { "type": "number" },
-        "suggested": { "type": "boolean" }
+        "body": {
+          "type": "string"
+        },
+        "metadata": {
+          "type": "string"
+        },
+        "start": {
+          "type": "number"
+        },
+        "end": {
+          "type": "number"
+        },
+        "suggested": {
+          "type": "boolean"
+        }
       },
       "additionalProperties": false,
-      "required": ["value", "body"],
+      "required": [
+        "value",
+        "body"
+      ],
       "dependencies": {
-        "start": ["end"]
+        "start": [
+          "end"
+        ]
       }
     }
   }

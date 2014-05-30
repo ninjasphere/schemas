@@ -1,14 +1,11 @@
 {
   "id": "http://schema.ninjablocks.com/service/test-service",
   "$schema": "/service",
-
   "description": "This is an example service definition used in documentation.",
-
   "methods": {
-
     "sayHello": {
       "description": "Just says hello.",
-      "params":[
+      "params": [
         {
           "name": "firstName",
           "value": { "$ref": "#/definitions/firstName" }
@@ -32,31 +29,35 @@
         }
       ],
       "returns": {
-        "type": "string",
+        "value": {
+          "type": "string"
+        },
         "description": "The hello message"
       }
     },
-
     "sayGoodbye": {
       "description": "Just says goodbye.",
-      "params":[
+      "params": [
         {
           "name": "firstName",
           "value": { "$ref": "#/definitions/firstName" }
         }
       ],
       "returns": {
-        "type": "string",
+        "value": {
+          "type": "string"
+        },
         "description": "The goodbye message"
       }
     }
-
   },
-
   "events": {
-    "greeting": { "type": "string" }
+    "greeting": {
+      "value": {
+        "type": "string"
+      }
+    }
   },
-
   "definitions": {
     "firstName": {
       "type": "string",
@@ -64,5 +65,4 @@
       "pattern": "^[A-Za-z]+$"
     }
   }
-
 }

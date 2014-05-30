@@ -2,6 +2,8 @@
   "id": "http://schema.ninjablocks.com/protocol/button",
   "$schema": "/protocol",
   "events": {
-    "state": {"$ref": "/state/common#/definitions/boolean-state"}
+    "state": {
+      "value": { "$ref": "/state/common#/definitions/boolean-state" }
+    }
   }
 }

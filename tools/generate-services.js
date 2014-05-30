@@ -29,6 +29,14 @@ schemas.forEach(function(schema) {
       });
     }
 
+    if (schema.events) {
+      Object.keys(schema.events).forEach(function(eventName) {
+        var event = schema.events[eventName];
+
+        event.value = resolveSchema(event.value, schema.id);
+      });
+    }
+
     var out = tpl({
       service: schema,
       className: className
@@ -50,8 +58,6 @@ function resolveSchema(schemaUri, baseUri, urlHistory) {
     }
   }
 
-  var previousDescription = schema.description;
-
   if (!schema) {
     throw new Error('Failed to resolve schema ref ' + schemaUri + ' [history: ' + Object.keys(urlHistory).join(', ') + ']');
   }
@@ -64,9 +70,6 @@ function resolveSchema(schemaUri, baseUri, urlHistory) {
     urlHistory[schema.$ref] = true;
     schema = resolveSchema(schema.$ref, baseUri, urlHistory);
 
-    if (previousDescription) {
-      schema.description = previousDescription;
-    }
   }
   return schema;
 }

@@ -2,7 +2,9 @@
   "id": "http://schema.ninjablocks.com/state/message",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Message to be displayed",
-  "type": ["object"],
+  "type": [
+    "object"
+  ],
   "properties": {
     "message": {
       "description": "The message to display",
@@ -15,8 +17,10 @@
     "image": {
       "description": "The image (url) to display with the message. HTTP/S only. Data URIs are not supported.",
       "type": "string",
-      "pattern": "^https?:\/\/([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([\/\\w \\.-]*)*\/?$"
+      "pattern": "^https?://([\\da-z\\.-]+)\\.([a-z\\.]{2,6})([/\\w \\.-]*)*/?$"
     }
   },
-  "required": ["message"]
+  "required": [
+    "message"
+  ]
 }

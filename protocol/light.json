@@ -2,7 +2,6 @@
   "id": "http://schema.ninjablocks.com/protocol/light",
   "$schema": "/protocol",
   "methods": {
-
     "setLight": {
       "description": "Send a full light state object to the device. Not all properties will be supported by all devices.",
       "params": [
@@ -12,11 +11,10 @@
         }
       ],
       "returns": {
-        "description": "Returns the current state of the light after setting",
-        "$ref": "/state/light#"
+        "value": { "$ref": "/state/light#" },
+        "description": "Returns the current state of the light after setting"
       }
     },
-
     "alertLight": {
       "description": "Switches to an alert state for a given number of seconds, before returning to the previous state IF the alert state is still active.",
       "params": [
@@ -36,13 +34,16 @@
         }
       ],
       "returns": {
-        "description": "Indicates the light was returned to it's previous state. If this returns false, a new state was set in the meantime.",
-        "type": "boolean"
+        "value": {
+          "type": "boolean"
+        },
+        "description": "Indicates the light was returned to it's previous state. If this returns false, a new state was set in the meantime."
       }
     }
-
   },
   "events": {
-    "state": {"$ref": "/state/light#"}
+    "state": {
+      "value": { "$ref": "/state/light#" }
+    }
   }
 }

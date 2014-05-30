@@ -36,8 +36,12 @@
       "type": "boolean"
     }
   },
-  "required": ["power"],
+  "required": [
+    "power"
+  ],
   "dependencies": {
-    "saturation": ["hue"]
+    "saturation": [
+      "hue"
+    ]
   }
 }

@@ -2,23 +2,20 @@
   "id": "http://schema.ninjablocks.com/protocol/on-off",
   "$schema": "/protocol",
   "methods": {
-
     "turnOn": {
       "description": "Turns the device on",
       "returns": {
-        "description": "The new state",
-        "$ref": "/state/common#/definitions/boolean-state"
+        "value": { "$ref": "/state/common#/definitions/boolean-state" },
+        "description": "The new state"
       }
     },
-
     "turnOff": {
       "description": "Turns the device off",
       "returns": {
-        "description": "The new state",
-        "$ref": "/state/common#/definitions/boolean-state"
+        "value": { "$ref": "/state/common#/definitions/boolean-state" },
+        "description": "The new state"
       }
     },
-
     "setOnOff": {
       "description": "Turns the device on or off",
       "params": [
@@ -28,21 +25,21 @@
         }
       ],
       "returns": {
-        "description": "The new state",
-        "$ref": "/state/common#/definitions/boolean-state"
+        "value": { "$ref": "/state/common#/definitions/boolean-state" },
+        "description": "The new state"
       }
     },
-
     "toggleOnOff": {
       "description": "Toggles the on/off state",
       "returns": {
-        "description": "The new state",
-        "$ref": "/state/common#/definitions/boolean-state"
+        "value": { "$ref": "/state/common#/definitions/boolean-state" },
+        "description": "The new state"
       }
     }
-
   },
   "events": {
-    "state": {"$ref": "/state/common#/definitions/boolean-state"}
+    "state": {
+      "value": { "$ref": "/state/common#/definitions/boolean-state" }
+    }
   }
 }

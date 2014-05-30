@@ -3,20 +3,17 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Common NinjaBlocks definitions",
   "definitions": {
-
     "ninja-id": {
       "title": "Ninja identifier",
       "description": "Used for ids that are hashed from 'natural keys' like a MAC address",
       "type": "string",
       "pattern": "^[0-9a-f]{10}$"
     },
-
     "uuid": {
       "title": "UUID Version 4",
       "description": "See: http://tools.ietf.org/html/rfc4122",
       "type": "string",
       "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
     }
-
   }
 }

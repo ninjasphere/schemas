@@ -5,9 +5,9 @@
   "description": "TODO",
   "type": "object",
   "properties": {
-    "id": {
-      "$ref": "/common#/definitions/ninja-id"
-    }
+    "id": { "$ref": "/common#/definitions/ninja-id" }
   },
-  "required": ["id"]
+  "required": [
+    "id"
+  ]
 }

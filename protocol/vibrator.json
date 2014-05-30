@@ -2,7 +2,6 @@
   "id": "http://schema.ninjablocks.com/protocol/vibrator",
   "$schema": "/protocol",
   "methods": {
-
     "setVibrate": {
       "description": "Turns the vibration on or off. Cancels a running pattern.",
       "params": [
@@ -21,10 +20,9 @@
         }
       ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "vibrateOn": {
       "description": "Turns the vibration on",
       "params": [
@@ -39,24 +37,21 @@
         }
       ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "vibrateOff": {
       "description": "Turns the vibration off",
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "toggleVibrate": {
       "description": "Toggles the vibration state. If in a pattern, cancels the pattern first.",
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "startVibratePattern": {
       "description": "Starts a vibration pattern. Cancels any existing running pattern.",
       "params": [
@@ -75,24 +70,24 @@
         }
       ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     }
-
   },
-
   "events": {
     "state": {
-      "oneOf": [
-        {
-          "$ref": "/state/common#/definitions/boolean-state",
-          "description": "Indicates the vibration is on/off"
-        },
-        {
-          "$ref": "/state/vibration-pattern",
-          "description": "Indicated a vibration pattern is currently being played"
-        }
-      ]
+      "value": {
+        "oneOf": [
+          {
+            "$ref": "/state/common#/definitions/boolean-state",
+            "description": "Indicates the vibration is on/off"
+          },
+          {
+            "$ref": "/state/vibration-pattern",
+            "description": "Indicated a vibration pattern is currently being played"
+          }
+        ]
+      }
     }
   }
 }

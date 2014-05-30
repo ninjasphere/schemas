@@ -1,14 +1,11 @@
 {
   "id": "http://schema.ninjablocks.com/service/location",
   "$schema": "/service",
-
   "description": "Location Manager Service.",
-
   "methods": {
-
     "calibrate": {
       "description": "Starts calibrating a room using the given device id (BLE MAC?)",
-      "params":[
+      "params": [
         {
           "name": "roomId",
           "value": { "$ref": "/model/room#/properties/id" }
@@ -22,7 +19,9 @@
         }
       ],
       "returns": {
-        "type": "null"
+        "value": {
+          "type": "null"
+        }
       }
     }
   }

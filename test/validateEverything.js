@@ -62,7 +62,7 @@ schemas.forEach(function(schema) {
 
     if (schema.events) {
       Object.keys(schema.events).forEach(function(event) {
-        var payload = schema.events[event];
+        var payload = schema.events[event].value;
 
         try {
           var payloadSchema = resolveSchema(payload);
