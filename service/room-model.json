@@ -70,10 +70,12 @@
       "params":[
         {
           "name": "fromRoomId",
+          "description": "Current room id",
           "value": { "$ref": "/model/room#/properties/id"}
         },
         {
           "name": "toRoomId",
+          "description": "Target room id",
           "value": { "$ref": "/model/room#/properties/id"}
         },
         {

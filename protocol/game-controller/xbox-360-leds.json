@@ -13,7 +13,7 @@
       ],
       "returns": {
         "description": "Returns the current state of the LEDs after setting",
-        "$ref": "#/state"
+        "$ref": "#/events/state"
       }
     }
   },
@@ -21,6 +21,7 @@
   "events": {
     "state": {
       "description": "_ALERT means it will return to the previously set individual light (ON_X or FLASH_ON_X)",
+      "type": "string",
       "enum": ["OFF", "BLINK_ALL_ALERT", "FLASH_ON_1", "FLASH_ON_2", "FLASH_ON_3", "FLASH_ON_4", "ON_1", "ON_2", "ON_3",
         "ON_4", "ROTATING", "BLINK_CURRENT_ALERT", "SLOW_BLINK_CURRENT_ALERT", "ALTERNATING_ALERT"]
     }

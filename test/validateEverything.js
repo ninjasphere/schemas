@@ -146,7 +146,7 @@ function resolveSchema(schemaUri, baseUri, urlHistory) {
   }
 
   if (!schema) {
-    throw new Error('Failed to resolve schema refs ' + Object.keys(urlHistory).join(', '));
+    throw new Error('Failed to resolve schema ref ' + schemaUri + ' [history: ' + Object.keys(urlHistory).join(', ') + ']');
   }
 
 	if (schema.$ref !== undefined) {

@@ -4,24 +4,9 @@
   "description": "Common NinjaBlocks definitions",
   "definitions": {
 
-    "thing-id": {
-      "title": "Thing identifier",
-      "$ref": "#/definitions/uuid"
-    },
-
-    "device-id": {
-      "title": "Device identifier",
-      "$ref": "#/definitions/ninja-id"
-    },
-
-    "channel-id": {
-      "title": "Channel identifier",
-      "$ref": "#/definitions/ninja-id"
-    },
-
     "ninja-id": {
       "title": "Ninja identifier",
-      "description": "Used for ids that are hashed from outside 'natural keys' like a MAC address",
+      "description": "Used for ids that are hashed from 'natural keys' like a MAC address",
       "type": "string",
       "pattern": "^[0-9a-f]{10}$"
     },

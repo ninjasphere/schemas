@@ -1,0 +1,13 @@
+{
+  "id": "http://schema.ninjablocks.com/model/device",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Device",
+  "description": "TODO",
+  "type": "object",
+  "properties": {
+    "id": {
+      "$ref": "/common#/definitions/ninja-id"
+    }
+  },
+  "required": ["id"]
+}

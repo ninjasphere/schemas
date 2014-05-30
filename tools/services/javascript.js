@@ -18,10 +18,10 @@ function <%= className %>() {
  * @method <%= methodName %>
  *
  *<% (method.params||[]).forEach(function(param, i) { %>
- * @param {} <%= param.name %> <%= param.description||'' %><% }); %>
+ * @param {<%= param.value.type %>} <%= param.name %> <%= param.description||'' %><% }); %>
  * @param {Function} cb The callback function
- * @param {Object} cb.err The error object
- * @param {} cb.result <%= method.returns.description||'' %>
+ * @param {NinjaError} cb.err The error object
+ * @param {<%= method.returns.type %>} cb.result
  */
 <%= className %>.prototype.<%= methodName %> = function(<% (method.params||[]).forEach(function(param, i) { %><%= param.name %>, <% }); %>cb) {
 

@@ -1,0 +1,67 @@
+{
+  "id": "http://schema.ninjablocks.com/service/thing-model",
+  "$schema": "/service",
+
+  "description": "Ninja Sphere - Thing Model Service.",
+
+  "methods": {
+
+    "create": {
+      "description": "Saves a new Thing",
+      "params":[
+        {
+          "name": "thing",
+          "value": { "$ref": "/model/thing" }
+        }
+      ],
+      "returns": { "$ref" : "/model/thing#/properties/id" }
+    },
+
+    "fetchAll": {
+      "description": "Retrieves all Things",
+      "returns": {
+        "type": "array",
+        "items": { "$ref": "/model/thing" }
+      }
+    },
+
+    "fetchByDeviceId": {
+      "description": "Retrieves a Thing by device id",
+      "params": [
+        {
+          "name": "deviceId",
+          "value":  { "$ref": "/model/device#/properties/id" }
+        }
+      ],
+      "returns": { "$ref": "/model/thing" }
+    },
+
+    "updateLocation": {
+      "description": "Updates the location of a Thing",
+      "params": [
+        {
+          "name": "thingId",
+          "value":  { "$ref": "/model/thing#/properties/id" }
+        },
+        {
+          "name": "location",
+          "value":  { "type": "string" }
+        }
+      ],
+      "returns": { "$ref" : "/model/thing#/properties/id" }
+    },
+
+    "delete": {
+      "description": "Deletes a Thing",
+      "params":[
+        {
+          "name": "thingId",
+          "value": { "$ref" : "/model/thing#/properties/id" }
+        }
+      ],
+      "returns": { "$ref" : "/model/thing#/properties/id" }
+    }
+
+  }
+
+}
