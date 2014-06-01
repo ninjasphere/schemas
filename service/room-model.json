@@ -55,6 +55,21 @@
         }
       }
     },
+    "fetchRoomThingIds": {
+      "description": "Retrieves the ids of all Things in a Room",
+      "params": [
+        {
+          "name": "roomId",
+          "value": { "$ref": "/model/room#/properties/id" }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/thing#/properties/id" }
+        }
+      }
+    },
     "delete": {
       "description": "Deletes a Room",
       "params": [
@@ -93,7 +108,7 @@
       }
     },
     "removeThing": {
-      "description": "Removes a Thing a Room",
+      "description": "Removes a Thing from a Room",
       "params": [
         {
           "name": "roomId",
