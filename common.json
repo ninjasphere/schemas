@@ -3,25 +3,17 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "Common NinjaBlocks definitions",
   "definitions": {
-    "device-id": {
-      "title": "Device identifier",
-      "description": "10 hex characters",
+    "ninja-id": {
+      "title": "Ninja identifier",
+      "description": "Used for ids that are hashed from 'natural keys' like a MAC address",
       "type": "string",
       "pattern": "^[0-9a-f]{10}$"
     },
-    "room-id": {
-      "title": "Room identifier",
-      "type": "string"
-    },
-    "thing-id": {
-      "title": "Thing identifier",
-      "type": "string"
-    },
-    "channel-id": {
-      "title": "Channel identifier",
-      "description": "10 hex characters",
+    "uuid": {
+      "title": "UUID Version 4",
+      "description": "See: http://tools.ietf.org/html/rfc4122",
       "type": "string",
-      "pattern": "^[0-9a-f]{10}$"
+      "pattern": "^[a-f0-9]{8}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{4}-[a-f0-9]{12}$"
     }
   }
 }

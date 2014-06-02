@@ -16,6 +16,7 @@ function findSchemas(dir) {
         try {
 
           var schema = require(filePath);
+
           if (schema.id) {
             schemas.push(schema);
           }

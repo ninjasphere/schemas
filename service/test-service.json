@@ -1,50 +1,63 @@
 {
   "id": "http://schema.ninjablocks.com/service/test-service",
   "$schema": "/service",
-
   "description": "This is an example service definition used in documentation.",
-
   "methods": {
-
     "sayHello": {
       "description": "Just says hello.",
-      "params":[
-        { "$ref": "#/definitions/firstName" },
+      "params": [
         {
-          "type": "number",
-          "description": "Age in years",
-          "minimum": 0,
-          "maximum": 135
+          "name": "firstName",
+          "value": { "$ref": "#/definitions/firstName" }
         },
         {
-          "type": "boolean",
+          "name": "age",
+          "description": "Age in years",
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 135
+          }
+        },
+        {
+          "name": "isBirthday",
           "description": "Indicates it's the user's birthday",
-          "default": true
+          "value": {
+            "type": "boolean",
+            "default": true
+          }
         }
       ],
       "returns": {
-        "type": "string",
+        "value": {
+          "type": "string"
+        },
         "description": "The hello message"
       }
     },
-
     "sayGoodbye": {
       "description": "Just says goodbye.",
-      "params":[
-        { "$ref": "#/definitions/firstName" }
+      "params": [
+        {
+          "name": "firstName",
+          "value": { "$ref": "#/definitions/firstName" }
+        }
       ],
       "returns": {
-        "type": "string",
+        "value": {
+          "type": "string"
+        },
         "description": "The goodbye message"
       }
     }
-
   },
-
   "events": {
-    "greeting": { "type": "string" }
+    "greeting": {
+      "value": {
+        "type": "string"
+      }
+    }
   },
-
   "definitions": {
     "firstName": {
       "type": "string",
@@ -52,5 +65,4 @@
       "pattern": "^[A-Za-z]+$"
     }
   }
-
 }

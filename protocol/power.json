@@ -3,8 +3,8 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "description": "Instantaneous power consumption in watts",
-      "$ref": "/state/common#/definitions/number-timeseries"
+      "value": { "$ref": "/state/common#/definitions/number-timeseries" },
+      "description": "Instantaneous power consumption in watts"
     }
   }
 }

@@ -3,16 +3,18 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "properties": {
-        "x": {
-          "type": "number",
-          "minimum": -1,
-          "maximum": 1
-        },
-        "y": {
-          "type": "number",
-          "minimum": -1,
-          "maximum": 1
+      "value": {
+        "properties": {
+          "x": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          },
+          "y": {
+            "type": "number",
+            "minimum": -1,
+            "maximum": 1
+          }
         }
       }
     }

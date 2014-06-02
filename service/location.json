@@ -1,22 +1,27 @@
 {
   "id": "http://schema.ninjablocks.com/service/location",
   "$schema": "/service",
-
   "description": "Location Manager Service.",
-
   "methods": {
-
     "calibrate": {
-      "description": "Just says hello.",
-      "params":[
-        { "$ref": "/common#/definitions/room-id" },
+      "description": "Starts calibrating a room using the given device id (BLE MAC?)",
+      "params": [
         {
-          "type": "string",
-          "description": "(Device ID) This should be changed"
+          "name": "roomId",
+          "value": { "$ref": "/model/room#/properties/id" }
+        },
+        {
+          "name": "deviceId",
+          "value": {
+            "description": "TODO This should be changed",
+            "type": "string"
+          }
         }
       ],
       "returns": {
-        "type": "null"
+        "value": {
+          "type": "null"
+        }
       }
     }
   }

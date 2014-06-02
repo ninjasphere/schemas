@@ -2,38 +2,48 @@
   "id": "http://schema.ninjablocks.com/protocol/light",
   "$schema": "/protocol",
   "methods": {
-
     "setLight": {
       "description": "Send a full light state object to the device. Not all properties will be supported by all devices.",
-      "params": [{"$ref": "/state/light#" }],
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "/state/light#" }
+        }
+      ],
       "returns": {
-        "description": "Returns the current state of the light after setting",
-        "$ref": "/state/light#"
+        "value": { "$ref": "/state/light#" },
+        "description": "Returns the current state of the light after setting"
       }
     },
-
     "alertLight": {
       "description": "Switches to an alert state for a given number of seconds, before returning to the previous state IF the alert state is still active.",
       "params": [
         {
+          "name": "alertState",
           "description": "The state to alert to",
-          "$ref": "/state/light#"
+          "value": { "$ref": "/state/light#" }
         },
         {
-          "description": "The time in seconds to alert for",
-          "type": "number",
-          "minimum": 0,
-          "default": 1
+          "name": "alertState",
+          "description": "The time in milliseconds to alert for",
+          "value": {
+            "type": "number",
+            "minimum": 0,
+            "default": 1
+          }
         }
       ],
       "returns": {
-        "description": "Indicates the light was returned to it's previous state. If this returns false, a new state was set in the meantime.",
-        "type": "boolean"
+        "value": {
+          "type": "boolean"
+        },
+        "description": "Indicates the light was returned to it's previous state. If this returns false, a new state was set in the meantime."
       }
     }
-    
   },
   "events": {
-    "state": {"$ref": "/state/light#"}
+    "state": {
+      "value": { "$ref": "/state/light#" }
+    }
   }
 }

@@ -1,0 +1,16 @@
+{
+  "id": "http://schema.ninjablocks.com/model/thing",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Thing",
+  "description": "TODO",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "/common#/definitions/uuid" },
+    "type": {
+      "type": "string"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

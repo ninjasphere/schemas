@@ -1,28 +1,33 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/external.holiday.by.moorescloud",
   "$schema": "/protocol",
-
   "methods": {
     "setHolidayLights": {
       "description": "Sets the state of all the lights. If you send a single light colour, it will be applied to all",
       "params": [
-        { "$ref": "#/definitions/single-or-all" },
         {
-          "type": "boolean",
-          "description": "Emit state after setting?",
-          "default": "true"
+          "name": "state",
+          "value": { "$ref": "#/definitions/single-or-all" }
+        },
+        {
+          "name": "emitState",
+          "value": {
+            "type": "boolean",
+            "description": "Emit state after setting?",
+            "default": "true"
+          }
         }
       ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     }
   },
-
   "events": {
-    "state": { "$ref": "#/definitions/single-or-all" }
+    "state": {
+      "value": { "$ref": "#/definitions/single-or-all" }
+    }
   },
-
   "definitions": {
     "single-or-all": {
       "oneOf": [

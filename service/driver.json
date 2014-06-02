@@ -1,73 +1,86 @@
 {
   "id": "http://schema.ninjablocks.com/service/driver",
   "$schema": "/service",
-
+  "description": "This service is required to be implemented by all Drivers",
   "methods": {
-
     "start": {
       "description": "Starts the driver",
-      "params": [{
-        "type": "object",
-        "description": "Driver configuration object"
-      }],
+      "params": [
+        {
+          "name": "config",
+          "description": "Driver configuration object",
+          "value": {
+            "type": "object"
+          }
+        }
+      ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "stop": {
       "description": "Stops the driver, and any devices it has created since starting.",
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "createDevice": {
       "description": "Create a new device using the provided configuration.",
       "params": [
         {
-          "$ref": "#/definitions/device-driver-data"
+          "name": "driverData",
+          "value": { "$ref": "#/definitions/device-driver-data" }
         },
         {
-          "type": "object",
-          "description": "Announcement data. This gets added to the device announcement."
+          "name": "announcementData",
+          "description": "Announcement data. This gets added to the device announcement.",
+          "value": {
+            "type": "object"
+          }
         }
       ],
       "returns": {
-        "$ref": "/state/common#/definitions/success"
+        "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-
     "startDevice": {
       "description": "Create a new device using the provided configuration.",
       "params": [
         {
-          "type": "object",
-          "description": "Device configuration object."
+          "name": "config",
+          "description": "Driver configuration object",
+          "value": {
+            "type": "object"
+          }
         }
       ],
       "returns": {
-        "description": "'true' indicates device started successfully",
-        "type": "boolean"
+        "value": {
+          "type": "boolean"
+        },
+        "description": "'true' indicates device started successfully"
       }
     }
-
   },
-
   "events": {
-    "announce": { "$ref": "#/definitions/driver-announcement" },
-    "device-found": { "$ref": "#/definitions/device-driver-data" },
-    "device-ready": { "$ref": "#/definitions/device-announcement" },
-    "device-started": { "$ref": "#/definitions/device-announcement" }
+    "announce": {
+      "value": { "$ref": "#/definitions/driver-announcement" }
+    },
+    "device-found": {
+      "value": { "$ref": "#/definitions/device-driver-data" }
+    },
+    "device-ready": {
+      "value": { "$ref": "#/definitions/device-announcement" }
+    },
+    "device-started": {
+      "value": { "$ref": "#/definitions/device-announcement" }
+    }
   },
-
   "definitions": {
-
     "device-driver-data": {
       "description": "Whatever is needed by the driver in order to create the device",
       "type": "object"
     },
-
     "device-announcement": {
       "properties": {
         "id": { "$ref": "/common#/definitions/device-id" },
@@ -83,23 +96,34 @@
         "signatures": {
           "type": "object",
           "patternProperties": {
-            "^[a-z]((:|)[a-z-]+)+$": { "type": "string" }
+            "^[a-z]((:|)[a-z-]+)+$": {
+              "type": "string"
+            }
           },
           "additionalProperties": false
         },
         "driver": {
           "properties": {
-            "name": { "type": "string" },
-            "version": { "type": "string" }
+            "name": {
+              "type": "string"
+            },
+            "version": {
+              "type": "string"
+            }
           },
-          "required": ["name", "version"],
+          "required": [
+            "name",
+            "version"
+          ],
           "additionalProperties": false
         }
       },
-      "required": ["id", "driver"],
+      "required": [
+        "id",
+        "driver"
+      ],
       "additionalProperties": false
     },
-
     "driver-announcement": {
       "properties": {
         "name": {
@@ -111,20 +135,28 @@
         },
         "package": {
           "allOf": [
+            { "$ref": "/package.json#/definitions/structure" },
             {
-              "$ref": "/package.json#/definitions/structure"
-            },
-            {
-              "required": ["name", "author", "description", "version", "license"]
+              "required": [
+                "name",
+                "author",
+                "description",
+                "version",
+                "license"
+              ]
             }
           ]
         },
-        "defaultConfig": { "type": "object" }
+        "defaultConfig": {
+          "type": "object"
+        }
       },
-      "required": ["name", "file", "package"],
+      "required": [
+        "name",
+        "file",
+        "package"
+      ],
       "additionalProperties": false
     }
-
   }
-
 }

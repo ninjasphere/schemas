@@ -11,9 +11,7 @@
     "percentage": {
       "title": "Percentage",
       "allOf": [
-        {
-          "$ref": "#/definitions/number-timeseries"
-        },
+        { "$ref": "#/definitions/number-timeseries" },
         {
           "minimum": 0,
           "maximum": 100
@@ -38,7 +36,9 @@
     "success": {
       "title": "Success",
       "type": "boolean",
-      "enum": [true]
+      "enum": [
+        true
+      ]
     }
   }
 }

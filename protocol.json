@@ -7,10 +7,14 @@
     {
       "properties": {
         "events": {
-          "required": ["state"]
+          "required": [
+            "state"
+          ]
         }
       },
-      "required": ["events"]
+      "required": [
+        "events"
+      ]
     }
   ]
 }

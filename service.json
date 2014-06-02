@@ -3,26 +3,52 @@
   "$schema": "http://json-schema.org/draft-04/schema#",
   "description": "The descriptor for NinjaBlocks JSON-RPC-over-MQTT services",
   "type": "object",
-  "properties" : {
-    "id": {"type":"string"},
-    "$schema": {"enum": ["http://schema.ninjablocks.com/service", "http://schema.ninjablocks.com/protocol"]},
-    "$ref": {"type": "string"},
-    "description": {"type": "string"},
+  "properties": {
+    "id": {
+      "type": "string"
+    },
+    "$schema": {
+      "enum": [
+        "http://schema.ninjablocks.com/service",
+        "http://schema.ninjablocks.com/protocol"
+      ]
+    },
+    "$ref": {
+      "type": "string"
+    },
+    "description": {
+      "type": "string"
+    },
     "methods": {
       "type": "object",
       "patternProperties": {
         "^[a-z][a-zA-Z]+$": {
           "type": "object",
           "properties": {
-            "description": {"type": "string"},
+            "description": {
+              "type": "string"
+            },
             "params": {
               "type": "array",
               "minItems": 1,
-              "items": { "$ref": "http://json-schema.org/draft-04/schema#" }
+              "items": { "$ref": "#/definitions/parameter" }
             },
-            "returns": { "$ref": "http://json-schema.org/draft-04/schema#" }
+            "returns": {
+              "properties": {
+                "value": { "$ref": "http://json-schema.org/draft-04/schema#" },
+                "description": {
+                  "type": "string"
+                }
+              },
+              "required": [
+                "value"
+              ]
+            }
           },
-          "required": ["returns"],
+          "required": [
+            "returns",
+            "description"
+          ],
           "additionalProperties": false
         }
       },
@@ -31,7 +57,17 @@
     "events": {
       "type": "object",
       "patternProperties": {
-        "^[a-z-]+$": { "$ref": "http://json-schema.org/draft-04/schema#" }
+        "^[a-z-]+$": {
+          "properties": {
+            "value": { "$ref": "http://json-schema.org/draft-04/schema#" },
+            "description": {
+              "type": "string"
+            }
+          },
+          "required": [
+            "value"
+          ]
+        }
       }
     },
     "definitions": {
@@ -39,5 +75,24 @@
       "additionalProperties": { "$ref": "http://json-schema.org/draft-04/schema#" }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "definitions": {
+    "parameter": {
+      "type": "object",
+      "properties": {
+        "name": {
+          "type": "string",
+          "pattern": "^[a-z][a-zA-Z]+$"
+        },
+        "value": { "$ref": "http://json-schema.org/draft-04/schema#" },
+        "description": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "name",
+        "value"
+      ]
+    }
+  }
 }

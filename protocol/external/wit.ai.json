@@ -3,6 +3,8 @@
   "$schema": "/protocol",
   "methods": {},
   "events": {
-    "state": {"$ref": "/state/external.wit.ai#"}
+    "state": {
+      "value": { "$ref": "/state/external.wit.ai#" }
+    }
   }
 }

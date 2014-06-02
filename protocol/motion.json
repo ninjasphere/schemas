@@ -3,8 +3,12 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "type": "boolean",
-      "enum": [ true ]
+      "value": {
+        "type": "boolean",
+        "enum": [
+          true
+        ]
+      }
     }
   }
 }
