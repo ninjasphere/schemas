@@ -148,7 +148,8 @@
           ]
         },
         "defaultConfig": {
-          "type": "object"
+          "type": "object",
+          "additionalProperties": true
         }
       },
       "required": [
