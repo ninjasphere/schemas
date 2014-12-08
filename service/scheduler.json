@@ -1,0 +1,117 @@
+{
+    "id": "http://schema.ninjablocks.com/service/scheduler",
+    "$schema": "/service",
+    "description": "This service is required to be implemented by all Apps",
+    "methods": {
+        "schedule": {
+            "description": "Schedule a task",
+            "params": [
+                {
+                    "name": "task",
+                    "description": "The task to be scheduled.",
+                    "value": {
+                        "type": "object"
+                    }
+                }
+            ],
+            "required": false
+        },
+        "fetch": {
+            "description": "Get the description of a task",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the task to be fetched.",
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "required": false
+        },
+        "fetchSchedule": {
+            "description": "Get the complete schedule",
+            "required": false
+        },
+        "status": {
+            "description": "Answer the status of the specified task",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the task to be fetched.",
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "required": false
+        },
+        "cancel": {
+            "description": "Cancel a task.",
+            "params": [
+                {
+                    "name": "id",
+                    "description": "The id of the task to be cancelled.",
+                    "value": {
+                        "type": "string"
+                    }
+                }
+            ],
+            "required": false
+        },
+        "setTimeZone": {
+            "description": "Set the scheduler's time zone.",
+            "params": [
+                {
+                    "name": "timezone",
+                    "description": "The timezone of the scheduler.",
+                    "value": {
+                        "$ref": "/model/timezone"
+                    }
+                }
+            ],
+            "required": false
+        },
+        "setCoordinates": {
+            "description": "Set the scheduler's coordinates.",
+            "params": [
+                {
+                    "name": "coordinates",
+                    "description": "The coordinates of the scheduler.",
+                    "value": {
+                        "$ref": "/model/coordinates"
+                    }
+                }
+            ],
+            "required": false
+        }
+    },
+    "events": {
+        "task-scheduled": {
+            "value": {
+                "type": "object"
+            }
+        },
+        "task-cancelled": {
+            "value": {
+                "type": "object"
+            }
+        },
+        "task-permanently-closed": {
+            "value": {
+                "type": "object"
+            }
+        },
+        "task-window-open": {
+            "value": {
+                "type": "object"
+            }
+        },
+        "task-window-closed": {
+            "value": {
+                "type": "object"
+            }
+        }
+    },
+    "definitions": {}
+}

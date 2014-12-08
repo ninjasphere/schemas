@@ -1,0 +1,36 @@
+{
+  "id": "http://schema.ninjablocks.com/model/module",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Module (aka Driver)",
+  "type": "object",
+  "allOf": [
+    {
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "name": {
+          "type": "string"
+        },
+        "version": { "$ref": "/package.json#/definitions/semver" },
+        "description": {
+          "type": "string"
+        },
+        "author": { "$ref": "/package.json#/definitions/person" },
+        "contributors": {
+          "type": "array",
+          "items": {
+            "$ref": "/package.json#/definitions/person"
+          }
+        },
+        "license": {
+          "type": "string"
+        }
+      },
+      "required": [
+        "id", "name", "version", "license"
+      ]
+    },
+    { "$ref": "/model/service-announcement#" }
+  ]
+}

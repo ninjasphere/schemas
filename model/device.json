@@ -2,12 +2,42 @@
   "id": "http://schema.ninjablocks.com/model/device",
   "$schema": "http://json-schema.org/draft-04/schema#",
   "title": "Device",
-  "description": "TODO",
   "type": "object",
-  "properties": {
+  "allOf": [
+    {
+      "properties": {
+        "id": { "$ref": "#/definitions/id" },
+        "naturalId": {
+          "type": "string"
+        },
+        "naturalIdType": {
+          "type": "string",
+          "pattern": "^[a-z-]*$"
+        },
+        "name": {
+          "type": "string"
+        },
+        "thing": { "$ref": "/common#/definitions/uuid" },
+        "channels": {
+          "type": "array",
+          "items": { "$ref": "/model/channel#" }
+        },
+        "signatures": {
+          "type": "object",
+          "patternProperties": {
+            "^[a-z]+\\:[a-zA-Z_-]+$": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    { "$ref": "/model/service-announcement#" }
+  ],
+  "definitions": {
     "id": { "$ref": "/common#/definitions/ninja-id" }
-  },
-  "required": [
-    "id"
-  ]
+  }
 }

@@ -1,15 +1,26 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "http://schema.ninjablocks.com/protocol",
-  "description": "A NinjaBlocks Device protocol - (Just a service that is required to have a 'state' event)",
+  "description": "A NinjaBlocks Device protocol",
   "allOf": [
     { "$ref": "/service#" },
     {
       "properties": {
-        "events": {
-          "required": [
-            "state"
-          ]
+        "methods": {
+          "properties": {
+            "set": {
+              "description": "If there is a 'set' method, it can only accept one param and must not have a return value.",
+              "properties": {
+                "params": {
+                  "minItems": 1,
+                  "maxItems": 1
+                }
+              },
+              "not": {
+                "required": ["returns"]
+              }
+            }
+          }
         }
       },
       "required": [

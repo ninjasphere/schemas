@@ -1,0 +1,275 @@
+{
+  "id": "http://schema.ninjablocks.com/ui",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "description": "The descriptor for the Ninja Sphere UI",
+
+  "definitions": {
+
+    "replyTo": {
+      "description": "The mqtt topic and method required to reply to a configuration request on notification",
+      "properties": {
+        "topic": {
+          "type": "string"
+        },
+        "method": {
+          "type": "string"
+        }
+      }
+    },
+
+    "section": {
+      "description": "These sections should be rendered as field groups",
+      "properties": {
+        "title": {
+          "type": "string"
+        },
+        "contents": {
+          "type": "array",
+          "items": {
+            "oneOf": [
+              { "$ref": "#/definitions/content" },
+              { "$ref": "#/definitions/input" }
+            ]
+          }
+        }
+      },
+      "required": ["contents"]
+    },
+
+    "content": {
+      "oneOf": [
+        { "$ref": "#/definitions/image" },
+        { "$ref": "#/definitions/text" }
+      ]
+    },
+
+    "input": {
+      "oneOf": [
+        { "$ref": "#/definitions/inputText" },
+        { "$ref": "#/definitions/inputChoice" },
+        { "$ref": "#/definitions/inputToggle" }
+      ]
+    },
+
+    "submitData": {
+      "description": "This is data that may be sent back in the reply",
+      "type": "object",
+      "additionalProperties": true
+    },
+
+    "action": {
+      "properties": {
+        "label": {
+          "type": "string"
+        },
+        "displayClass": {
+          "description": "This is used differently depending on display method and platform.",
+          "type": "string",
+          "enum": ["positive", "negative", "primary", "normal"],
+          "default": "normal"
+        },
+        "displayIcon": {
+          "description": "The name of the icon to display. TODO: Set list?",
+          "type": "string"
+        }
+      },
+      "required": ["type", "label"],
+      "oneOf": [
+        { "$ref": "#/definitions/replyAction" },
+        { "$ref": "#/definitions/linkAction" },
+        { "$ref": "#/definitions/configurationAction" }
+      ]
+    },
+
+    "replyAction": {
+      "properties": {
+        "type": { "enum": ["reply"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "default": true
+        }
+      },
+      "required": ["name"]
+    },
+
+    "linkAction": {
+      "properties": {
+        "type": { "enum": ["link"] },
+        "uri": {
+          "description": "Should handle tel:, http: etc. uris",
+          "type": "string"
+        }
+      },
+      "required": ["uri"]
+    },
+
+    "configurationAction": {
+      "description": "Displays a configuration screen to the user.",
+      "properties": {
+        "type": { "enum": ["configuration"] },
+        "screen": { "$ref": "/state/configuration-screen#" },
+        "label": {}
+      },
+      "required": ["screen"]
+    },
+
+    "image": {
+      "properties": {
+        "type": { "enum": ["image"] },
+        "src": {
+          "type": "string"
+        },
+        "alt": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "src"]
+    },
+
+    "text": {
+      "properties": {
+        "type": { "enum": ["text"] },
+        "text": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "text"]
+    },
+
+    "fieldName": {
+      "description": "TODO: Add js variable name safe pattern ([a-zA-Z][a-zA-Z-_]+)",
+      "type": "string"
+    },
+
+    "inputText": {
+      "oneOf": [
+        {
+          "description": "Normal field",
+          "properties": {
+            "password": {
+              "enum": [false]
+            }
+          },
+          "not": {
+            "required": ["passwordLength"]
+          }
+        },
+        {
+          "description": "Password field",
+          "properties": {
+            "password": {
+              "enum": [true]
+            }
+          },
+          "required": ["password"],
+          "not": {
+            "description": "For security, we never want a value on a password field.",
+            "properties": {
+              "lines": {
+                "minimum": 2
+              }
+            },
+            "required": ["value"]
+          }
+        }
+      ],
+      "properties": {
+        "type": { "enum": ["inputText"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "placeholder": {
+          "type": "string"
+        },
+        "required": {
+          "type": "boolean",
+          "default": false
+        },
+        "lines": {
+          "type": "number",
+          "minimum": 1,
+          "default": 1
+        },
+        "password": {
+          "type": "boolean",
+          "default": false
+        },
+        "passwordLength": {
+          "description": "> 0 Indicates there is a password given.",
+          "type": "number",
+          "default": 0
+        }
+      },
+      "required": ["type", "name", "label"]
+    },
+
+    "inputToggle": {
+      "properties": {
+        "type": { "enum": ["inputToggle"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "type": "boolean"
+        },
+        "label": {
+          "type": "string"
+        }
+      },
+      "patternProperties": {
+        "^(on|off)$": {
+          "type": "object",
+          "properties": {
+            "message": {
+              "type": "string"
+            },
+            "label": {
+              "type": "string"
+            }
+          }
+        }
+      },
+      "required": ["type", "name", "label"]
+    },
+
+    "inputChoice": {
+      "properties": {
+        "type": { "enum": ["inputChoice"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "type": "string"
+        },
+        "label": {
+          "type": "string"
+        },
+        "minimumChoices": {
+          "type": "number",
+          "minimum": 0,
+          "default": 0
+        },
+        "maximumChoices": {
+          "type": "number",
+          "minimum": 1,
+          "default": 1
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "label": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": ["label", "value"]
+          }
+        }
+      },
+      "required": ["type", "name", "label"]
+    }
+
+  }
+}

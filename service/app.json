@@ -1,0 +1,51 @@
+{
+  "id": "http://schema.ninjablocks.com/service/app",
+  "$schema": "/service",
+  "description": "This service is required to be implemented by all Apps",
+  "methods": {
+    "start": {
+      "description": "Starts the app",
+      "params": [
+        {
+          "name": "config",
+          "description": "App configuration object",
+          "value": {
+            "type": "object"
+          }
+        }
+      ]
+    },
+    "stop": {
+      "description": "Stops the app."
+    },
+    "setLogLevel": {
+      "description": "Set the logging level of the root logger of the driver's process",
+      "params": [
+        {
+          "name": "level",
+          "description": "The requested log level",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "required": false
+    }
+  },
+  "events": {
+    "announce": {
+      "value": { "$ref": "/model/module" }
+    },
+    "config": {
+      "value": {
+        "type": "object",
+        "additionalProperties": true
+      }
+    },
+    "notification": {
+      "value": { "$ref": "/state/notification#" }
+    }
+  },
+  "definitions": {
+  }
+}

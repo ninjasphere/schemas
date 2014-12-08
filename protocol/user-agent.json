@@ -1,0 +1,20 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/user-agent",
+  "$schema": "/protocol",
+  "events": {
+    "pairing-requested": {
+      "value": { "$ref": "#/definitions/pairing-request" }
+    },
+    "pairing-cancelled": { }
+  },
+  "definitions": {
+        "pairing-request": {
+            "properties": {
+                "duration": {
+                    "type": "number",
+                    "description": "The requested period, in seconds, for the pairing mode."
+                }
+            }
+        }
+  }
+}

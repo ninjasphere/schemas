@@ -1,0 +1,29 @@
+{
+  "id": "http://schema.ninjablocks.com/state/configuration-screen",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Configuration Screen",
+  "description": "Used by drivers and applications to display a form to the user, asking for configuration.",
+  "type": "object",
+  "properties": {
+    "replyTo": { "$ref": "/ui#/definitions/replyTo" },
+    "title": {
+      "description": "Usually displayed as the top title bar",
+      "type": "string"
+    },
+    "sections": {
+      "description": "These sections should be rendered as field sets or groups",
+      "type": "array",
+      "items": { "$ref": "/ui#/definitions/section" }
+    },
+    "actions": {
+      "description": "When submitting, all fields in all sections are sent in the reply.",
+      "type": "array",
+      "items": { "$ref": "/ui#/definitions/action" }
+    },
+    "data": {
+      "description": "This property is used to store any data that should be returned with a reply.",
+      "type": "object",
+      "additionalProperties": true
+    }
+  }
+}

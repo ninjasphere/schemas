@@ -55,6 +55,24 @@
         }
       }
     },
+    "fetchByExample": {
+      "description": "Retrieves all Things that match the example object",
+      "params": [
+        {
+          "name": "example",
+          "value": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/room" }
+        }
+      }
+    },
     "fetchRoomThingIds": {
       "description": "Retrieves the ids of all Things in a Room",
       "params": [
@@ -125,6 +143,17 @@
         },
         "description": "TODO: Success value?"
       }
+    }
+  },
+  "events": {
+    "created": {
+      "value": { "$ref": "/model/room#/properties/id" }
+    },
+    "updated": {
+      "value": { "$ref": "/model/room#/properties/id" }
+    },
+    "deleted": {
+      "value": { "$ref": "/model/room#/properties/id" }
     }
   }
 }

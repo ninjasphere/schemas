@@ -2,24 +2,6 @@
   "id": "http://schema.ninjablocks.com/service/device",
   "$schema": "/service",
   "methods": {
-    "start": {
-      "description": "Starts the device",
-      "params": [
-        {
-          "name": "config",
-          "value": {
-            "type": "object",
-            "description": "Device configuration object"
-          }
-        }
-      ],
-      "returns": {
-        "value": {
-          "type": "boolean"
-        },
-        "description": "'true' indicates device started successfully"
-      }
-    },
     "traceroute": {
       "description": "Traces the path to the device. Depending on the device, this may stop at the driver level",
       "returns": {
@@ -30,10 +12,9 @@
               "type": "string",
               "description": "What type of node is responding",
               "enum": [
-                "conductor",
                 "block",
                 "driver",
-                "(a node in between, like in the mesh)",
+                "peer",
                 "device"
               ]
             },
@@ -49,26 +30,44 @@
             "level"
           ]
         }
-      }
+      },
+      "required":false
     },
     "setName": {
       "description": "Sets the name of the device.",
       "params": [
         {
           "name": "name",
-          "value": {
-            "type": "string",
-            "description": "The device name. alpha-numeric + spaces, but different devices may not support all characters.",
-            "pattern": "^[A-Za-z ]+$"
-          }
+          "value": { "$ref": "#/definitions/device-name" }
         }
       ],
       "returns": {
-        "value": {
-          "type": "string"
-        },
-        "description": "The name that was saved to the device. If null, it is not possible to store the name on the device."
-      }
+        "description": "The name that was saved to the device. If null, it is not possible to store the name on the device.",
+        "value": { "$ref": "#/definitions/device-name" }
+      },
+      "required":false
+    }
+  },
+  "events": {
+    "announce": {
+      "value": { "$ref": "/model/device" }
+    },
+    "contactable": {
+      "description": "The device is contactable"
+    },
+    "uncontactable": {
+      "description": "The device is not contactable"
+    },
+    "renamed": {
+      "description": "The device has a new name",
+      "value": { "$ref": "#/definitions/device-name" }
+    }
+  },
+  "definitions": {
+    "device-name": {
+      "type": "string",
+      "description": "The device name. alpha-numeric + spaces, but different devices may not support all characters.",
+      "pattern": "^[A-Za-z ]+$"
     }
   }
 }

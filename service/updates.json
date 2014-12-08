@@ -1,0 +1,94 @@
+{
+  "id": "http://schema.ninjablocks.com/service/updates",
+  "$schema": "/service",
+  "description": "Monitors for any updates being run, and can provide status about updates being required.",
+  "methods": {
+    "start": {
+      "description": "Start the update process",
+      "returns": {
+        "description": "The list of packages to be updated/installed",
+        "value": {
+          "properties": {
+            "started": {
+              "description": "true if started successfully, false if already running.",
+              "type": "boolean"
+            }
+          }
+        }
+      }
+    },
+    "getAvailable": {
+      "description": "Gets the updatable packages",
+      "returns": {
+        "description": "The list of packages to be updated/installed",
+        "value": {
+          "$ref": "#/definitions/updatable-packages"
+        }
+      }
+    },
+    "getProgress": {
+      "description": "Gets the progress of the current (or previous) update.",
+      "returns": {
+        "value": {
+          "$ref": "#/definitions/progress"
+        }
+      }
+    }
+  },
+  "events": {
+    "started": {},
+    "progress": {
+      "value": {
+        "$ref": "#/definitions/progress"
+      }
+    },
+    "finished": {
+      "value": {
+        "type": "string"
+      }
+    }
+  },
+  "definitions": {
+    "updatable-packages": {
+      "type": "array",
+      "items": {
+        "properties": {
+          "name": {
+            "type": "string"
+          },
+          "current": {
+            "type": "string"
+          },
+          "available": {
+            "type": "string"
+          }
+        }
+      }
+    },
+    "progress": {
+      "properties": {
+        "running": {
+          "description": "Indicates an update is currently running. If one has finished, it will give an error if one happened.",
+          "type": "boolean"
+        },
+        "runningTime": {
+          "description": "The time the current update has been running for in seconds.",
+          "type": "number",
+          "minimum": 0
+        },
+        "description": {
+          "description": "A description of the current step in the update.",
+          "type": "string"
+        },
+        "percent": {
+          "type": "number",
+          "minimum": 0,
+          "maximum": 100
+        },
+        "error": {
+          "type": "string"
+        }
+      }
+    }
+  }
+}

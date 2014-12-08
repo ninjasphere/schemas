@@ -1,0 +1,149 @@
+{
+  "id": "http://schema.ninjablocks.com/service/led-controller",
+  "$schema": "/service",
+  "description": "LED Controller Service.",
+  "methods": {
+    "enableControl": {
+      "description": "Enables the normal UI"
+    },
+    "disableControl": {
+      "description": "Disables the normal UI"
+    },
+    "displayIcon": {
+      "description": "Displays an icon for a number of milliseconds. 0=forever. Will return to controls if they are enabled, or a blank screen if they are not. Will not sleep while displaying.",
+      "params": [{
+        "name": "config",
+        "value": {
+          "type": "object",
+          "properties": {
+            "icon": {
+              "description": "The icon class name (will load from ./icons/{name}.gif)",
+              "type": "string",
+              "pattern": "[a-zA-Z0-9_-]+"
+            },
+            "displayTime": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          "required": ["icon"]
+        }
+      }]
+    },
+    "displayColor": {
+      "description": "Displays a color for a number of milliseconds. 0=forever. Will return to controls if they are enabled, or a blank screen if they are not. Will not sleep while displaying.",
+      "params": [{
+        "name": "config",
+        "value": {
+          "type": "object",
+          "properties": {
+            "color": {
+              "description": "The color to display. In the form #FFFFFF",
+              "type": "string",
+              "pattern": "#[A-F0-9]{6}"
+            },
+            "displayTime": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          "required": ["color"]
+        }
+      }]
+    },
+    "displayPairingCode": {
+      "description": "Displays a pairing code for a number of milliseconds. 0=forever. Will return to controls if they are enabled, or a blank screen if they are not. Will not sleep while displaying.",
+      "params": [{
+        "name": "config",
+        "value": {
+          "type": "object",
+          "properties": {
+            "code": {
+              "description": "The code to display.",
+              "type": "string",
+              "pattern": "[0-9]{4}"
+            },
+            "displayTime": {
+              "type": "number",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          "required": ["code"]
+        }
+      }]
+    },
+    "displayResetMode": {
+      "description": "Displays a visual indication of the current reset mode.",
+      "params": [{
+        "name": "mode",
+        "value": {
+          "type": "object",
+          "properties": {
+            "hold": {
+              "description": "True, if selection is being held, pending a revision of the selected mode.",
+              "type": "boolean"
+            },
+            "mode": {
+              "description": "The selected reset mode.",
+              "type": "string",
+              "enum": ["none", "reboot", "reset-userdata", "reset-root"]
+            },
+            "duration": {
+              "description": "The duration for which the mode indication should be displayed before reverting to a blank display.",
+              "type": "number",
+              "minimum": 0,
+              "default": 0
+            }
+          },
+          "required": ["mode", "hold"]
+        }
+      }]
+    },
+    "displayDrawing": {
+      "description": "Displays a blank frame that can be updated with the draw method"
+    },
+    "draw": {
+      "description": "Updates a list of pixels on the drawing screen.",
+      "params": [{
+        "name": "updates",
+        "value": {
+          "type": "array",
+          "items": {
+            "description": "Each update is []uint8 [x,y,r,g,b]",
+            "type": "array",
+            "items": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 255
+            },
+            "maxItems": 5,
+            "maxItems": 5
+          }
+        }
+      }]
+    },
+    "displayUpdateProgress": {
+      "description": "Displays the update progress screen at a position (0..1)",
+      "params": [{
+        "name": "config",
+        "value": {
+          "type": "object",
+          "properties": {
+            "progress": {
+              "type": "number",
+              "minimum": 0,
+              "maximum": 1
+            }
+          },
+          "required": ["progress"]
+        }
+      }]
+    },
+    "blank": {
+      "description": "Blanks the screen. Only works when controls are disabled."
+    }
+  }
+}

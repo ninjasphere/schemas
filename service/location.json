@@ -16,6 +16,13 @@
             "description": "TODO This should be changed",
             "type": "string"
           }
+        },
+        {
+          "name": "reset",
+          "value": {
+            "description": "Whether the existing room's calibration should be reset or not",
+            "type": "boolean"
+          }
         }
       ],
       "returns": {

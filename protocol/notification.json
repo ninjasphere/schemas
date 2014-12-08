@@ -1,0 +1,16 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/notification",
+  "$schema": "/protocol",
+  "methods": {
+    "display": {
+      "description": "Displays a notification",
+      "params": [
+        {
+          "name": "notification",
+          "value": { "$ref": "/state/notification#" }
+        }
+      ]
+    }
+  },
+  "events": {}
+}

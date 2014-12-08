@@ -1,0 +1,25 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/brightness",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Sets the brightness level of the device.",
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "#/events/state/value" }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "description": "The brightness. 0 is off, 1 is full brightness.",
+      "value": {
+        "type": "number",
+        "minimum": 0,
+        "maximum": 1
+      }
+    }
+  }
+}

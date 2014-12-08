@@ -2,18 +2,14 @@
   "id": "http://schema.ninjablocks.com/protocol/game-controller.xbox-360-leds",
   "$schema": "/protocol",
   "methods": {
-    "setLEDState": {
+    "set": {
       "description": "Sets the LED state",
       "params": [
         {
           "name": "state",
           "value": { "$ref": "#/events/state/value" }
         }
-      ],
-      "returns": {
-        "value": { "$ref": "#/events/state" },
-        "description": "Returns the current state of the LEDs after setting"
-      }
+      ]
     }
   },
   "events": {

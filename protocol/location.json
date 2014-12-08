@@ -1,0 +1,20 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/location",
+  "$schema": "/protocol",
+  "events": {
+    "state": {
+      "value": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "$ref": "/model/room#/properties/id"
+          },
+          "hasChanged": {
+            "type": "boolean"
+          }
+        },
+        "required": ["id", "hasChanged"]
+      }
+    }
+  }
+}

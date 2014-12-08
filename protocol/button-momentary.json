@@ -1,0 +1,15 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/button-momentary",
+  "$schema": "/protocol",
+  "events": {
+    "pressed": {
+      "value": {
+        "type": "boolean",
+        "enum": [
+          true
+        ],
+        "timeseries": "event"
+      }
+    }
+  }
+}

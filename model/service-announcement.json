@@ -1,0 +1,28 @@
+{
+  "id": "http://schema.ninjablocks.com/model/service-announcement",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Service Announcement",
+  "type": "object",
+  "properties": {
+    "topic": {
+      "type": "string"
+    },
+    "schema": {
+      "type": "string"
+    },
+    "deprecated": {
+      "type": "boolean"
+    },
+    "supportedMethods": {
+      "type": "array",
+      "items": { "type": "string" }
+    },
+    "supportedEvents": {
+      "type": "array",
+      "items": { "type": "string" }
+    }
+  },
+  "required": [
+    "topic", "schema", "supportedMethods", "supportedEvents"
+  ]
+}

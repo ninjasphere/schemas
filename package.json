@@ -1,6 +1,6 @@
 {
   "name": "sphere-schemas",
-  "version": "1.0.4",
+  "version": "1.0.8",
   "description": "The schemas used for communication in and with Ninja Sphere.",
   "main": "index.js",
   "directories": {
@@ -22,11 +22,15 @@
     "url": "https://github.com/ninjablocks/schemas/issues"
   },
   "homepage": "https://github.com/ninjablocks/schemas",
-  "devDependencies": {
-    "tv4": "1.0.18",
+  "dependencies": {
+    "underscore.string": "^2.3.3",
     "colors": "0.6.2",
+    "tv4": "^1.1.0",
     "tv4-formats": "git://github.com/ninjablocks/tv4-formats",
-    "ejs": "^1.0.0",
-    "underscore.string": "^2.3.3"
+    "underscore": "^1.6.0",
+    "flat": "^1.2.1"
+  },
+  "devDependencies": {
+    "ejs": "^1.0.0"
   }
 }

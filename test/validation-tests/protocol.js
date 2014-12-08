@@ -27,49 +27,7 @@ var valid = [
 
 ];
 
-var invalid = [
-  { // No state event
-    "methods": {
-      "setOnOff": {
-        "description": "Turns the device on or off",
-        "params": [{
-          "name": "state",
-          "value": { "$ref": "/state/common#/definitions/boolean-state" }
-        }],
-        "returns": {
-          "description": "The new state",
-          "value": {
-            "$ref": "/state/common#/definitions/boolean-state"
-          }
-        }
-      }
-    },
-    "events": {
-      "something-else": {
-        "value": {
-          "$ref": "/state/common#/definitions/boolean-state"
-        }
-      }
-    }
-  },
-  { // No state event
-    "methods": {
-      "setOnOff": {
-        "description": "Turns the device on or off",
-        "params": [{
-          "name": "state",
-          "value": { "$ref": "/state/common#/definitions/boolean-state" }
-        }],
-        "returns": {
-          "description": "The new state",
-          "value": {
-            "$ref": "/state/common#/definitions/boolean-state"
-          }
-        }
-      }
-    }
-  }
-];
+var invalid = [];
 
 module.exports = {
   valid: valid,

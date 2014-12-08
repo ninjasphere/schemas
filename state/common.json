@@ -6,39 +6,44 @@
     "number-timeseries": {
       "title": "Time-series number",
       "description": "Indicates that this property should be stored in the time-series database.",
-      "type": "number"
+      "type": "number",
+      "timeseries": "value"
     },
     "percentage": {
       "title": "Percentage",
-      "allOf": [
-        { "$ref": "#/definitions/number-timeseries" },
-        {
-          "minimum": 0,
-          "maximum": 100
-        }
-      ]
+      "type": "number",
+      "minimum": 0,
+      "maximum": 100,
+      "timeseries": "value"
     },
     "humidity": {
       "title": "Relative Humidity",
       "description": "Expressed as a percentage",
       "$ref": "#/definitions/percentage"
     },
+    "moisture": {
+      "title": "Moisture",
+      "description": "Expressed as a percentage",
+      "$ref": "#/definitions/percentage"
+    },
     "temperature": {
       "title": "Temperature",
       "description": "In degrees Celcius (°C)",
-      "$ref": "#/definitions/number-timeseries"
+      "type": "number",
+      "timeseries": "value"
+    },
+    "illuminance": {
+      "title": "Illuminance",
+      "description": "In lux",
+      "type": "number",
+      "minimum": 0,
+      "timeseries": "value"
     },
     "boolean-state": {
       "title": "Boolean",
       "description": "true=on, false=off",
-      "type": "boolean"
-    },
-    "success": {
-      "title": "Success",
       "type": "boolean",
-      "enum": [
-        true
-      ]
+      "timeseries": "boolean"
     }
   }
 }

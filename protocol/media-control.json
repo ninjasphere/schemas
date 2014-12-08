@@ -1,0 +1,50 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/media-control",
+  "$schema": "/protocol",
+  "methods": {
+    "play": {
+      "description": "Plays the media"
+    },
+    "pause": {
+      "description": "Pauses the media"
+    },
+    "togglePlay": {
+      "description": "Toggles the playing state",
+      "required": false
+    },
+    "stop": {
+      "description": "Stops the media"
+    },
+    "next": {
+      "description": "Skips to the next media",
+      "required": false
+    },
+    "previous": {
+      "description": "Returns to the previous media",
+      "required": false
+    }
+  },
+  "events": {
+    "playing": {
+      "description": "The media is currently playing"
+    },
+    "paused": {
+      "description": "The media is currently paused"
+    },
+    "stopped": {
+      "description": "The media is currently stopped"
+    },
+    "buffering": {
+      "description": "The media is currently buffering"
+    },
+    "busy": {
+      "description": "The media application is currently busy, usually due to a method being called."
+    },
+    "idle": {
+      "description": "The media application is not doing anything, and has no current media."
+    },
+    "inactive": {
+      "description": "The media application is currently inactive. No methods are available."
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/identify",
+  "$schema": "/protocol",
+  "methods": {
+    "identify": {
+      "description": "Identifies device-- eg beep BLE tag"
+    }
+  },
+  "events": {}
+}

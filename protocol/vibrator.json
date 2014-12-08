@@ -2,28 +2,16 @@
   "id": "http://schema.ninjablocks.com/protocol/vibrator",
   "$schema": "/protocol",
   "methods": {
-    "setVibrate": {
+    "set": {
       "description": "Turns the vibration on or off. Cancels a running pattern.",
       "params": [
         {
           "name": "state",
           "value": { "$ref": "/state/common#/definitions/boolean-state" }
-        },
-        {
-          "name": "time",
-          "description": "The time in ms to vibrate for. 0 = forever.",
-          "value": {
-            "type": "number",
-            "default": 0,
-            "minimum": 0
-          }
         }
-      ],
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+      ]
     },
-    "vibrateOn": {
+    "turnOn": {
       "description": "Turns the vibration on",
       "params": [
         {
@@ -35,24 +23,18 @@
             "minimum": 0
           }
         }
-      ],
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+      ]
     },
-    "vibrateOff": {
-      "description": "Turns the vibration off",
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+    "turnOff": {
+      "description": "Turns the vibration off, and cancels any running pattern."
     },
-    "toggleVibrate": {
+    "toggle": {
       "description": "Toggles the vibration state. If in a pattern, cancels the pattern first.",
       "returns": {
         "value": { "$ref": "/state/common#/definitions/success" }
       }
     },
-    "startVibratePattern": {
+    "startPattern": {
       "description": "Starts a vibration pattern. Cancels any existing running pattern.",
       "params": [
         {

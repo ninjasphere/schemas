@@ -1,0 +1,188 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/media",
+  "$schema": "/protocol",
+  "methods": {
+    "playUrl": {
+      "description": "Plays a media url. Supported formats is dependent on the application.",
+      "required": false,
+      "params": [
+        {
+          "name": "url",
+          "value": {
+            "type": "string",
+            "format": "url"
+          }
+        }
+      ]
+    },
+    "queueUrl": {
+      "description": "Plays a media url. Supported formats is dependent on the application.",
+      "required": false,
+      "params": [
+        {
+          "name": "url",
+          "value": {
+            "type": "string",
+            "format": "url"
+          }
+        }
+      ]
+    }
+  },
+  "definitions": {
+    "image": {
+      "properties": {
+        "url": {
+          "type": "string",
+          "format": "url"
+        },
+        "width": {
+          "type": "number",
+          "minimum": 0
+        },
+        "height": {
+          "type": "number",
+          "minimum": 0
+        }
+      },
+      "required": ["url"]
+    },
+    "media": {
+      "description": "TODO: Add the rest of the media types",
+      "type": "object",
+      "properties": {
+        "id": {
+          "type": "string"
+        },
+        "externalIds": {
+          "type": "object",
+          "additionalProperties": true
+        },
+        "contentType": {
+          "type": "string"
+        },
+        "duration": {
+          "type": "number",
+          "description": "Length in milliseconds"
+        },
+        "type": {
+          "type": "string",
+          "enum": ["generic", "tv-episode", "movie", "photo", "music-track"]
+        },
+        "title": { "type": "string" },
+        "image": { "$ref": "#/definitions/image" },
+        "art": {
+          "description": "A large image that can be used as a background in the UI",
+          "$ref": "#/definitions/image"
+        }
+      },
+      "oneOf": [
+        {
+          "properties": {
+            "type": {
+              "enum": ["generic"]
+            },
+            "subtitle": { "type": "string" }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": ["tv-episode"]
+            },
+            "summary": { "type": "string" },
+            "year": { "type": "string" },
+            "show": {
+              "properties": {
+                "title": { "type": "string" },
+                "image": { "$ref": "#/definitions/image" }
+              }
+            }
+          }
+        },
+        {
+          "properties": {
+            "type": {
+              "enum": ["movie"]
+            },
+            "tagline": { "type": "string" },
+            "summary": { "type": "string" },
+            "studio": { "type": "string" },
+            "year": { "type": "string" },
+            "contentRating": { "type": "string" },
+            "director": { "type": "string" }
+          }
+        },
+        {
+          "description": "TODO: Needs to be expanded",
+          "properties": {
+            "type": {
+              "enum": ["music-track"]
+            },
+            "artists": {
+              "type": "array",
+              "items": {
+                "type": "object",
+                "properties": {
+                  "id": {
+                    "type": "string"
+                  },
+                  "externalIds": {
+                    "type": "object",
+                    "additionalProperties": true
+                  },
+                  "name": {
+                    "type": "string"
+                  },
+                  "image": { "$ref": "#/definitions/image" }
+                },
+                "required": ["name"]
+              }
+            },
+            "album": {
+              "type": "object",
+              "properties": {
+                "id": {
+                  "type": "string"
+                },
+                "externalIds": {
+                  "type": "object",
+                  "additionalProperties": true
+                },
+                "name": {
+                  "type": "string"
+                },
+                "genres": {
+                  "type": "array",
+                  "items": {
+                    "type": "string"
+                  }
+                },
+                "image": { "$ref": "#/definitions/image" }
+              },
+              "required": ["name"]
+            },
+            "explicit": {
+              "type": "boolean"
+            }
+          }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "description": "The media state",
+      "value": {
+        "type": "object",
+        "properties": {
+          "position": {
+            "type": "number",
+            "description": "Position in milliseconds"
+          },
+          "media": { "$ref": "#/definitions/media" }
+        }
+      }
+    }
+  }
+}

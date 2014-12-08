@@ -1,0 +1,30 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/transition",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Set the transition time in milliseconds",
+      "params": [
+        {
+          "name": "transitionTime",
+          "value": { "$ref": "#/events/state/value" }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "description": "The transition time in milliseconds (ms)",
+      "value": {
+        "type": "number",
+        "minimum": 0
+      }
+    },
+    "started": {
+      "value": { "$ref": "#/events/state/value" }
+    },
+    "ended": {
+      "value": { "$ref": "#/events/state/value" }
+    }
+  }
+}

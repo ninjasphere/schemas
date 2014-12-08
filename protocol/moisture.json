@@ -1,0 +1,10 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/moisture",
+  "$schema": "/protocol",
+  "events": {
+    "state": {
+      "value": { "$ref": "/state/common#/definitions/moisture" },
+      "description": "Moisture content as a percentage"
+    }
+  }
+}

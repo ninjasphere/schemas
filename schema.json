@@ -1,7 +1,7 @@
 {
   "$schema": "http://json-schema.org/draft-04/schema#",
   "id": "http://json-schema.org/draft-04/schema#",
-  "description": "Core schema meta-schema",
+  "description": "Core schema meta-schema (Altered by NinjaBlocks Inc.)",
   "definitions": {
     "schemaArray": {
       "type": "array",
@@ -27,6 +27,11 @@
   },
   "type": "object",
   "properties": {
+    "timeseries": {
+      "description": "Added by Ninja Blocks Inc. to define which properties should be kept in a time-series DB",
+      "type": "string",
+      "enum": ["value", "boolean", "event"]
+    },
     "id": {
       "type": "string",
       "format": "uri"

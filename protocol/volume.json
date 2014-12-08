@@ -1,0 +1,53 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/volume",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Sets the volume",
+      "params": [
+        {
+          "name": "volume",
+          "value": { "$ref": "#/definitions/volume-level" }
+        }
+      ]
+    },
+    "volumeUp": {
+      "description": "Increases the volume by 5%"
+    },
+    "volumeDown": {
+      "description": "Decreases the volume by 5%"
+    },
+    "mute": {
+      "description": "Mutes the volume"
+    },
+    "unmute": {
+      "description": "Unmutes the volume"
+    },
+    "toggleMuted": {
+      "description": "Toggles the muted state"
+    }
+  },
+  "definitions": {
+    "volume-level": {
+      "type": "number",
+      "minimum": 0,
+      "maximum": 1,
+      "timeseries": "value"
+    }
+  },
+  "events": {
+    "state": {
+      "description": "The volume and muted status",
+      "value": {
+        "type": "object",
+        "properties": {
+          "level": { "$ref": "#/definitions/volume-level" },
+          "muted": {
+            "type": "boolean",
+            "timeseries": "boolean"
+          }
+        }
+      }
+    }
+  }
+}

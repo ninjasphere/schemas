@@ -1,8 +1,10 @@
+'use strict';
+
 var fs = require('fs');
 var colors = require('colors');
 var tv4 = require('tv4');
 var formats = require('tv4-formats');
-var schemas = require('../');
+var schemas = require('../index').schemas;
 var path = require('path');
 var util = require('util');
 
@@ -11,7 +13,6 @@ var pass = true;
 tv4.addFormat(formats);
 
 schemas.forEach(tv4.addSchema.bind(tv4));
-
 
 var base = tv4.getSchema('http://json-schema.org/draft-04/schema#');
 
@@ -64,16 +65,18 @@ schemas.forEach(function(schema) {
       Object.keys(schema.events).forEach(function(event) {
         var payload = schema.events[event].value;
 
-        try {
-          var payloadSchema = resolveSchema(payload);
+        if (payload) {
+          try {
+            var payloadSchema = resolveSchema(payload);
 
-          var result = tv4.validateResult(payloadSchema, base, true, true);
-          if (!result.valid) {
-            error = util.format('Error in %s event payload: %s at %s', event.yellow, result.error.message.red, result.error.dataPath.yellow);
+            var result = tv4.validateResult(payloadSchema, base, true, true);
+            if (!result.valid) {
+              error = util.format('Error in %s event payload: %s at %s', event.yellow, result.error.message.red, result.error.dataPath.yellow);
+            }
+
+          } catch(e) {
+            error = util.format('Error in %s event payload: %s', event.yellow, (e.message || e).red);
           }
-
-        } catch(e) {
-          error = util.format('Error in %s event payload: %s', event.yellow, (e.message || e).red);
         }
 
       });
@@ -112,7 +115,7 @@ fs.readdirSync(stateTestPath).forEach(function(file) {
         results.push(x.green);
       } else {
         pass = false;
-        console.log(result);
+        console.log(JSON.stringify(result, 2, 2));
         results.push(x.red);
       }
     });

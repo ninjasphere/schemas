@@ -2,6 +2,17 @@
   "id": "http://schema.ninjablocks.com/protocol/message-display",
   "$schema": "/protocol",
   "methods": {
+
+    "set": {
+      "description": "Display a message",
+      "params": [
+        {
+          "name": "message",
+          "value": { "$ref": "/state/message#" }
+        }
+      ]
+    },
+
     "displayMessage": {
       "description": "Display a message",
       "params": [
@@ -18,13 +29,7 @@
             "default": 5000
           }
         }
-      ],
-      "returns": {
-        "value": {
-          "type": "boolean"
-        },
-        "description": "'true' indicates message was successfully displayed"
-      }
+      ]
     }
   },
   "events": {

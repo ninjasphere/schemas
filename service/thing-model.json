@@ -24,19 +24,49 @@
         }
       }
     },
-    "fetchByDeviceId": {
-      "description": "Retrieves a Thing by device id",
+    "fetch": {
+      "description": "Retrieves a Thing by id",
       "params": [
         {
-          "name": "deviceId",
-          "value": { "$ref": "/model/device#/properties/id" }
+          "name": "id",
+          "value": { "$ref": "/model/thing#/properties/id" }
         }
       ],
       "returns": {
         "value": { "$ref": "/model/thing" }
       }
     },
-    "updateLocation": {
+    "fetchByExample": {
+      "description": "Retrieves all Things that match the example object",
+      "params": [
+        {
+          "name": "example",
+          "value": {
+            "type": "object",
+            "additionalProperties": true
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/thing" }
+        }
+      }
+    },
+    "fetchByDeviceId": {
+      "description": "Retrieves a Thing by device id",
+      "params": [
+        {
+          "name": "deviceId",
+          "value": { "$ref": "/model/device#/definitions/id" }
+        }
+      ],
+      "returns": {
+        "value": { "$ref": "/model/thing" }
+      }
+    },
+    "setLocation": {
       "description": "Updates the location of a Thing",
       "params": [
         {
@@ -65,6 +95,34 @@
       "returns": {
         "value": { "$ref": "/model/thing#/properties/id" }
       }
+    },
+    "fetchByType": {
+      "description": "Fetch a list of things by type",
+      "params": [
+        {
+          "name": "type",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/model/thing" }
+        }
+      }
+    }
+  },
+  "events": {
+    "created": {
+      "value": { "$ref": "/model/thing#/properties/id" }
+    },
+    "updated": {
+      "value": { "$ref": "/model/thing#/properties/id" }
+    },
+    "deleted": {
+      "value": { "$ref": "/model/thing#/properties/id" }
     }
   }
 }

@@ -1,0 +1,54 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/external.chromecast",
+  "$schema": "/protocol",
+  "methods": {},
+  "events": {
+    "state": {
+      "value": { "$ref": "#/definitions/status"}
+    },
+    "active": {
+      "description": "The chromecast has become the active device",
+      "value": { "$ref": "#/definitions/status"}
+    },
+    "inactive": {
+      "description": "The chromecast has become inactive",
+      "value": { "$ref": "#/definitions/status"}
+    },
+    "application": {
+      "description": "A new application is running",
+      "value": { "$ref": "#/definitions/application"}
+    }
+  },
+  "definitions": {
+    "status": {
+      "properties": {
+        "applications": {
+          "type": "array",
+          "items": { "$ref": "#/definitions/application" }
+        },
+        "isActiveInput": {
+          "type": "boolean"
+        }
+      }
+    },
+    "application": {
+      "description": "TODO: Add validation",
+      "properties": {
+         "appId": { "type": "string" },
+         "displayName": { "type": "string" },
+         "sessionId": { "type": "string" },
+         "statusText": { "type": "string" },
+         "transportId": { "type": "string" },
+         "namespaces": {
+           "type": "array",
+           "items": {
+             "type": "object",
+             "properties": {
+               "name": { "type": "string" }
+             }
+           }
+         }
+      }
+    }
+  }
+}

@@ -1,0 +1,10 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/battery",
+  "$schema": "/protocol",
+  "events": {
+    "state": {
+      "value": { "$ref": "/state/common#/definitions/percentage" },
+      "description": "% percentage of charge remaining in a battery"
+    }
+  }
+}

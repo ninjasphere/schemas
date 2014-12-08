@@ -1,0 +1,19 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/core/batching",
+  "$schema": "/service",
+  "methods": {
+    "setBatch": {
+      "description": "Sets values on multiple channels at the same time. Will do nothing if any data fails validation.",
+      "params": [
+        {
+          "name": "state",
+          "value": {
+            "type": "object",
+            "description": "Device state. key=channel name value=state TODO: Docs",
+            "additionalProperties": true
+          }
+        }
+      ]
+    }
+  }
+}

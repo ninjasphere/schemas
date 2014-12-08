@@ -9,20 +9,12 @@
         {
           "name": "config",
           "description": "Driver configuration object",
-          "value": {
-            "type": "object"
-          }
+          "value": { "$ref": "#/definitions/config"}
         }
-      ],
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+      ]
     },
     "stop": {
-      "description": "Stops the driver, and any devices it has created since starting.",
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+      "description": "Stops the driver, and any devices it has created since starting."
     },
     "createDevice": {
       "description": "Create a new device using the provided configuration.",
@@ -39,9 +31,7 @@
           }
         }
       ],
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/success" }
-      }
+      "required": false
     },
     "startDevice": {
       "description": "Create a new device using the provided configuration.",
@@ -54,17 +44,51 @@
           }
         }
       ],
+      "required": false
+    },
+    "startPairing": {
+      "description": "Put the driver into pairing mode.",
+      "params": [
+        {
+          "name": "period",
+          "description": "The requested period in seconds during which pairing mode should be activated.",
+          "value": {
+            "type": "number"
+          }
+        }
+      ],
       "returns": {
+        "description": "The actual number of seconds the driver will be in pairing mode for.",
         "value": {
-          "type": "boolean"
-        },
-        "description": "'true' indicates device started successfully"
-      }
+			   "type": "number"
+		    }
+      },
+      "required": false
+    },
+    "endPairing": {
+      "description": "Remove the driver from pairing mode.",
+      "required": false
+    },
+    "setLogLevel": {
+      "description": "Set the logging level of the root logger of the driver's process",
+      "params": [
+        {
+          "name": "level",
+          "description": "The requested log level",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "required": false
     }
   },
   "events": {
     "announce": {
-      "value": { "$ref": "#/definitions/driver-announcement" }
+      "value": { "$ref": "/model/module" }
+    },
+    "config": {
+      "value": { "$ref": "#/definitions/config"}
     },
     "device-found": {
       "value": { "$ref": "#/definitions/device-driver-data" }
@@ -74,9 +98,47 @@
     },
     "device-started": {
       "value": { "$ref": "#/definitions/device-announcement" }
+    },
+    "notification": {
+      "value": { "$ref": "/state/notification#" }
+    },
+    "pairing-started": {
+        "value": {
+          "type": "object",
+          "properties": {
+              "duration": {
+                  "type": "number",
+                  "description": "The number of seconds that the driver will enter pairing mode for."
+              }
+          }
+        }
+    },
+    "pairing-ended": {
+        "value": {
+          "type": "object",
+          "properties": {
+              "devicesFound": {
+                "type": "number",
+                "description": "The number of devices found during the most recently ended pairing period."
+              }
+
+          }
+        }
     }
+
   },
   "definitions": {
+    "config": {
+      "oneOf": [
+        {
+          "type": "object",
+          "additionalProperties": true
+        },
+        {
+          "type": "null"
+        }
+      ]
+    },
     "device-driver-data": {
       "description": "Whatever is needed by the driver in order to create the device",
       "type": "object"
@@ -121,41 +183,6 @@
       "required": [
         "id",
         "driver"
-      ],
-      "additionalProperties": false
-    },
-    "driver-announcement": {
-      "properties": {
-        "name": {
-          "type": "string",
-          "minLength": 0
-        },
-        "file": {
-          "type": "string"
-        },
-        "package": {
-          "allOf": [
-            { "$ref": "/package.json#/definitions/structure" },
-            {
-              "required": [
-                "name",
-                "author",
-                "description",
-                "version",
-                "license"
-              ]
-            }
-          ]
-        },
-        "defaultConfig": {
-          "type": "object",
-          "additionalProperties": true
-        }
-      },
-      "required": [
-        "name",
-        "file",
-        "package"
       ],
       "additionalProperties": false
     }

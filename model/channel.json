@@ -4,10 +4,22 @@
   "title": "Channel",
   "description": "TODO",
   "type": "object",
-  "properties": {
-    "id": { "$ref": "/common#/definitions/ninja-id" }
-  },
-  "required": [
-    "id"
+  "allOf": [
+    {
+      "properties": {
+        "id": {
+          "description": "TODO: Should be a ninja-id, but 'location' is used in places atm.",
+          "type": "string"
+        },
+        "protocol": {
+          "type": "string"
+        },
+        "device": { "$ref": "/model/device#" }
+      },
+      "required": [
+        "id"
+      ]
+    },
+    { "$ref": "/model/service-announcement#" }
   ]
 }

@@ -1,0 +1,34 @@
+{
+  "id": "http://schema.ninjablocks.com/model/site",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Site",
+  "description": "TODO",
+  "type": "object",
+  "properties": {
+    "id": { "$ref": "/common#/definitions/uuid" },
+    "name": {
+      "type": "string"
+    },
+    "type": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "number"
+    },
+    "longitude": {
+      "type": "number"
+    },
+    "timeZoneId": {
+      "type": "string"
+    },
+    "timeZoneName": {
+      "type": "string"
+    },
+    "timeZoneOffset": {
+      "type": "number"
+    }
+  },
+  "required": [
+    "id"
+  ]
+}

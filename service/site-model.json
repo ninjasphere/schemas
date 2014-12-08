@@ -1,0 +1,83 @@
+{
+  "id": "http://schema.ninjablocks.com/service/site-model",
+  "$schema": "/service",
+  "description": "Ninja Sphere - Site Model Service.",
+  "methods": {
+    "create": {
+      "description": "Saves a new Site",
+      "params": [
+        {
+          "name": "thing",
+          "value": {
+              "$ref": "/model/site"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+            "$ref": "/model/site#/properties/id"
+        }
+      }
+    },
+    "fetchAll": {
+      "description": "Retrieves all Sites",
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": {
+              "$ref": "/model/site"
+          }
+        }
+      }
+    },
+    "fetch": {
+      "description": "Retrieves a Site by id",
+      "params": [
+        {
+          "name": "id",
+          "value": {
+              "$ref": "/model/site#/properties/id"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "$ref": "/model/site"
+        }
+      }
+    },
+    "delete": {
+      "description": "Deletes a Site",
+      "params": [
+        {
+          "name": "thingId",
+          "value": {
+              "$ref": "/model/site#/properties/id"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "$ref": "/model/site#/properties/id"
+        }
+      }
+    }
+  },
+  "events": {
+    "created": {
+      "value": {
+          "$ref": "/model/site#/properties/id"
+      }
+    },
+    "updated": {
+      "value": {
+          "$ref": "/model/site#/properties/id"
+      }
+    },
+    "deleted": {
+      "value": {
+          "$ref": "/model/site#/properties/id"
+      }
+    }
+  }
+}

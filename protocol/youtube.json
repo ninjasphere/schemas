@@ -2,7 +2,7 @@
   "id": "http://schema.ninjablocks.com/protocol/youtube",
   "$schema": "/protocol",
   "methods": {
-    "playYoutube": {
+    "play": {
       "description": "Play YouTube video",
       "params": [
         {
@@ -13,12 +13,7 @@
             "pattern": "^[A-Za-z0-9]+$"
           }
         }
-      ],
-      "returns": {
-        "value": {
-          "type": "boolean"
-        }
-      }
+      ]
     }
   },
   "events": {

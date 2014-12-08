@@ -1,0 +1,59 @@
+{
+  "id": "http://schema.ninjablocks.com/state/notification",
+  "$schema": "http://json-schema.org/draft-04/schema#",
+  "title": "Configuration Screen",
+  "description": "Used by drivers and applications to display a notification to the user. TODO: Field combinations validation.",
+  "description": "Validation ideas - category=query requires a replyTo, clearable=false can't have a clearAction",
+  "type": "object",
+  "properties": {
+    "replyTo": { "$ref": "/ui#/definitions/replyTo" },
+    "title": {
+      "description": "Usually displayed.",
+      "type": "string"
+    },
+    "subtitle": {
+      "description": "May not be displayed with the main notification until it is clicked, or not displayed at all.",
+      "type": "string"
+    },
+    "icon": {
+      "description": "May not be available on all platforms",
+      "type": "string"
+    },
+    "priority": {
+      "type": "string",
+      "enum": ["max", "high", "default", "low", "min"],
+      "default": "default"
+    },
+    "category": {
+      "description": "XXX: TODO: Needs thought, random ideas atm...",
+      "type": "string",
+      "enum": ["alert", "query", "suggestion"]
+    },
+    "image": { "$ref": "/ui#/definitions/image" },
+    "clearable": {
+      "description": "Can this notification be dismissed without an action?",
+      "type": "boolean",
+      "default": true
+    },
+    "clearAction": {
+      "description": "Note: The label of this action will often not be displayed.",
+      "$ref": "/ui#/definitions/action"
+    },
+    "clickAction": {
+      "description": "Note: Not available on all platforms, and the label of this action will often not be displayed.",
+      "$ref": "/ui#/definitions/action"
+    },
+    "actions": {
+      "description": "TODO: Combo validation may help here.. but needs thought re: max actions",
+      "type": "array",
+      "items": { "$ref": "/ui#/definitions/action" },
+      "maxItems": 4
+    },
+    "data": { "$ref": "/ui#/definitions/submitData" },
+    "expiresInMinutes": {
+      "type": "number",
+      "minimum": 0
+    }
+  },
+  "required": ["title"]
+}

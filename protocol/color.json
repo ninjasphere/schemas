@@ -1,0 +1,82 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/color",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Sets the color",
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "#/events/state/value" }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "value": {
+        "type": "object",
+        "properties": {
+          "mode": {
+            "type": "string",
+            "enum": ["hue", "temperature", "xy"]
+          },
+          "hue": {
+            "description": "The color of the light. With 0 and 1 being red.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "saturation": {
+            "description": "The color saturation. 0 is white, 1 is full color.",
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "temperature": {
+            "description": "The color temperature in kelvin",
+            "type": "number",
+            "minimum": 0
+          },
+          "x": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          },
+          "y": {
+            "type": "number",
+            "minimum": 0,
+            "maximum": 1
+          }
+        },
+        "oneOf": [
+          {
+            "properties": {
+              "mode": {
+                "enum": ["hue"]
+              }
+            },
+            "required": ["hue", "saturation"]
+          },
+          {
+            "properties": {
+              "mode": {
+                "enum": ["temperature"]
+              }
+            },
+            "required": ["temperature"]
+          },
+          {
+            "properties": {
+              "mode": {
+                "enum": ["xy"]
+              }
+            },
+            "required": ["x", "y"]
+          }
+        ]
+      }
+    }
+  }
+
+}

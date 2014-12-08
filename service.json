@@ -43,10 +43,13 @@
               "required": [
                 "value"
               ]
+            },
+            "required": {
+              "type": "boolean",
+              "default": "true"
             }
           },
           "required": [
-            "returns",
             "description"
           ],
           "additionalProperties": false
@@ -62,11 +65,11 @@
             "value": { "$ref": "http://json-schema.org/draft-04/schema#" },
             "description": {
               "type": "string"
+            },
+            "timeseries": {
+              "enum": ["event"]
             }
-          },
-          "required": [
-            "value"
-          ]
+          }
         }
       }
     },

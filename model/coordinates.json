@@ -1,0 +1,28 @@
+{
+    "id": "http://schema.ninjablocks.com/model/coordinates",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "Coordinates",
+    "description": "Geographical coordinates - subset of http://dev.w3.org/geo/api/spec-source.html#coordinates_interface",
+    "type": "object",
+    "properties": {
+        "latitude": {
+            "type": "number"
+        },
+        "longitude": {
+            "type": "number"
+        },
+        "altitude": {
+            "type": "number"
+        },
+        "accuracy": {
+            "type": "number"
+        },
+        "altitude-accuracy": {
+            "type": "number"
+        }
+    },
+    "required": [
+        "latitude",
+        "longtitude"
+    ]
+}

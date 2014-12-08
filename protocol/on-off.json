@@ -2,34 +2,22 @@
   "id": "http://schema.ninjablocks.com/protocol/on-off",
   "$schema": "/protocol",
   "methods": {
-    "turnOn": {
-      "description": "Turns the device on",
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/boolean-state" },
-        "description": "The new state"
-      }
-    },
-    "turnOff": {
-      "description": "Turns the device off",
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/boolean-state" },
-        "description": "The new state"
-      }
-    },
-    "setOnOff": {
+    "set": {
       "description": "Turns the device on or off",
       "params": [
         {
           "name": "state",
           "value": { "$ref": "/state/common#/definitions/boolean-state" }
         }
-      ],
-      "returns": {
-        "value": { "$ref": "/state/common#/definitions/boolean-state" },
-        "description": "The new state"
-      }
+      ]
     },
-    "toggleOnOff": {
+    "turnOn": {
+      "description": "Turns the device on"
+    },
+    "turnOff": {
+      "description": "Turns the device off"
+    },
+    "toggle": {
       "description": "Toggles the on/off state",
       "returns": {
         "value": { "$ref": "/state/common#/definitions/boolean-state" },

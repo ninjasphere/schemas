@@ -1,0 +1,19 @@
+{
+    "id": "http://schema.ninjablocks.com/model/timezone",
+    "$schema": "http://json-schema.org/draft-04/schema#",
+    "title": "TimeZone specification",
+    "description": "Specification of a timezone",
+    "anyOf": [
+        {
+            "type": "string",
+            "enum": [
+                "UTC",
+                "Local"
+            ]
+        },
+        {
+            "type": "string",
+            "description": "IANA Time Zone name"
+        }
+    ]
+}
