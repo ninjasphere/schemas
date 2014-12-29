@@ -5,6 +5,9 @@
     "state": {
       "value": { "$ref": "/state/common#/definitions/percentage" },
       "description": "% percentage of charge remaining in a battery"
+    },
+    "warning": {
+      "description": "A low battery warning. The remaining charge value is dependent on the device."
     }
   }
 }
