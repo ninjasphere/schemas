@@ -1,0 +1,111 @@
+{
+  "id": "http://schema.ninjablocks.com/service/presets",
+  "$schema": "/service",
+  "description": "This service provides methods to list, create and apply presets.",
+  "methods": {
+    "listPresettable": {
+      "description": "List the presettable channels within a given scope.",
+      "params": [
+        {
+          "name": "scope",
+          "description": "The scope used to restrict the contents of the list.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": false
+    },
+    "fetchScenes": {
+      "description": "Fetch the avaialable scenes within a given scope.",
+      "params": [
+        {
+          "name": "scope",
+          "description": "The scope used to restrict the contents of the list.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": {
+            "type": "object"
+          }
+        }
+      },
+      "required": false
+    },
+    "fetchScene": {
+      "description": "Fetch the scene with the specified id",
+      "params": [
+        {
+          "name": "id",
+          "description": "The id of the scene to be fetched.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "object"
+        }
+      },
+      "required": false
+    },
+    "storeScene": {
+      "description": "Store the scene.",
+      "params": [
+        {
+          "name": "scene",
+          "description": "The uuid of the scene to be stored.",
+          "value": {
+            "type": "object"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "object"
+        }
+      },
+      "required": false
+    },
+    "applyScene": {
+      "description": "Apply the scene state to the scene things.",
+      "params": [
+        {
+          "name": "id",
+          "description": "The uuid of the scene to be applied.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "required": false
+    }
+  },
+  "events": {
+    "presets-applied": {
+      "value": {
+        "type": "object",
+        "properties": {
+          "id": {
+            "type": "string"
+          }
+        }
+      }
+    }
+  },
+  "definitions": {}
+}
