@@ -3,8 +3,8 @@
   "$schema": "/service",
   "description": "This service provides methods to list, create and apply presets.",
   "methods": {
-    "listPresettable": {
-      "description": "List the presettable channels within a given scope.",
+    "listPresetable": {
+      "description": "List the presetable channels within a given scope.",
       "params": [
         {
           "name": "scope",
