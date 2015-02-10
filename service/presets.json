@@ -3,12 +3,12 @@
   "$schema": "/service",
   "description": "This service provides methods to list, create and apply presets.",
   "methods": {
-    "listPresetable": {
-      "description": "List the presetable channels within a given scope.",
+    "fetchScenePrototype": {
+      "description": "Fetch a prototype scene for the specified scope.",
       "params": [
         {
           "name": "scope",
-          "description": "The scope used to restrict the contents of the list.",
+          "description": "The scope used to populate the thing states.",
           "value": {
             "type": "string"
           }
