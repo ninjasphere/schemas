@@ -1,7 +1,7 @@
 {
     "id": "http://schema.ninjablocks.com/service/scheduler",
     "$schema": "/service",
-    "description": "This service is required to be implemented by all Apps",
+    "description": "This service defines the interface to the scheduler application.",
     "methods": {
         "schedule": {
             "description": "Schedule a task",
