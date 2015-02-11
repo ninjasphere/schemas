@@ -63,6 +63,24 @@
       },
       "required": false
     },
+    "deleteScene": {
+      "description": "Delete the scene with the specified id",
+      "params": [
+        {
+          "name": "id",
+          "description": "The id of the scene to be deleted.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "object"
+        }
+      },
+      "required": false
+    },
     "storeScene": {
       "description": "Store the scene.",
       "params": [
