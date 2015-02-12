@@ -18,7 +18,7 @@
         "value": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/scene"
           }
         }
       },
@@ -39,7 +39,7 @@
         "value": {
           "type": "array",
           "items": {
-            "type": "object"
+            "$ref": "#/definitions/scene"
           }
         }
       },
@@ -58,6 +58,9 @@
       ],
       "returns": {
         "value": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/scene"
           "type": "object"
         }
       },
@@ -88,13 +91,13 @@
           "name": "scene",
           "description": "The uuid of the scene to be stored.",
           "value": {
-            "type": "object"
+            "$ref": "#/definitions/scene"
           }
         }
       ],
       "returns": {
         "value": {
-          "type": "object"
+          "$ref": "#/definitions/scene"
         }
       },
       "required": false
@@ -110,6 +113,12 @@
           }
         }
       ],
+      "returns": {
+        "description": "The original state of the scene.",
+        "value": {
+          "$ref": "#definitions/scene"
+        }
+      },
       "required": false
     }
   },
