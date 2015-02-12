@@ -125,5 +125,78 @@
       }
     }
   },
-  "definitions": {}
+  "definitions": {
+    "query": {
+      "description": "Query parameters.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the scene."
+        },
+        "scope": {
+          "type": "string",
+          "description": "A string of the form site, site:{site-id} or room:{room-id}."
+        },
+        "slot": {
+          "type": "number",
+          "description": "The slot number of the preset."
+        }
+      }
+    },
+    "scene": {
+      "description": "A scene describe a set of things and their corresponding states.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the scene."
+        },
+        "scope": {
+          "type": "string",
+          "description": "A string of the form site, site:{site-id} or room:{room-id}."
+        },
+        "slot": {
+          "type": "number",
+          "description": "The slot number of the scene."
+        },
+        "label": {
+          "type": "string",
+          "description": "The label of the scene."
+        },
+        "things": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/thing-state"
+          }
+        }
+      }
+    },
+    "thing-state": {
+      "description": "A thing-state describes a thing and set of associated channel states.",
+      "properties": {
+        "id": {
+          "type": "string",
+          "description": "The identifier of the thing."
+        },
+        "channels": {
+          "type": "array",
+          "items": {
+            "$ref": "#/definitions/channel-state"
+          }
+        }
+      }
+    },
+    "channel-state": {
+      "description": "A channel-state describes a thing and set of associated channel states.",
+      "properties": {
+        "id": {
+          "description": "The identifier of the .",
+          "type": "string"
+        },
+        "state": {
+          "description": "The preset state of the channel.",
+          "type": "object"
+        }
+      }
+    }
+  }
 }
