@@ -25,7 +25,7 @@
       "required": false
     },
     "fetchScenes": {
-      "description": "Fetch the avaialable scenes within a given scope.",
+      "description": "Fetch the available scenes within a given scope.",
       "params": [
         {
           "name": "scope",
@@ -36,6 +36,7 @@
         }
       ],
       "returns": {
+        "description": "The fetched scenes",
         "value": {
           "type": "array",
           "items": {
@@ -96,6 +97,7 @@
         }
       ],
       "returns": {
+        "description": "The state of the scene, as saved in the configuration",
         "value": {
           "$ref": "#/definitions/scene"
         }
