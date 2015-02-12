@@ -28,7 +28,7 @@
       "description": "Fetch the available scenes within a given scope.",
       "params": [
         {
-          "name": "scope",
+          "name": "query",
           "description": "The scope used to restrict the contents of the list.",
           "value": {
             "type": "string"
@@ -46,41 +46,24 @@
       },
       "required": false
     },
-    "fetchScene": {
-      "description": "Fetch the scene with the specified id",
+    "deleteScenes": {
+      "description": "Delete the scene matching the specified query",
       "params": [
         {
-          "name": "id",
-          "description": "The id of the scene to be fetched.",
+          "name": "query",
+          "description": "A query matching the scenes to be deleted.",
           "value": {
-            "type": "string"
+              "$ref": "#/definitions/query"
           }
         }
       ],
       "returns": {
+        "description": "The deleted scenes",
         "value": {
           "type": "array",
           "items": {
             "$ref": "#/definitions/scene"
-          "type": "object"
-        }
-      },
-      "required": false
-    },
-    "deleteScene": {
-      "description": "Delete the scene with the specified id",
-      "params": [
-        {
-          "name": "id",
-          "description": "The id of the scene to be deleted.",
-          "value": {
-            "type": "string"
           }
-        }
-      ],
-      "returns": {
-        "value": {
-          "type": "object"
         }
       },
       "required": false
