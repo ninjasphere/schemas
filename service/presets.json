@@ -105,6 +105,25 @@
         }
       },
       "required": false
+    },
+    "undoScene": {
+      "description": "Undo the most recent application of the scene.",
+      "params": [
+        {
+          "name": "id",
+          "description": "The uuid of the scene to be applied.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "description": "The original state of the scene.",
+        "value": {
+          "$ref": "#definitions/scene"
+        }
+      },
+      "required": false
     }
   },
   "events": {
@@ -188,6 +207,10 @@
         },
         "state": {
           "description": "The preset state of the channel.",
+          "type": "object"
+        },
+        "undo": {
+          "description": "The undo state of the channel as at the last apply, if any.",
           "type": "object"
         }
       }
