@@ -18,7 +18,7 @@ var valid = [
       {
         type: "reply",
         label: "Ignore",
-        displayClass: "normal",
+        displayClass: "default",
         name: "ignore"
       },
       {
@@ -32,17 +32,17 @@ var valid = [
               "title": "Please choose the stations you wish to unpair",
               "contents": [
                 {
-                  "type": "inputChoice",
+                  "type": "optionGroup",
                   "name": "station",
-                  "label": "Stations",
+                  "title": "Stations",
                   "minimumChoices": 1,
                   "options": [
                     {
-                      "label": "Lounge Room",
+                      "title": "Lounge Room",
                       "value": "lounge1234"
                     },
                     {
-                      "label": "Kitchen",
+                      "title": "Kitchen",
                       "value": "kitchen1234"
                     }
                   ]
@@ -55,7 +55,7 @@ var valid = [
               "type": "reply",
               "label": "Cancel",
               "name": "cancelled",
-              "displayIcon": "cancel"
+              "displayIcon": "warning"
             },
             {
               "type": "reply",
@@ -107,7 +107,7 @@ var valid = [
         type: 'link',
         uri: 'tel:112',
         label: 'Call Emergency Services',
-        displayClass: 'negative',
+        displayClass: 'danger',
         displayIcon: 'emergency'
       }
     ]

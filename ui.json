@@ -23,6 +23,9 @@
         "title": {
           "type": "string"
         },
+        "subtitle": {
+          "type": "string"
+        },
         "contents": {
           "type": "array",
           "items": {
@@ -31,6 +34,11 @@
               { "$ref": "#/definitions/input" }
             ]
           }
+        },
+        "well": {
+          "description": "Indicates this section should have have a background colour, and be inset.",
+          "type": "boolean",
+          "default": false
         }
       },
       "required": ["contents"]
@@ -39,15 +47,17 @@
     "content": {
       "oneOf": [
         { "$ref": "#/definitions/image" },
-        { "$ref": "#/definitions/text" }
+        { "$ref": "#/definitions/text" },
+        { "$ref": "#/definitions/alert" }
       ]
     },
 
     "input": {
       "oneOf": [
         { "$ref": "#/definitions/inputText" },
-        { "$ref": "#/definitions/inputChoice" },
-        { "$ref": "#/definitions/inputToggle" }
+        { "$ref": "#/definitions/optionGroup" },
+        { "$ref": "#/definitions/inputToggle" },
+        { "$ref": "#/definitions/inputTimeRange" }
       ]
     },
 
@@ -57,37 +67,39 @@
       "additionalProperties": true
     },
 
+    "displayClass": {
+      "description": "This is used differently depending on display method and platform.",
+      "type": "string",
+      "enum": ["default", "primary", "success", "info", "warning", "danger"],
+      "default": "normal"
+    },
+
+    "displayIcon": {
+      "description": "The name of the icon to display. TODO: Set list?",
+      "type": "string"
+    },
+
     "action": {
       "properties": {
         "label": {
           "type": "string"
         },
-        "displayClass": {
-          "description": "This is used differently depending on display method and platform.",
-          "type": "string",
-          "enum": ["positive", "negative", "primary", "normal"],
-          "default": "normal"
-        },
-        "displayIcon": {
-          "description": "The name of the icon to display. TODO: Set list?",
-          "type": "string"
-        }
+        "displayClass": { "$ref": "#/definitions/displayClass"},
+        "displayIcon": { "$ref": "#/definitions/displayIcon"}
       },
       "required": ["type", "label"],
       "oneOf": [
         { "$ref": "#/definitions/replyAction" },
         { "$ref": "#/definitions/linkAction" },
-        { "$ref": "#/definitions/configurationAction" }
+        { "$ref": "#/definitions/configurationAction" },
+        { "$ref": "#/definitions/closeAction" }
       ]
     },
 
     "replyAction": {
       "properties": {
         "type": { "enum": ["reply"] },
-        "name": { "$ref": "#/definitions/fieldName" },
-        "value": {
-          "default": true
-        }
+        "name": { "$ref": "#/definitions/fieldName" }
       },
       "required": ["name"]
     },
@@ -113,6 +125,13 @@
       "required": ["screen"]
     },
 
+    "closeAction": {
+      "description": "Closes the configuration window.",
+      "properties": {
+        "type": { "enum": ["close"] }
+      }
+    },
+
     "image": {
       "properties": {
         "type": { "enum": ["image"] },
@@ -136,6 +155,21 @@
       "required": ["type", "text"]
     },
 
+    "alert": {
+      "properties": {
+        "type": { "enum": ["alert"] },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "displayClass": { "$ref": "#/definitions/displayClass"},
+        "displayIcon": { "$ref": "#/definitions/displayIcon"}
+      },
+      "required": ["type", "title"]
+    },
+
     "fieldName": {
       "description": "TODO: Add js variable name safe pattern ([a-zA-Z][a-zA-Z-_]+)",
       "type": "string"
@@ -148,6 +182,9 @@
           "properties": {
             "password": {
               "enum": [false]
+            },
+            "value": {
+              "type": "string"
             }
           },
           "not": {
@@ -161,25 +198,39 @@
               "enum": [true]
             }
           },
-          "required": ["password"],
-          "not": {
-            "description": "For security, we never want a value on a password field.",
-            "properties": {
-              "lines": {
-                "minimum": 2
-              }
+          "required": ["password"]
+        },
+        {
+          "description": "Number field",
+          "properties": {
+            "inputType": {
+              "enum": ["number"]
             },
-            "required": ["value"]
+            "minimum": {
+              "type": "number"
+            },
+            "maximum": {
+              "type": "number"
+            },
+            "value": {
+              "type": "number"
+            }
           }
         }
       ],
       "properties": {
         "type": { "enum": ["inputText"] },
         "name": { "$ref": "#/definitions/fieldName" },
-        "value": {
+        "before": {
           "type": "string"
         },
-        "label": {
+        "after": {
+          "type": "string"
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
           "type": "string"
         },
         "placeholder": {
@@ -204,7 +255,7 @@
           "default": 0
         }
       },
-      "required": ["type", "name", "label"]
+      "required": ["type", "name"]
     },
 
     "inputToggle": {
@@ -214,7 +265,10 @@
         "value": {
           "type": "boolean"
         },
-        "label": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
           "type": "string"
         }
       },
@@ -231,17 +285,45 @@
           }
         }
       },
-      "required": ["type", "name", "label"]
+      "required": ["type", "name", "title"]
     },
 
-    "inputChoice": {
+    "inputTimeRange": {
       "properties": {
-        "type": { "enum": ["inputChoice"] },
+        "type": { "enum": ["inputTimeRange"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "type": "object",
+          "properties": {
+            "from": {
+              "type": "string"
+            },
+            "to": {
+              "type": "string"
+            }
+          }
+        },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        }
+      },
+      "required": ["type", "name", "title"]
+    },
+
+    "optionGroup": {
+      "properties": {
+        "type": { "enum": ["optionGroup"] },
         "name": { "$ref": "#/definitions/fieldName" },
         "value": {
           "type": "string"
         },
-        "label": {
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
           "type": "string"
         },
         "minimumChoices": {
@@ -259,16 +341,22 @@
           "items": {
             "type": "object",
             "properties": {
-              "label": {
+              "title": {
                 "type": "string"
               },
-              "value": {}
+              "subtitle": {
+                "type": "string"
+              },
+              "value": {},
+              "selected": {
+                "type": "boolean"
+              }
             },
-            "required": ["label", "value"]
+            "required": ["title", "value"]
           }
         }
       },
-      "required": ["type", "name", "label"]
+      "required": ["type", "name", "title"]
     }
 
   }

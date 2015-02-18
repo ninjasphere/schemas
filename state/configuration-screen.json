@@ -10,6 +10,10 @@
       "description": "Usually displayed as the top title bar",
       "type": "string"
     },
+    "subtitle": {
+      "description": "Usually displayed next to or below the title",
+      "type": "string"
+    },
     "sections": {
       "description": "These sections should be rendered as field sets or groups",
       "type": "array",
