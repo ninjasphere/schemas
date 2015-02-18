@@ -1,0 +1,31 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/configuration",
+  "$schema": "/protocol",
+  "methods": {
+    "configure": {
+      "description": "When action is missing, it will return an initial configuration screen.",
+      "params": [
+        {
+          "name": "state",
+          "value": {
+            "type": "object",
+            "properties": {
+              "action": {
+                "description": "If not provided, an initial configuration screen will be returned",
+                "type": "string"
+              },
+              "data": {
+                "description": "The data gathered from the previous screen. Never assume what is required in this field, it must be built automatically by a provided screen.",
+                "type": "object"
+              }
+            }
+          }
+        }
+      ],
+      "returns": {
+        "value": {"$ref": "/state/configuration-screen#"}
+      }
+    }
+  },
+  "events": {}
+}
