@@ -6,7 +6,7 @@
       "description": "When action is missing, it will return an initial configuration screen.",
       "params": [
         {
-          "name": "state",
+          "name": "request",
           "value": {
             "type": "object",
             "properties": {

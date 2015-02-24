@@ -48,15 +48,17 @@
       "oneOf": [
         { "$ref": "#/definitions/image" },
         { "$ref": "#/definitions/text" },
-        { "$ref": "#/definitions/alert" }
+        { "$ref": "#/definitions/alert" },
+        { "$ref": "#/definitions/seperator" }
       ]
     },
 
     "input": {
       "oneOf": [
         { "$ref": "#/definitions/inputText" },
+        { "$ref": "#/definitions/inputTime" },
+        { "$ref": "#/definitions/radioGroup" },
         { "$ref": "#/definitions/optionGroup" },
-        { "$ref": "#/definitions/inputToggle" },
         { "$ref": "#/definitions/inputTimeRange" }
       ]
     },
@@ -170,6 +172,13 @@
       "required": ["type", "title"]
     },
 
+    "seperator": {
+      "properties": {
+        "type": { "enum": ["seperator"] }
+      },
+      "required": ["type"]
+    },
+
     "fieldName": {
       "description": "TODO: Add js variable name safe pattern ([a-zA-Z][a-zA-Z-_]+)",
       "type": "string"
@@ -258,34 +267,27 @@
       "required": ["type", "name"]
     },
 
-    "inputToggle": {
+    "inputTime": {
       "properties": {
-        "type": { "enum": ["inputToggle"] },
+        "type": { "enum": ["inputTime"] },
         "name": { "$ref": "#/definitions/fieldName" },
-        "value": {
-          "type": "boolean"
+        "before": {
+          "type": "string"
+        },
+        "after": {
+          "type": "string"
         },
         "title": {
           "type": "string"
         },
         "subtitle": {
           "type": "string"
+        },
+        "value": {
+          "type": "string"
         }
       },
-      "patternProperties": {
-        "^(on|off)$": {
-          "type": "object",
-          "properties": {
-            "message": {
-              "type": "string"
-            },
-            "label": {
-              "type": "string"
-            }
-          }
-        }
-      },
-      "required": ["type", "name", "title"]
+      "required": ["type", "name"]
     },
 
     "inputTimeRange": {
@@ -313,13 +315,51 @@
       "required": ["type", "name", "title"]
     },
 
-    "optionGroup": {
+    "inputHidden": {
       "properties": {
-        "type": { "enum": ["optionGroup"] },
+        "type": { "enum": ["inputHidden"] },
+        "name": { "$ref": "#/definitions/fieldName" },
+        "value": {
+          "type": "string"
+        }
+      },
+      "required": ["name", "value"]
+    },
+
+    "radioGroup": {
+      "properties": {
+        "type": { "enum": ["radioGroup"] },
         "name": { "$ref": "#/definitions/fieldName" },
         "value": {
           "type": "string"
         },
+        "title": {
+          "type": "string"
+        },
+        "subtitle": {
+          "type": "string"
+        },
+        "options": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "properties": {
+              "title": {
+                "type": "string"
+              },
+              "value": {}
+            },
+            "required": ["title", "value"]
+          }
+        }
+      },
+      "required": ["type", "name", "title"]
+    },
+
+    "optionGroup": {
+      "properties": {
+        "type": { "enum": ["optionGroup"] },
+        "name": { "$ref": "#/definitions/fieldName" },
         "title": {
           "type": "string"
         },
