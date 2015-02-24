@@ -49,7 +49,7 @@
         { "$ref": "#/definitions/image" },
         { "$ref": "#/definitions/text" },
         { "$ref": "#/definitions/alert" },
-        { "$ref": "#/definitions/seperator" }
+        { "$ref": "#/definitions/separator" }
       ]
     },
 
@@ -172,9 +172,9 @@
       "required": ["type", "title"]
     },
 
-    "seperator": {
+    "separator": {
       "properties": {
-        "type": { "enum": ["seperator"] }
+        "type": { "enum": ["separator"] }
       },
       "required": ["type"]
     },
