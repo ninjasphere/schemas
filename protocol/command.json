@@ -1,0 +1,95 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/command",
+  "$schema": "/protocol",
+  "methods": {
+    "exec": {
+      "description": "Execute a command.",
+      "params": [
+        {
+          "name": "request",
+          "value": {
+            "$ref": "#/definitions/request"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "anyOf": [
+            {
+              "$ref": "#/definitions/started-response"
+            },
+            {
+              "$ref": "#/definitions/final-response"
+            }
+          ]
+        }
+      }
+    }
+  },
+  "events": {
+    "completed": {
+      "value": {
+        "$ref": "#/definitions/final-response"
+      }
+    }
+  },
+  "definitions": {
+    "request": {
+      "properties": {
+        "command": {
+          "description": "The command to be executed.",
+          "type": "string"
+        },
+        "args": {
+          "description": "Arguments to the command to be executed.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "async": {
+          "description": "The command should be started asynchronously.",
+          "type": "boolean"
+        }
+      }
+    },
+    "started-response": {
+      "properties": {
+        "pid": {
+          "description": "The PID of the command.",
+          "type": "number"
+        }
+      }
+    },
+    "final-response": {
+      "properties": {
+        "data": {
+          "description": "The output from the command as a json object",
+          "type": "object"
+        },
+        "output": {
+          "description": "The output from the command as one or more unstructured lines of text.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "errors": {
+          "description": "The error output from the command.",
+          "type": "array",
+          "items": {
+            "type": "string"
+          }
+        },
+        "status": {
+          "description": "The overall exit status of the command.",
+          "type": "number"
+        },
+        "pid": {
+          "description": "The PID of the command.",
+          "type": "number"
+        }
+      }
+    }
+  }
+}
