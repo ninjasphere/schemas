@@ -15,7 +15,7 @@
       "type": "string"
     },
     "displayIcon": {
-      "discription": "Usually displayed before the title",
+      "description": "Usually displayed before the title",
       "type": "string"
     },
     "sections": {
