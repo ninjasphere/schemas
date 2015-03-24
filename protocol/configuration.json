@@ -2,6 +2,16 @@
   "id": "http://schema.ninjablocks.com/protocol/configuration",
   "$schema": "/protocol",
   "methods": {
+    "getActions": {
+      "description": "Returns the actions that are possible from this service. Used to build an initial UI.",
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": { "$ref": "/ui#/definitions/action" }
+        }
+      },
+      "required": "true"
+    },
     "configure": {
       "description": "When action is missing, it will return an initial configuration screen.",
       "params": [
