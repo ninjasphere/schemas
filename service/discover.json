@@ -1,0 +1,28 @@
+{
+  "id": "http://schema.ninjablocks.com/service/discover",
+  "$schema": "/service",
+  "methods": {
+    "services": {
+      "description": "Responds to requests about running services. This can and will return multiple responses.",
+      "params": [
+        {
+          "name": "schema",
+          "description": "The schema ID to search for. Empty means return all.",
+          "value": {
+            "type": "string"
+          }
+        }
+      ],
+      "returns": {
+        "value": {
+          "type": "array",
+          "items": {
+            "$ref": "/model/service-announcement"
+          }
+        }
+      },
+      "required":false
+    }
+  },
+  "events": {}
+}
