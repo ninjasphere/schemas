@@ -10,7 +10,7 @@
           "items": { "$ref": "/ui#/definitions/action" }
         }
       },
-      "required": "true"
+      "required": true
     },
     "configure": {
       "description": "When action is missing, it will return an initial configuration screen.",
