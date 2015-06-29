@@ -1,0 +1,36 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/acstat",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Sets the target's air-conditioner state.",
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "#/definitions/state" }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "value": { "$ref": "#/definitions/state" }
+    }
+  },
+  "definitions": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "mode": { "$ref": "#/definitions/mode" },
+        "supported-modes": {
+            "type": "array",
+            "items": { "$ref": "#/definitions/mode" }
+        }
+      }
+    },
+    "mode": {
+      "type": "string",
+      "enum": ["cool", "heat", "fan", "dry", "auto", "manual"]
+    }
+  }
+}
