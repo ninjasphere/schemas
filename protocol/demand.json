@@ -1,0 +1,53 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/demand",
+  "$schema": "/protocol",
+  "events": {
+    "state": {
+      "value": { "$ref": "#/definitions/state" },
+      "description": "Provides a profile of power demand including the rated power, the current power, the goal power, the controlled power and the uncontrolled power."
+    }
+  },
+  "definitions": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "rated": {
+          "$ref": "#/definitions/power",
+          "description": "The rated power of the device in Watts (W)."
+        },
+        "current":  {
+          "$ref": "#/definitions/power",
+          "description": "The current average power usage of the device in Watts (W). Sum of controlled + uncontrolled."
+        },
+        "peak": {
+          "$ref": "#/definitions/power",
+          "description": "The peak instantaneous power usage observed during the averaging period in Watts (W)."
+        },
+        "goal":  {
+          "$ref": "#/definitions/power",
+          "description": "The current average goal power for a device subject to demand control in Watts (W)."
+        },
+        "controlled":  {
+          "$ref": "#/definitions/power",
+          "description": "The current average power usage of the device subject to demand control in Watts (W)."
+        },
+        "uncontrolled":  {
+          "$ref": "#/definitions/power",
+          "description": "The current average power usage of the device not subject to demand control in Watts (W)."
+        },
+        "period": {
+          "$ref": "#/definitions/period",
+          "description": "The period in seconds over which the average power metrics usage are calculated."
+        }
+      }
+    },
+    "power": {
+      "$ref": "/state/common#/definitions/power"
+    },
+    "period": {
+      "description": "A period of time, in seconds.",
+      "type": "number",
+      "minimum": 1
+    }
+  }
+}
