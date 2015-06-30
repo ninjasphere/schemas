@@ -1,0 +1,39 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/demandstat",
+  "$schema": "/protocol",
+  "methods": {
+    "set": {
+      "description": "Sets the target's demand response state.",
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "#/definitions/state" }
+        }
+      ]
+    }
+  },
+  "events": {
+    "state": {
+      "value": { "$ref": "#/definitions/state" }
+    }
+  },
+  "definitions": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "enabled": {
+          "type": "boolean",
+          "description": "True, if demand response is enabled. False otherwise."
+        },
+        "goal": {
+          "$ref": "/state/common#/definitions/percentage",
+          "description": "The goal power as % of rated power."
+        },
+        "strategy": {
+          "type": "object",
+          "description": "Parameterisation of a demand control strategy."
+        }
+      }
+    }
+  }
+}
