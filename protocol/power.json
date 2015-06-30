@@ -3,11 +3,7 @@
   "$schema": "/protocol",
   "events": {
     "state": {
-      "value": {
-        "type": "number",
-        "timeseries": "value",
-        "minimum": 0
-      },
+      "value": { "$ref": "/state/common#/definitions/power" },
       "description": "Instantaneous power consumption in watts"
     }
   }

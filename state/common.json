@@ -44,6 +44,13 @@
       "description": "true=on, false=off",
       "type": "boolean",
       "timeseries": "boolean"
+    },
+    "power": {
+      "title": "Power",
+      "description": "Power in watts",
+      "type": "number",
+      "timeseries": "value",
+      "minimum": 0
     }
   }
 }
