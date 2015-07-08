@@ -10,6 +10,10 @@
             "$ref": "#/definitions/power",
             "description": "The rated power of the device in Watts (W)."
           },
+          "observedMax": {
+            "$ref": "#/definitions/power",
+            "description": "The observed maximum power of the device in Watts (W) since it was last started."
+          },
           "current":  {
             "$ref": "#/definitions/power",
             "description": "The current average power usage of the device in Watts (W). Sum of controlled + uncontrolled."
