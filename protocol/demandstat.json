@@ -15,10 +15,16 @@
   "events": {
     "state": {
       "value": { "$ref": "#/definitions/state" }
+    },
+    "statechange": {
+      "value": { "$ref": "#/definitions/statechange" }
     }
   },
   "definitions": {
     "state": {
+      "type": "object"
+    },
+    "statechange": {
       "type": "object"
     }
   }
