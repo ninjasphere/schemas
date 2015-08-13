@@ -18,15 +18,6 @@
     }
   },
   "definitions": {
-    "state": {
-      "type": "object",
-      "properties": {
-        "target": { "$ref": "/state/common#/definitions/temperature" },
-        "modes": {
-          "type": "array",
-          "enum": ["heat", "cool", "fan"]
-        }
-      }
-    }
+    "state": { "$ref": "/state/common#/definitions/temperature" }
   }
 }
