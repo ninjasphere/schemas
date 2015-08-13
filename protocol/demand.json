@@ -1,6 +1,16 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/demand",
   "$schema": "/protocol",
+  "methods": {
+    "getControlState": {
+      "description": "Answer the target's current control state",
+      "returns": {
+        "value": {
+          "$ref": "#definitions/controlstate"
+        }
+      }
+    }
+  },
   "events": {
     "state": {
       "value": {
@@ -90,6 +100,10 @@
       "description": "A period of time, in seconds.",
       "type": "number",
       "minimum": 1
+    },
+    "controlstate": {
+      "type": "object",
+      "description": "Provides a description of the control state associated with the current device."
     }
   }
 }
