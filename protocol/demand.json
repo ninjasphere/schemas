@@ -6,7 +6,7 @@
       "description": "Answer the target's current control state",
       "returns": {
         "value": {
-          "$ref": "#definitions/controlstate"
+          "$ref": "#/definitions/controlstate"
         }
       }
     }
@@ -14,47 +14,13 @@
   "events": {
     "state": {
       "value": {
-        "type": "object",
-        "properties": {
-          "rated": {
-            "$ref": "#/definitions/power",
-            "description": "The rated power of the device in Watts (W)."
-          },
-          "observedMax": {
-            "$ref": "#/definitions/power",
-            "description": "The observed maximum power of the device in Watts (W) since it was last started."
-          },
-          "current":  {
-            "$ref": "#/definitions/power",
-            "description": "The current average power usage of the device in Watts (W). Sum of controlled + uncontrolled."
-          },
-          "peak": {
-            "$ref": "#/definitions/power",
-            "description": "The peak instantaneous power usage observed during the averaging period in Watts (W)."
-          },
-          "goal":  {
-            "$ref": "#/definitions/power",
-            "description": "The current average goal power for a device subject to demand control in Watts (W)."
-          },
-          "controlled":  {
-            "$ref": "#/definitions/power",
-            "description": "The current average power usage of the device subject to demand control in Watts (W)."
-          },
-          "uncontrolled":  {
-            "$ref": "#/definitions/power",
-            "description": "The current average power usage of the device not subject to demand control in Watts (W)."
-          },
-          "period": {
-            "$ref": "#/definitions/period",
-            "description": "The period in seconds over which the average power metrics usage are calculated."
-          }
-        }
+          "$ref": "#/definitions/state"
       },
       "description": "Provides a profile of power demand including the rated power, the current power, the goal power, the controlled power and the uncontrolled power."
     },
 	"controlstate" : {
 		"value": {
-			"type": "object"
+          "$ref": "#/definitions/controlstate"
 		},
 		"description": "Provides a description of the control state associated with the current device."
 	}
@@ -97,12 +63,40 @@
       "$ref": "/state/common#/definitions/power"
     },
     "period": {
+      "$ref": "/state/common#/definitions/number-timeseries",
       "description": "A period of time, in seconds.",
-      "type": "number",
       "minimum": 1
     },
     "controlstate": {
       "type": "object",
+      "properties": {
+		"schema": {
+			"type": "string",
+			"timeseries": "value"
+		},
+		"sequence": {
+			"$ref": "/state/common#/definitions/number-timeseries"
+		},
+		"state": {
+			"type": "string",
+			"timeseries": "value"
+		},
+		"reason": {
+			"type": "string",
+			"timeseries": "value"
+		},
+		"dr-event-id": {
+			"type": "string",
+			"timeseries": "value"
+		},
+		"zone-id": {
+			"type": "string",
+			"timeseries": "value"
+		},
+		"control-set-point": {
+			"$ref": "/state/common#/definitions/temperature"
+		}
+      },
       "description": "Provides a description of the control state associated with the current device."
     }
   }
