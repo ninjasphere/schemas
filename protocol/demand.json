@@ -7,7 +7,7 @@
           "$ref": "#/definitions/state"
       },
       "description": "Provides a profile of power demand including the rated power, the current power, the goal power, the controlled power and the uncontrolled power."
-    },
+    }
   },
   "definitions": {
     "state": {

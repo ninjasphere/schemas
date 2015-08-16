@@ -15,8 +15,8 @@
     "state": {
       "value": {
           "$ref": "#/definitions/state"
-      },
-    },
+      }
+    }
   },
   "definitions": {
     "state": {
