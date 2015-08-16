@@ -1,16 +1,6 @@
 {
   "id": "http://schema.ninjablocks.com/protocol/demand",
   "$schema": "/protocol",
-  "methods": {
-    "getControlState": {
-      "description": "Answer the target's current control state",
-      "returns": {
-        "value": {
-          "$ref": "#/definitions/controlstate"
-        }
-      }
-    }
-  },
   "events": {
     "state": {
       "value": {
@@ -18,12 +8,6 @@
       },
       "description": "Provides a profile of power demand including the rated power, the current power, the goal power, the controlled power and the uncontrolled power."
     },
-	"controlstate" : {
-		"value": {
-          "$ref": "#/definitions/controlstate"
-		},
-		"description": "Provides a description of the control state associated with the current device."
-	}
   },
   "definitions": {
     "state": {
@@ -66,38 +50,6 @@
       "$ref": "/state/common#/definitions/number-timeseries",
       "description": "A period of time, in seconds.",
       "minimum": 1
-    },
-    "controlstate": {
-      "type": "object",
-      "properties": {
-		"schema": {
-			"type": "string",
-			"timeseries": "value"
-		},
-		"sequence": {
-			"$ref": "/state/common#/definitions/number-timeseries"
-		},
-		"state": {
-			"type": "string",
-			"timeseries": "value"
-		},
-		"reason": {
-			"type": "string",
-			"timeseries": "value"
-		},
-		"dr-event-id": {
-			"type": "string",
-			"timeseries": "value"
-		},
-		"zone-id": {
-			"type": "string",
-			"timeseries": "value"
-		},
-		"control-set-point": {
-			"$ref": "/state/common#/definitions/temperature"
-		}
-      },
-      "description": "Provides a description of the control state associated with the current device."
     }
   }
 }
