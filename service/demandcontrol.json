@@ -1,0 +1,26 @@
+{
+  "id": "http://schema.ninjablocks.com/service/demandcontrol",
+  "$schema": "/service",
+  "methods": {
+    "submit": {
+      "description": "Submit a demand control strategy to the controller.",
+      "params": [
+        {
+          "name": "state",
+          "value": { "$ref": "#/definitions/state" }
+        }
+      ]
+    },
+    "get": {
+      "description": "Obtains the current control strategy from the endpoint.",
+      "returns": {
+          "value": { "$ref": "#/definitions/state" }
+      }
+    }
+  },
+  "definitions": {
+    "state": {
+      "type": "object"
+    }
+  }
+}
