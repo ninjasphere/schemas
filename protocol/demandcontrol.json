@@ -39,7 +39,7 @@
 		},
 		"dr-event-id": {
 			"type": "string",
-			"timeseries": "value"
+			"timeseries": "tag"
 		},
 		"strategy-id": {
 			"type": "string",
