@@ -30,7 +30,7 @@
     "timeseries": {
       "description": "Added by Ninja Blocks Inc. to define which properties should be kept in a time-series DB",
       "type": "string",
-      "enum": ["value", "boolean", "event"]
+      "enum": ["value", "boolean", "event", "tag"]
     },
     "id": {
       "type": "string",
