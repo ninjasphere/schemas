@@ -41,12 +41,9 @@
 			"type": "string",
 			"timeseries": "value"
 		},
-		"zone-id": {
+		"strategy-id": {
 			"type": "string",
-			"timeseries": "value"
-		},
-		"control-set-point": {
-			"$ref": "/state/common#/definitions/temperature"
+			"timeseries": "tag"
 		}
       },
       "description": "Provides a description of the control state associated with the current device."
