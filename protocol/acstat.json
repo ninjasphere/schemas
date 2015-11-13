@@ -30,6 +30,7 @@
     },
     "mode": {
       "type": "string",
+      "timeseries": "value",
       "enum": ["cool", "heat", "fan", "dry", "auto", "manual"]
     }
   }
