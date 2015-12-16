@@ -44,6 +44,14 @@
 		"period": {
 		  "$ref": "#/definitions/period",
 		  "description": "The period in seconds over which the average power metrics usage are calculated."
+		},
+		"onTicks": {
+		  "$ref": "#/definitions/period",
+		  "description": "The number of seconds since the device was switched on."
+		},
+		"offTicks": {
+		  "$ref": "#/definitions/period",
+		  "description": "The number of seconds since the device as switched off."
 		}
 	  }
 	},
