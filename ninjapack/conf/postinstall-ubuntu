@@ -1,1 +1,1 @@
-service sphere-client restart || true
+service sphere-homecloud restart || true
