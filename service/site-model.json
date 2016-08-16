@@ -34,7 +34,7 @@
       "description": "Retrieves a Site by id",
       "params": [
         {
-          "name": "id",
+          "name": "siteId",
           "value": {
               "$ref": "/model/site#/properties/id"
           }
@@ -50,10 +50,32 @@
       "description": "Deletes a Site",
       "params": [
         {
-          "name": "thingId",
+          "name": "siteId",
           "value": {
               "$ref": "/model/site#/properties/id"
           }
+        }
+      ],
+      "returns": {
+        "value": {
+          "$ref": "/model/site#/properties/id"
+        }
+      }
+    },
+    "update": {
+      "description": "Updates a site",
+      "params": [
+        {
+          "name": "siteId",
+          "value": {
+              "$ref": "/model/site#/properties/id"
+          }
+        },
+        {
+            "name": "site",
+            "value": {
+                "$ref": "/model/site"
+            }
         }
       ],
       "returns": {
