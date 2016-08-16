@@ -62,15 +62,9 @@
         }
       }
     },
-    "update": {
+    "save": {
       "description": "Updates a site",
       "params": [
-        {
-          "name": "siteId",
-          "value": {
-              "$ref": "/model/site#/properties/id"
-          }
-        },
         {
             "name": "site",
             "value": {
