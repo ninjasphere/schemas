@@ -15,6 +15,18 @@
         "value": { "$ref": "/model/thing#/properties/id" }
       }
     },
+    "save": {
+      "description": "Saves an existing thing",
+      "params": [
+        {
+          "name": "thing",
+          "value": { "$ref": "/model/thing" }
+        }
+      ],
+      "returns": {
+        "value": { "$ref": "/model/thing#/properties/id" }
+      }
+    },
     "fetchAll": {
       "description": "Retrieves all Things",
       "returns": {
