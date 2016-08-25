@@ -16,7 +16,7 @@
       }
     },
     "save": {
-      "description": "Saves an existing thing",
+      "description": "Saves an existing thing, and also the location.",
       "params": [
         {
           "name": "thing",
