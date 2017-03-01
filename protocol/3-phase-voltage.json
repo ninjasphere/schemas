@@ -1,0 +1,50 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/3-phase-voltage",
+  "$schema": "/protocol",
+  "events": {
+    "state": { 
+    	"value": { 
+    		"$ref": "#/definitions/state"
+	    } 
+	} 
+  },
+  "definitions": {
+	"state": {
+    	"type": "object",
+    	"properties": {
+    		"voltageAN": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"voltageBN": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},    		
+    		"voltageCN": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},  		
+    		"voltageLNAvg": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},  		
+    		"voltageAB": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"voltageBC": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},    		
+    		"voltageCA": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},  		
+    		"voltageLLAvg": {
+    			"type": "number",
+    			"timeseries": "value"
+    		}	
+    	}
+    }  	
+  }
+}

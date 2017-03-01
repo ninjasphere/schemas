@@ -1,0 +1,78 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/3-phase-power",
+  "$schema": "/protocol",
+  "events": {
+    "state": { 
+    	"value": { 
+    		"$ref": "#/definitions/state"
+	    } 
+	} 
+  },
+  "definitions": {
+	"state": {
+    	"type": "object",
+    	"properties": {
+    		"activeA": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"activeB": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},    		
+    		"activeC": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"activeTotal": {
+    			"type": "number",
+    			"timeseries": "value"    			
+    		},   		
+    		"reactiveA": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"reactiveB": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},    		
+    		"reactiveC": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"reactiveTotal": {
+    			"type": "number",
+    			"timeseries": "value"    			
+    		},  		
+    		"apparentA": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"apparentB": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},    		
+    		"apparentC": {
+    			"type": "number",
+    			"timeseries": "value"
+    		},
+    		"apparentTotal": {
+    			"type": "number",
+    			"timeseries": "value"    			
+    		},
+    		"pfA": {
+    			"$ref": "/state/common/#definitions/percentage"
+    		},
+    		"pfB": {
+    			"$ref": "/state/common/#definitions/percentage"
+    		},   		
+    		"pfC": {
+    			"$ref": "/state/common/#definitions/percentage"
+    		},   		
+    		"pfAverage": {
+    			"$ref": "/state/common/#definitions/percentage"
+    		}   		
+    	}
+    }  	
+  }
+}
