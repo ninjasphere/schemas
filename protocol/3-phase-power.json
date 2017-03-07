@@ -60,18 +60,18 @@
     			"type": "number",
     			"timeseries": "value"    			
     		},
-    		"pfA": {
-    			"$ref": "/state/common/#definitions/percentage"
-    		},
-    		"pfB": {
-    			"$ref": "/state/common/#definitions/percentage"
-    		},   		
-    		"pfC": {
-    			"$ref": "/state/common/#definitions/percentage"
-    		},   		
-    		"pfAverage": {
-    			"$ref": "/state/common/#definitions/percentage"
-    		}   		
+			"pfA": {
+				"$ref": "/state/common#/definitions/percentage"
+			},
+			"pfB": {
+				"$ref": "/state/common#/definitions/percentage"
+			},
+			"pfC": {
+				"$ref": "/state/common#/definitions/percentage"
+			},
+			"pfAverage": {
+				"$ref": "/state/common#/definitions/percentage"
+			}
     	}
     }  	
   }
