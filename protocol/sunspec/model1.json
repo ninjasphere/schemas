@@ -1,0 +1,25 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/sunspec/model1",
+  "$schema": "/protocol",
+  "description": "SunSpec Model 1 - see https://github.com/sunspec/models/blob/master/smdx/smdx_00001.xml",
+  "events": {
+    "state": {
+        "value": {
+            "$ref": "#/definitions/state"
+        }
+    }
+  },
+  "definitions": {
+    "state": {
+        "type": "object",
+        "properties": {
+        	"Mn": {"type": "string", "timeseries": "tag", "description": "Manufacturer"},
+        	"Md": {"type": "string", "timeseries": "tag", "description": "Model"},
+        	"Opt": {"type": "string", "timeseries": "tag", "description": "Opt"},
+        	"Vr": {"type": "string", "timeseries": "tag", "description": "Version"},
+        	"SN": {"type": "string", "timeseries": "tag", "description": "Serial number"},
+        	"DA": {"type": "number", "timeseries": "tag", "description": "Device address"}     	
+        }
+    }
+  }
+}
