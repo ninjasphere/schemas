@@ -50,6 +50,12 @@
       "description": "Power in watts",
       "type": "number",
       "timeseries": "value"
+    },
+    "energy": {
+      "title": "Energy",
+      "description": "Energy in Watt-hours",
+      "type": "number",
+      "timeseries": "value"
     }
   }
 }
