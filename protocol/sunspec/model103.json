@@ -1,0 +1,143 @@
+{
+  "id": "http://schema.ninjablocks.com/protocol/sunspec/model103",
+  "$schema": "/protocol",
+  "description": "SunSpec Model 103 - see https://github.com/sunspec/models/blob/master/smdx/smdx_00103.xml",
+  "events": {
+    "state": {
+      "value": {
+        "$ref": "#/definitions/state"
+      }
+    }
+  },
+  "definitions": {
+    "state": {
+      "type": "object",
+      "properties": {
+        "A": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "AphA": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "AphB": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "AphC": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PPVphAB": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PPVphBC": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PPVphCA": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PhVphA": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PhVphB": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PhVphC": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "W": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "Hz": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "VA": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "VAr": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "PF": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "WH": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "DCA": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "DCV": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "DCW": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "TmpCab": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "TmpSnk": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "TmpTrns": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "TmpOt": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "St": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "StVnd": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "Evt1": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "Evt2": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "EvtVnd1": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "EvtVnd2": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "EvtVnd3": {
+          "type": "number",
+          "timeseries": "value"
+        },
+        "EvtVnd4": {
+          "type": "number",
+          "timeseries": "value"
+        }
+      }
+    }
+  }
+}
